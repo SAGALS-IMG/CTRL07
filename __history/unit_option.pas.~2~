@@ -1,0 +1,110 @@
+unit unit_option;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, IniFiles;
+
+type
+  TForm_Option = class(TForm)
+    StatusBar1: TStatusBar;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
+    Label14: TLabel;
+    CB_SR: TComboBox;
+    Edit_BL: TEdit;
+    Label15: TLabel;
+    Label18: TLabel;
+    Edit_Energy: TEdit;
+    CB_Crystal: TComboBox;
+    Label19: TLabel;
+    Label20: TLabel;
+    Edit_TC1_W: TEdit;
+    Label23: TLabel;
+    Edit_TC1_H: TEdit;
+    Edit_TC2_H: TEdit;
+    Label21: TLabel;
+    Edit_TC2_W: TEdit;
+    Label24: TLabel;
+    Edit_TC3_H: TEdit;
+    Label25: TLabel;
+    Edit_TC3_W: TEdit;
+    Label22: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private êÈåæ }
+  public
+    { Public êÈåæ }
+  end;
+
+var
+  Form_Option: TForm_Option;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm_Option.FormCreate(Sender: TObject);
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create( ChangeFileExt( Application.ExeName, '.INI' ) );
+  try
+    Top     := Ini.ReadInteger( 'Form_Opt', 'Top', 100 );
+    Left    := Ini.ReadInteger( 'Form_Opt', 'Left', 100 );
+    if Ini.ReadBool( 'Form_Opt', 'InitMax', false ) then
+      WindowState := wsMaximized
+    else
+      WindowState := wsNormal;
+
+    CB_SR.ItemIndex := Ini.ReadInteger('BL_Cond','SR_Facility',0);
+    Edit_BL.Text := Ini.ReadString( 'BL_Cond', 'BL', 'BL07');
+    Edit_Energy.Text := FloatToStr(Ini.ReadFloat( 'BL_Cond', 'Energy', 10.0));
+    CB_Crystal.ItemIndex := Ini.ReadInteger('BL_Cond','Mono',0);
+
+    Edit_TC1_W.Text := FloatToStr(Ini.ReadFloat('BL_Cond','TC1_W',10));
+    Edit_TC2_W.Text := FloatToStr(Ini.ReadFloat('BL_Cond','TC2_W',10));
+    Edit_TC3_W.Text := FloatToStr(Ini.ReadFloat('BL_Cond','TC3_W',10));
+    Edit_TC1_H.Text := FloatToStr(Ini.ReadFloat('BL_Cond','TC1_H',1));
+    Edit_TC2_H.Text := FloatToStr(Ini.ReadFloat('BL_Cond','TC2_H',1));
+    Edit_TC3_H.Text := FloatToStr(Ini.ReadFloat('BL_Cond','TC3_H',1));
+  finally
+    Ini.Free;
+  end;
+end;
+
+procedure TForm_Option.FormDestroy(Sender: TObject);
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create( ChangeFileExt( Application.ExeName, '.INI' ) );
+  try
+    Ini.WriteInteger( 'Form_Opt', 'Top', Top);
+    Ini.WriteInteger( 'Form_Opt', 'Left', Left);
+    Ini.WriteBool( 'Form_Opt', 'InitMax', WindowState = wsMaximized );
+
+    case CB_SR.ItemIndex of
+      0: Ini.WriteString('BL_Cond','SR_Facility','SAGA LS');
+      1: Ini.WriteString('BL_Cond','SR_Facility','KEK PF');
+      2: Ini.WriteString('BL_Cond','SR_Facility','KEK PF AR');
+      3: Ini.WriteString('BL_Cond','SR_Facility','SPring-8');
+      4: Ini.WriteString('BL_Cond','SR_Facility','Lab.');
+    end;
+    Ini.WriteString('BL_Cond', 'BL', Edit_BL.Text);
+    Ini.WriteFloat( 'BL_Cond', 'Energy', StrToFloat(Edit_Energy.Text));
+    Ini.WriteInteger('BL_Cond','Mono',CB_Crystal.ItemIndex);
+    Ini.WriteFloat('BL_Cond','TC1_W',StrToFloat(Edit_TC1_W.Text));
+    Ini.WriteFloat('BL_Cond','TC2_W',StrToFloat(Edit_TC2_W.Text));
+    Ini.WriteFloat('BL_Cond','TC3_W',StrToFloat(Edit_TC3_W.Text));
+    Ini.WriteFloat('BL_Cond','TC1_H',StrToFloat(Edit_TC1_H.Text));
+    Ini.WriteFloat('BL_Cond','TC2_H',StrToFloat(Edit_TC2_H.Text));
+    Ini.WriteFloat('BL_Cond','TC3_H',StrToFloat(Edit_TC3_H.Text));
+  finally
+    Ini.Free;
+  end;
+end;
+
+end.

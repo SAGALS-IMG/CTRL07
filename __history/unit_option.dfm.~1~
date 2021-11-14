@@ -1,0 +1,61 @@
+object Form_Option: TForm_Option
+  Left = 0
+  Top = 0
+  Caption = 'Options'
+  ClientHeight = 477
+  ClientWidth = 446
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 458
+    Width = 446
+    Height = 19
+    Panels = <>
+    ExplicitLeft = 248
+    ExplicitTop = 152
+    ExplicitWidth = 0
+  end
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 0
+    Width = 446
+    Height = 97
+    Align = alTop
+    Caption = 'Current amp'
+    TabOrder = 1
+    ExplicitWidth = 584
+  end
+  object GroupBox2: TGroupBox
+    Left = 0
+    Top = 97
+    Width = 446
+    Height = 96
+    Align = alTop
+    Caption = 'Poewr supply'
+    TabOrder = 2
+    ExplicitWidth = 584
+  end
+  object GroupBox3: TGroupBox
+    Left = 0
+    Top = 193
+    Width = 446
+    Height = 265
+    Align = alClient
+    Caption = 'Ring current'
+    TabOrder = 3
+    ExplicitLeft = 64
+    ExplicitTop = 160
+    ExplicitWidth = 185
+    ExplicitHeight = 105
+  end
+end

@@ -1,0 +1,36 @@
+﻿unit Unit_ABOUT;
+
+interface
+
+uses WinApi.Windows, System.SysUtils, System.Classes, Vcl.Graphics,
+  Vcl.Forms, Vcl.Controls, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TAboutBox = class(TForm)
+    Panel1: TPanel;
+    Copyright: TLabel;
+    OKButton: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    procedure OKButtonClick(Sender: TObject);
+  private
+    { Private 宣言 }
+  public
+    { Public 宣言 }
+  end;
+
+var
+  AboutBox: TAboutBox;
+
+implementation
+
+{$R *.dfm}
+
+procedure TAboutBox.OKButtonClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.
+ 

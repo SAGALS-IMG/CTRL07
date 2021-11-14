@@ -1,0 +1,8 @@
+CTRL7 started at 2021/09/13 11:54:05
+Initialize Andor Library: OK
+Set Range : 16-bit (low noise & high well capacity)
+Trigger Mode : Internal
+Electronic Shuttering Mode : Rolling
+Pixel Readout Rate : 100 MHz
+Temperature Status : Cooling
+Set Binning : 1x1

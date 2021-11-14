@@ -1,0 +1,195 @@
+object Form_Shutter: TForm_Shutter
+  Left = 0
+  Top = 0
+  Caption = 'Shutter'
+  ClientHeight = 125
+  ClientWidth = 259
+  Color = clBtnFace
+  Constraints.MaxHeight = 164
+  Constraints.MaxWidth = 275
+  Constraints.MinHeight = 164
+  Constraints.MinWidth = 275
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object SB: TStatusBar
+    Left = 0
+    Top = 106
+    Width = 259
+    Height = 19
+    Panels = <>
+    SimplePanel = True
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 259
+    Height = 24
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 178
+      Top = 4
+      Width = 30
+      Height = 14
+      Caption = 'GPIB '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object CB_Connect: TCheckBox
+      Left = 2
+      Top = 3
+      Width = 70
+      Height = 17
+      Caption = 'Connect : '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = CB_ConnectClick
+    end
+    object Edit_IP: TEdit
+      Left = 76
+      Top = 1
+      Width = 85
+      Height = 22
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      Text = '10.7.3.105'
+    end
+    object Edit_Addr: TEdit
+      Left = 208
+      Top = 1
+      Width = 30
+      Height = 22
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+      Text = '7'
+    end
+    object UD_Addr: TUpDown
+      Left = 238
+      Top = 1
+      Width = 16
+      Height = 21
+      Associate = Edit_Addr
+      Position = 7
+      TabOrder = 3
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 24
+    Width = 121
+    Height = 82
+    Align = alLeft
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitTop = 22
+    ExplicitHeight = 84
+    object BB_OPEN: TBitBtn
+      Left = 8
+      Top = 6
+      Width = 97
+      Height = 33
+      Caption = 'OPEN'
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BB_OPENClick
+    end
+    object BB_CLOSE: TBitBtn
+      Left = 8
+      Top = 45
+      Width = 97
+      Height = 33
+      Caption = 'CLOSE'
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BB_CLOSEClick
+    end
+  end
+  object Panel3: TPanel
+    Left = 121
+    Top = 24
+    Width = 138
+    Height = 82
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 3
+    ExplicitTop = 22
+    ExplicitHeight = 84
+    object Label2: TLabel
+      Left = 6
+      Top = 6
+      Width = 52
+      Height = 16
+      Caption = 'Status: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGray
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label_ST: TLabel
+      Left = 6
+      Top = 31
+      Width = 121
+      Height = 33
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '--'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object IdTCPClient: TIdTCPClient
+    ConnectTimeout = 0
+    Host = '192.168.0.120'
+    IPVersion = Id_IPv4
+    Port = 7777
+    ReadTimeout = -1
+    Left = 224
+    Top = 166
+  end
+end
