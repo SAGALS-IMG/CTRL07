@@ -2,7 +2,7 @@ program CTRL7;
 
 uses
   Vcl.Forms,
-  unit_main in 'unit_main.pas' {Form_main},
+  main in 'main.pas' {Form_main},
   Unit_Imager in 'Unit_Imager.pas' {Form_Imager},
   Unit_CT48 in 'Unit_CT48.pas' {Form_CT48},
   unit_macro in 'unit_macro.pas' {Form_Macro},
@@ -13,10 +13,11 @@ uses
   Unit_ACT in 'Unit_ACT.pas' {Form_ACT},
   Unit_Status in 'Unit_Status.pas' {Form_Status},
   Unit_PM16C_Table in 'Unit_PM16C_Table.pas' {Form_16C_Table},
-  Unit_PW in 'Unit_PW.pas' {Form_PW},
   Unit_Ph_PW in 'Unit_Ph_PW.pas' {Form_Ph_PW},
-  Unit_SAKAS in 'Unit_SAKAS.pas' {Form_SAKAS},
-  Unit_ABOUT in 'Unit_ABOUT.pas' {AboutBox};
+  Unit_ABOUT in 'Unit_ABOUT.pas' {AboutBox},
+  Unit_LP in '..\SAKAS-COM\Unit_LP.pas' {Form_LP},
+  Unit_PW in '..\SAKAS-COM\Unit_PW.pas' {Form_PW},
+  Unit_SAKAS in '..\SAKAS-COM\Unit_SAKAS.pas' {Form_SAKAS};
 
 {$R *.res}
 
@@ -35,9 +36,9 @@ begin
   Application.CreateForm(TForm_ACT, Form_ACT);
   Application.CreateForm(TForm_Status, Form_Status);
   Application.CreateForm(TForm_16C_Table, Form_16C_Table);
-  Application.CreateForm(TForm_PW, Form_PW);
   Application.CreateForm(TForm_Ph_PW, Form_Ph_PW);
-  Application.CreateForm(TForm_SAKAS, Form_SAKAS);
   Application.CreateForm(TAboutBox, AboutBox);
+  Application.CreateForm(TForm_PW, Form_PW);
+  Application.CreateForm(TForm_SAKAS, Form_SAKAS);
   Application.Run;
 end.

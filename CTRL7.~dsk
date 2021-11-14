@@ -15,20 +15,20 @@ File_12=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PM16C
 File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_CT.pas',0,1,67,1,1,0,0,,
 
 [Modules]
-Module0=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas
-Module1=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas
+Module0=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas
+Module1=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas
 Count=2
 EditWindowCount=1
-
-[E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas]
-ModuleType=TSourceModule
 
 [E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas]
 ModuleType=TSourceModule
 
+[E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas]
+ModuleType=TSourceModule
+
 [EditWindow0]
 ViewCount=2
-CurrentEditView=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas
+CurrentEditView=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas
 View0=0
 View1=1
 PercentageSizes=1
@@ -55,9 +55,9 @@ BottomMiddlePanelSize=0
 [View0]
 CustomEditViewType=TEditView
 Module=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas
-CursorX=29
-CursorY=1023
-TopLine=980
+CursorX=111
+CursorY=973
+TopLine=899
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -76,18 +76,18 @@ EditViewName=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas
 
 [UndockedDesigner]
 Count=90
-Module0=C:\Users\Kyoto\Desktop\_h_20210501_CTRL7\Unit_Imager.pas
-Left0=955
-Top0=309
-Width0=490
-Height0=670
+Module0=D:\Dropbox\Documents\Program\_20200222_pCT2\main.pas
+Left0=35
+Top0=120
+Width0=548
+Height0=978
 Visible0=0
 State0=0
-Module1=E:\Dropbox\Documents\Program\_20200222_pCT2\main.pas
-Left1=276
-Top1=380
-Width1=476
-Height1=929
+Module1=E:\Dropbox\Documents\Program\_20200222_pCT2\Unit1.pas
+Left1=768
+Top1=439
+Width1=658
+Height1=883
 Visible1=0
 State1=0
 Module2=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_Imager.pas
@@ -209,18 +209,18 @@ Width18=610
 Height18=667
 Visible18=0
 State18=0
-Module19=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_PM16C.pas
-Left19=395
-Top19=507
-Width19=548
-Height19=675
+Module19=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ABOUT.pas
+Left19=596
+Top19=820
+Width19=411
+Height19=334
 Visible19=0
 State19=0
-Module20=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ABOUT.pas
-Left20=596
-Top20=820
-Width20=411
-Height20=334
+Module20=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Scan.pas
+Left20=143
+Top20=580
+Width20=1209
+Height20=863
 Visible20=0
 State20=0
 Module21=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\unit_main.pas
@@ -230,11 +230,11 @@ Width21=341
 Height21=495
 Visible21=0
 State21=0
-Module22=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Scan.pas
-Left22=143
-Top22=580
-Width22=1209
-Height22=863
+Module22=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_PM16C.pas
+Left22=395
+Top22=507
+Width22=548
+Height22=675
 Visible22=0
 State22=0
 Module23=C:\Users\SiC\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_DAKAS.pas
@@ -557,7 +557,7 @@ Left68=1490
 Top68=674
 Width68=791
 Height68=663
-Visible68=1
+Visible68=0
 State68=0
 Module69=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_ACT.pas
 Left69=866
@@ -678,32 +678,32 @@ Width85=943
 Height85=737
 Visible85=0
 State85=0
-Module86=E:\Dropbox\Documents\Program\_h_20210421_SC5\Unit2.pas
-Left86=1032
-Top86=383
-Width86=781
-Height86=696
+Module86=C:\Users\Kyoto\Desktop\_h_20210501_CTRL7\Unit_Imager.pas
+Left86=955
+Top86=309
+Width86=490
+Height86=670
 Visible86=0
 State86=0
-Module87=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_Status.pas
-Left87=967
-Top87=613
-Width87=354
-Height87=258
+Module87=E:\Dropbox\Documents\Program\_20200222_pCT2\main.pas
+Left87=276
+Top87=380
+Width87=476
+Height87=929
 Visible87=0
 State87=0
-Module88=D:\Dropbox\Documents\Program\_20200222_pCT2\main.pas
-Left88=35
-Top88=120
-Width88=548
-Height88=978
+Module88=E:\Dropbox\Documents\Program\_h_20210421_SC5\Unit2.pas
+Left88=1032
+Top88=383
+Width88=781
+Height88=696
 Visible88=0
 State88=0
-Module89=E:\Dropbox\Documents\Program\_20200222_pCT2\Unit1.pas
-Left89=768
-Top89=439
-Width89=658
-Height89=883
+Module89=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_Status.pas
+Left89=967
+Top89=613
+Width89=354
+Height89=258
 Visible89=0
 State89=0
 
@@ -877,7 +877,7 @@ SplitPos=73
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,
+SelectedItem=Caption,
 ExpandedItems=Anchors=0,Constraints=0,Font=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,BevelEdges=0,StyleElements=0,Touch=0,GlassFrame=0,HorzScrollBar=0,Padding=0
 
 [frmDesignPreview]
