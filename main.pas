@@ -28,6 +28,7 @@ type
     SaveDialog1: TSaveDialog;
     CB_Log: TCheckBox;
     SB_Help: TSpeedButton;
+    SB_time: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure SB_Log_SaveClick(Sender: TObject);
@@ -40,6 +41,7 @@ type
     procedure BB_ScanClick(Sender: TObject);
     procedure BB_CTClick(Sender: TObject);
     procedure SB_HelpClick(Sender: TObject);
+    procedure SB_timeClick(Sender: TObject);
 
   private
     { Private êÈåæ }
@@ -113,6 +115,11 @@ procedure TForm_main.SB_Log_SaveClick(Sender: TObject);
 begin
   if SaveDialog1.Execute then
     Memo.Lines.SaveToFile(SaveDialog1.FileName);
+end;
+
+procedure TForm_main.SB_timeClick(Sender: TObject);
+begin
+  Memo.Lines.Add(DateTimeToStr(Now));
 end;
 
 procedure TForm_main.BB_PM16CClick(Sender: TObject);

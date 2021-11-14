@@ -75,6 +75,7 @@ type
     Series1: TLineSeries;
     Edit_Comm: TEdit;
     SB_Com: TSpeedButton;
+    SB_Copy: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -119,6 +120,7 @@ type
     function GetImageSize:longint;
     procedure CB_axis_auxChange(Sender: TObject);
     procedure SB_ComClick(Sender: TObject);
+    procedure SB_CopyClick(Sender: TObject);
 
 
   private
@@ -562,7 +564,7 @@ begin
       Form_PW.IData[j,i] := AlignedBuffers[0]^[j*PW+i];
       Form_PW.PData[j,i] := Form_PW.IData[j,i] ;
     end;
-  Form_PW.SData[0] := Form_PW.PData ;
+//  Form_PW.SData[0] := Form_PW.PData ;
 
   Form_PW.Show;
   Form_PW.Draw_Data(Sender);
@@ -874,6 +876,14 @@ begin
 
 end;
 
+procedure TForm_Imager.SB_CopyClick(Sender: TObject);
+begin
+  Edit_ROI_X1.Text := Form_PW.Edit_Left.Text;
+  Edit_ROI_Y1.Text := Form_PW.Edit_Top.Text;
+  Edit_ROI_X2.Text := Form_PW.Edit_Right.Text;
+  Edit_ROI_Y2.Text := Form_PW.Edit_Bottom.Text;
+end;
+
 procedure TForm_Imager.SB_Get_TempClick(Sender: TObject);
 var
   Temp:double;
@@ -975,7 +985,7 @@ begin
     for j:=0 to PH-1 do
       for i:=0 to PW+-1 do
         Form_PW.PData[j,i] := RAWData[j,i];
-    Form_PW.SData[ImgNo mod 21] := Form_PW.PData ;
+//    Form_PW.SData[ImgNo mod 21] := Form_PW.PData ;
     Form_PW.Draw_Data(Sender);
 
     if CB_SaveData.Checked then

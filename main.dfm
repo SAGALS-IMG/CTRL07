@@ -238,10 +238,36 @@ object Form_main: TForm_main
         ExplicitLeft = 40
         ExplicitHeight = 22
       end
-      object CB_Auto_Save: TCheckBox
-        Left = 179
+      object SB_time: TSpeedButton
+        Left = 23
         Top = 0
-        Width = 64
+        Width = 23
+        Height = 20
+        Align = alLeft
+        Flat = True
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000130B0000130B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00300000000000
+          003337777777777777F330FFFFFFFFFFF03337F333FFFFF337F330FFF70007FF
+          F03337F33777773F37F330FF08FFF80FF03337F373333373F7F330F78FFFFF87
+          F03337F7F3333337F7F330F0FFFFFFF0F03337F7F333FFF7F7F330F0FFF900F0
+          F03337F7F3377737F7F330F0FFF0FFF0F03337F7F337F337F7F330F78FF0FF87
+          F03337F73F37F33737F330FF08F0F80FF03337F373F7FF7337F330FFF70007FF
+          F03337F33777773FF7F330FFFFFFFF00003337F33333337777F330FFFFFFFF0F
+          F03337FFFFFFFF7F373330999999990F033337777777777F733330FFFFFFFF00
+          333337FFFFFFFF77333330000000000333333777777777733333}
+        NumGlyphs = 2
+        OnClick = SB_timeClick
+        ExplicitLeft = 88
+        ExplicitTop = -5
+        ExplicitHeight = 22
+      end
+      object CB_Auto_Save: TCheckBox
+        Left = 177
+        Top = 0
+        Width = 66
         Height = 20
         Align = alRight
         Caption = 'Auto Save'
@@ -252,9 +278,10 @@ object Form_main: TForm_main
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitLeft = 179
       end
       object CB_Log: TCheckBox
-        Left = 139
+        Left = 137
         Top = 0
         Width = 40
         Height = 20
@@ -267,6 +294,7 @@ object Form_main: TForm_main
         Font.Style = []
         ParentFont = False
         TabOrder = 1
+        ExplicitLeft = 139
       end
     end
     object Memo: TRichEdit
