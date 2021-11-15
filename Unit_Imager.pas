@@ -145,7 +145,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit_PM16C, Unit_Ph_PW, unit_main, Unit_SAKAS;
+uses Unit_PM16C, Unit_Ph_PW, main, Unit_SAKAS;
 
 procedure TForm_Imager.SetCycleMode;
 begin

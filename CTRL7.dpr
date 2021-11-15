@@ -2,7 +2,6 @@ program CTRL7;
 
 uses
   Vcl.Forms,
-  main in 'main.pas' {Form_main},
   Unit_Imager in 'Unit_Imager.pas' {Form_Imager},
   Unit_CT48 in 'Unit_CT48.pas' {Form_CT48},
   unit_macro in 'unit_macro.pas' {Form_Macro},
@@ -17,7 +16,8 @@ uses
   Unit_ABOUT in 'Unit_ABOUT.pas' {AboutBox},
   Unit_LP in '..\SAKAS-COM\Unit_LP.pas' {Form_LP},
   Unit_PW in '..\SAKAS-COM\Unit_PW.pas' {Form_PW},
-  Unit_SAKAS in '..\SAKAS-COM\Unit_SAKAS.pas' {Form_SAKAS};
+  Unit_SAKAS in '..\SAKAS-COM\Unit_SAKAS.pas' {Form_SAKAS},
+  main in 'main.pas' {Form_main};
 
 {$R *.res}
 

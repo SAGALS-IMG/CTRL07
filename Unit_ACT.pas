@@ -121,7 +121,7 @@ var
   X1,X2,Z1,Z2 : longint;
 
 implementation
-uses Unit_PM16C, Unit_Imager, Unit_SAKAS, unit_main, Unit_Shutter;
+uses Unit_PM16C, Unit_Imager, Unit_SAKAS, main, Unit_Shutter;
 
 {$R *.dfm}
 

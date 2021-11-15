@@ -144,7 +144,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit_CT48, Unit_PM16C, Unit_main;
+uses Unit_CT48, Unit_PM16C, main;
 
 procedure TForm_Scan.FormCreate(Sender: TObject);
 var
