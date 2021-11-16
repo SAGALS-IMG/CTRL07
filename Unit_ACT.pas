@@ -70,6 +70,7 @@ type
     CB_XI_DEI: TComboBox;
     Label6: TLabel;
     CB_AutoSh: TCheckBox;
+    CB_Ext_imager: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -546,6 +547,25 @@ begin
   if CB_Moni2.Checked then
     Series1.Clear;
 
+  if CB_Ext_imager.Checked then
+  begin
+    for k:=0 to BKN-1 do
+    begin
+      SB_CT.SimpleText := 'ABS BK : '+(k+1).ToString+'/'+BKN.ToString;
+      Form_PM16C.SB_PulseClick(Sender);
+      Sleep(StrToInt(Edit_BK_EXPT.Text)+100);
+
+      if not(Go) then
+      begin
+        ShowMessage('CT Canceled!');
+        exit;
+      end;
+      Application.ProcessMessages;
+    end;
+    Form_PM16C.MoveTo(CT_X_Ch, BKm,true,true);
+    exit;
+  end;
+
   lExpTime  := StrToFloat(Edit_BK_EXPT.Text)/1000;
   Form_Imager.SetExpTime(lExpTime,Res);
   Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
@@ -659,6 +679,25 @@ var
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
+  if CB_Ext_imager.Checked then
+  begin
+    for k := 0 to n-1 do
+    begin
+      SB_CT.SimpleText := 'ABS CT : '+(k+1).ToString+'/'+n.ToString;
+      Form_PM16C.SB_PulseClick(Sender);
+      Sleep(StrToInt(Edit_EXPT.Text)+100);
+      Form_PM16C.MoveBy(CT_R_Ch,dR,true,false);
+
+      if not(Go) then
+      begin
+        ShowMessage('CT Canceled!');
+        exit;
+      end;
+      Application.ProcessMessages;
+    end;
+    exit;
+  end;
+
   lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
   Form_Imager.SetExpTime(lExpTime,Res);
   Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
@@ -989,19 +1028,23 @@ var
   m:longint;
   TmpFN : string;
 begin
-  if ((Form_Imager.Zyla_Opened) and (Form_PM16C.CB_Connect.Checked)) then
+  if ((Form_Imager.Zyla_Opened) and (Form_PM16C.CB_Connect.Checked)) or
+     ((CB_Ext_imager.Checked) and (Form_PM16C.CB_Connect.Checked))  then
   begin
+    if CB_Ext_imager.Checked then
+      RG_Scan.ItemIndex:=0;
+
     if RG_Scan.ItemIndex=1 then
     begin
       Check_rate(Sender);
       if not(Go) then
         exit;
     end;
-    if SaveDialog1.Execute then
+    if (SaveDialog1.Execute) then
     begin
       Go := true;
 
-      if CB_AutoSh.Enabled then
+      if CB_AutoSh.Checked then
         if Form_Shutter.CB_Connect.Checked then
           Form_Shutter.BB_OPENClick(Sender);
 
@@ -1045,7 +1088,8 @@ begin
               end;
             end;
           finally
-            FS.Free;
+            if not(CB_Ext_imager.Checked) then
+              FS.Free;
           end;
         end;
       finally

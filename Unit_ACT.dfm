@@ -177,17 +177,16 @@ object Form_ACT: TForm_ACT
     TabOrder = 0
     object Label13: TLabel
       Left = 284
-      Top = 8
+      Top = 6
       Width = 55
       Height = 14
       Caption = 'Iteration'
     end
     object SB_ReShow: TSpeedButton
       Left = 364
-      Top = 26
+      Top = 24
       Width = 23
       Height = 22
-      Enabled = False
       Flat = True
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -278,7 +277,7 @@ object Form_ACT: TForm_ACT
     end
     object Edit_Ite: TEdit
       Left = 284
-      Top = 26
+      Top = 24
       Width = 45
       Height = 22
       TabOrder = 2
@@ -286,7 +285,7 @@ object Form_ACT: TForm_ACT
     end
     object UD_Ite: TUpDown
       Left = 329
-      Top = 26
+      Top = 24
       Width = 16
       Height = 22
       Associate = Edit_Ite
@@ -308,11 +307,19 @@ object Form_ACT: TForm_ACT
     end
     object CB_AutoSh: TCheckBox
       Left = 284
-      Top = 54
+      Top = 48
       Width = 108
       Height = 17
       Caption = 'Auto Shutter'
       TabOrder = 6
+    end
+    object CB_Ext_imager: TCheckBox
+      Left = 284
+      Top = 64
+      Width = 108
+      Height = 17
+      Caption = 'Ext imager'
+      TabOrder = 7
     end
   end
   object GroupBox3: TGroupBox
