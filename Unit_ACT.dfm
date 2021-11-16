@@ -41,7 +41,6 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 4
-    ExplicitTop = 418
     object Label7: TLabel
       Left = 95
       Top = 24
@@ -153,8 +152,6 @@ object Form_ACT: TForm_ACT
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 5
-    ExplicitTop = 473
-    ExplicitHeight = 137
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries
@@ -342,7 +339,6 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 1
-    ExplicitTop = 83
     object Label3: TLabel
       Left = 9
       Top = 56
@@ -510,7 +506,6 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 2
-    ExplicitTop = 196
     object Label10: TLabel
       Left = 11
       Top = 53
@@ -678,7 +673,6 @@ object Form_ACT: TForm_ACT
     ParentBackground = False
     ParentColor = False
     TabOrder = 3
-    ExplicitTop = 336
     object Label18: TLabel
       Left = 9
       Top = 24
