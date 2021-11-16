@@ -26,7 +26,7 @@ object Form_ACT: TForm_ACT
   end
   object GroupBox4: TGroupBox
     Left = 0
-    Top = 418
+    Top = 417
     Width = 397
     Height = 55
     Align = alTop
@@ -41,6 +41,7 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 4
+    ExplicitTop = 418
     object Label7: TLabel
       Left = 95
       Top = 24
@@ -93,9 +94,9 @@ object Form_ACT: TForm_ACT
   end
   object Chart1: TChart
     Left = 0
-    Top = 473
+    Top = 472
     Width = 397
-    Height = 137
+    Height = 138
     BackWall.Brush.Gradient.Direction = gdBottomTop
     BackWall.Brush.Gradient.EndColor = clWhite
     BackWall.Brush.Gradient.StartColor = 15395562
@@ -152,6 +153,8 @@ object Form_ACT: TForm_ACT
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 5
+    ExplicitTop = 473
+    ExplicitHeight = 137
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries
@@ -169,7 +172,7 @@ object Form_ACT: TForm_ACT
     Left = 0
     Top = 0
     Width = 397
-    Height = 83
+    Height = 82
     Align = alTop
     BevelOuter = bvNone
     Color = 16709617
@@ -177,14 +180,14 @@ object Form_ACT: TForm_ACT
     TabOrder = 0
     object Label13: TLabel
       Left = 284
-      Top = 6
+      Top = 4
       Width = 55
       Height = 14
       Caption = 'Iteration'
     end
     object SB_ReShow: TSpeedButton
-      Left = 364
-      Top = 24
+      Left = 357
+      Top = 19
       Width = 23
       Height = 22
       Flat = True
@@ -277,7 +280,7 @@ object Form_ACT: TForm_ACT
     end
     object Edit_Ite: TEdit
       Left = 284
-      Top = 24
+      Top = 22
       Width = 45
       Height = 22
       TabOrder = 2
@@ -285,7 +288,7 @@ object Form_ACT: TForm_ACT
     end
     object UD_Ite: TUpDown
       Left = 329
-      Top = 24
+      Top = 22
       Width = 16
       Height = 22
       Associate = Edit_Ite
@@ -307,7 +310,7 @@ object Form_ACT: TForm_ACT
     end
     object CB_AutoSh: TCheckBox
       Left = 284
-      Top = 48
+      Top = 46
       Width = 108
       Height = 17
       Caption = 'Auto Shutter'
@@ -315,7 +318,7 @@ object Form_ACT: TForm_ACT
     end
     object CB_Ext_imager: TCheckBox
       Left = 284
-      Top = 64
+      Top = 62
       Width = 108
       Height = 17
       Caption = 'Ext imager'
@@ -324,7 +327,7 @@ object Form_ACT: TForm_ACT
   end
   object GroupBox3: TGroupBox
     Left = 0
-    Top = 83
+    Top = 82
     Width = 397
     Height = 113
     Align = alTop
@@ -339,6 +342,7 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 1
+    ExplicitTop = 83
     object Label3: TLabel
       Left = 9
       Top = 56
@@ -491,7 +495,7 @@ object Form_ACT: TForm_ACT
   end
   object GroupBox2: TGroupBox
     Left = 0
-    Top = 196
+    Top = 195
     Width = 397
     Height = 140
     Align = alTop
@@ -506,6 +510,7 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 2
+    ExplicitTop = 196
     object Label10: TLabel
       Left = 11
       Top = 53
@@ -664,7 +669,7 @@ object Form_ACT: TForm_ACT
   end
   object GroupBox5: TGroupBox
     Left = 0
-    Top = 336
+    Top = 335
     Width = 397
     Height = 82
     Align = alTop
@@ -673,6 +678,7 @@ object Form_ACT: TForm_ACT
     ParentBackground = False
     ParentColor = False
     TabOrder = 3
+    ExplicitTop = 336
     object Label18: TLabel
       Left = 9
       Top = 24
