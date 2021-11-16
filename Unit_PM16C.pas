@@ -212,6 +212,7 @@ begin
 
     CB_Mode.ItemIndex := Ini.ReadInteger('PM16C', 'Mode', 0);
     CB_PLS.Checked := Ini.ReadBool('PM16C', 'PLS', false);
+    CB_Ping_Ch.ItemIndex := Ini.ReadInteger('PM16C', 'Ping_Ch', 0);
   finally
     Ini.Free;
   end;
@@ -251,6 +252,7 @@ begin
     Ini.WriteString('PM16C', 'IP', Edit_IP.Text );
     Ini.WriteInteger('PM16C', 'Mode', CB_Mode.ItemIndex);
     Ini.WriteBool('PM16C', 'PLS', CB_PLS.Checked);
+    Ini.WriteInteger('PM16C', 'Ping_Ch', CB_Ping_Ch.ItemIndex);
   finally
     Ini.Free;
   end;
@@ -297,6 +299,7 @@ begin
   if not(CB_Connect.Checked) then
   begin
     DisConnect;
+    Save_IniFile(Sender);
     Panel1.Enabled := false;
   end
   else
