@@ -553,7 +553,7 @@ begin
     begin
       SB_CT.SimpleText := 'ABS BK : '+(k+1).ToString+'/'+BKN.ToString;
       Form_PM16C.SB_PulseClick(Sender);
-      Sleep(StrToInt(Edit_BK_EXPT.Text)+100);
+      Sleep(StrToInt(Edit_BK_EXPT.Text)+250);
 
       if not(Go) then
       begin
@@ -685,7 +685,7 @@ begin
     begin
       SB_CT.SimpleText := 'ABS CT : '+(k+1).ToString+'/'+n.ToString;
       Form_PM16C.SB_PulseClick(Sender);
-      Sleep(StrToInt(Edit_EXPT.Text)+100);
+      Sleep(StrToInt(Edit_EXPT.Text)+250);
       Form_PM16C.MoveBy(CT_R_Ch,dR,true,false);
 
       if not(Go) then
