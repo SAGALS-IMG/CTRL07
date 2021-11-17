@@ -350,7 +350,7 @@ object Form_PM16C: TForm_PM16C
       end
       object Label1: TLabel
         Left = 8
-        Top = 8
+        Top = 6
         Width = 30
         Height = 16
         Caption = 'CH : '
@@ -363,7 +363,7 @@ object Form_PM16C: TForm_PM16C
       end
       object Label2: TLabel
         Left = 73
-        Top = 8
+        Top = 6
         Width = 38
         Height = 16
         Caption = 'POS : '
@@ -377,7 +377,7 @@ object Form_PM16C: TForm_PM16C
       object RG_SP: TRadioGroup
         Left = 292
         Top = 9
-        Width = 120
+        Width = 116
         Height = 41
         Caption = ' Speed '
         Columns = 3
@@ -396,8 +396,8 @@ object Form_PM16C: TForm_PM16C
         OnClick = RG_SPClick
       end
       object CB_PLS: TCheckBox
-        Left = 420
-        Top = 27
+        Left = 213
+        Top = 68
         Width = 48
         Height = 15
         Caption = 'PLS'
@@ -521,7 +521,7 @@ object Form_PM16C: TForm_PM16C
         Text = '0.000'
       end
       object Panel5: TPanel
-        Left = 383
+        Left = 387
         Top = 56
         Width = 85
         Height = 32
@@ -546,6 +546,21 @@ object Form_PM16C: TForm_PM16C
           Height = 17
           TabOrder = 0
         end
+      end
+      object CB_EN: TCheckBox
+        Left = 414
+        Top = 27
+        Width = 64
+        Height = 15
+        Caption = 'Enable'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 9
+        OnClick = CB_ENClick
       end
     end
   end

@@ -17,6 +17,7 @@ type
     Position : longint;
     Conv : double;
     SP : byte;
+    Enable: boolean;
   end;
 
   TForm_PM16C = class(TForm)
@@ -62,6 +63,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label7: TLabel;
+    CB_EN: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
@@ -143,6 +145,7 @@ type
     procedure Backup_Param;
     procedure Recover_Param;
     procedure SB_TableClick(Sender: TObject);
+    procedure CB_ENClick(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -317,6 +320,11 @@ begin
   end;
 end;
 
+procedure TForm_PM16C.CB_ENClick(Sender: TObject);
+begin
+  Motor[SelectedNo].Enable := CB_EN.Checked;
+end;
+
 procedure TForm_PM16C.CB_R_MClick(Sender: TObject);
 begin
   if CB_Connect.Checked then
@@ -350,6 +358,8 @@ begin
 
   SetCh(0,SelectedMot) ;
   RG_SP.ItemIndex := Motor[SelectedNo].SP;
+
+  CB_EN.Checked := Motor[SelectedNo].Enable;
 
   Label1.Caption := 'CH : '+SelectedMot.ToString;
   Label2.Caption := 'POS : '+GetPos(SelectedMot).ToString+' [pls]';
@@ -410,20 +420,23 @@ var
   TmpPos:longint;
   lBool : boolean;
 begin
-  Go := true;
-  if CB_PLS.Checked then
-    MoveBy(SelectedMot,Round(-1*StrToFloat(Edit_MoveBy.Text)),true,true)
-  else
-    MoveBy(SelectedMot,Round(-1*StrToFloat(Edit_MoveBy.Text)*Motor[SelectedNo].Conv),true,true);
+  if Motor[SelectedNo].Enable then
+  begin
+    Go := true;
+    if CB_PLS.Checked then
+      MoveBy(SelectedMot,Round(-1*StrToFloat(Edit_MoveBy.Text)),true,true)
+    else
+      MoveBy(SelectedMot,Round(-1*StrToFloat(Edit_MoveBy.Text)*Motor[SelectedNo].Conv),true,true);
 
-  TmpPos :=GetPos(SelectedMot);
-  SG_PosSelectCell(Sender, SG_Pos.Col, SG_Pos.Row, lBool);
+    TmpPos :=GetPos(SelectedMot);
+    SG_PosSelectCell(Sender, SG_Pos.Col, SG_Pos.Row, lBool);
 
-  SB_RefreshClick(Sender);
+    SB_RefreshClick(Sender);
 
-  Motor[SelectedNo].Position := TmpPos;
-  SG_Pos.Cells[2,SelectedNo+1] :=TmpPos.ToString;
-  SG_Pos.Cells[3,SelectedNo+1] :=(TmpPos/Motor[SelectedNo].Conv).ToString+' ['+Motor[SelectedNo].Unit_Name+']';
+    Motor[SelectedNo].Position := TmpPos;
+    SG_Pos.Cells[2,SelectedNo+1] :=TmpPos.ToString;
+    SG_Pos.Cells[3,SelectedNo+1] :=(TmpPos/Motor[SelectedNo].Conv).ToString+' ['+Motor[SelectedNo].Unit_Name+']';
+  end;
 end;
 
 procedure TForm_PM16C.BB_MoveBy_pClick(Sender: TObject);
@@ -431,20 +444,23 @@ var
   TmpPos:longint;
   lBool : boolean;
 begin
-  Go := true;
-  if CB_PLS.Checked then
-    MoveBy(SelectedMot,StrToInt(Edit_MoveBy.Text),true,true)
-  else
-    MoveBy(SelectedMot,Round(StrToFloat(Edit_MoveBy.Text)*Motor[SelectedNo].Conv),true,true);
+  if Motor[SelectedNo].Enable then
+  begin
+    Go := true;
+    if CB_PLS.Checked then
+      MoveBy(SelectedMot,StrToInt(Edit_MoveBy.Text),true,true)
+    else
+      MoveBy(SelectedMot,Round(StrToFloat(Edit_MoveBy.Text)*Motor[SelectedNo].Conv),true,true);
 
-  TmpPos := GetPos(SelectedMot);
-  SG_PosSelectCell(Sender, SG_Pos.Col, SG_Pos.Row, lBool);
+    TmpPos := GetPos(SelectedMot);
+    SG_PosSelectCell(Sender, SG_Pos.Col, SG_Pos.Row, lBool);
 
-  SB_RefreshClick(Sender);
+    SB_RefreshClick(Sender);
 
-  Motor[SelectedNo].Position := TmpPos;
-  SG_Pos.Cells[2,SelectedNo+1] :=TmpPos.ToString;
-  SG_Pos.Cells[3,SelectedNo+1] :=(TmpPos/Motor[SelectedNo].Conv).ToString+' ['+Motor[SelectedNo].Unit_Name+']';
+    Motor[SelectedNo].Position := TmpPos;
+    SG_Pos.Cells[2,SelectedNo+1] :=TmpPos.ToString;
+    SG_Pos.Cells[3,SelectedNo+1] :=(TmpPos/Motor[SelectedNo].Conv).ToString+' ['+Motor[SelectedNo].Unit_Name+']';
+  end;
 end;
 
 procedure TForm_PM16C.BB_MoveToClick(Sender: TObject);
@@ -452,19 +468,22 @@ var
   TmpPos:longint;
   lBool : boolean;
 begin
-  Go := true;
-  if CB_PLS.Checked then
-    MoveTo(SelectedMot,Round(StrToFloat(Edit_MoveTo.Text)),true,true)
-  else
-    MoveTo(SelectedMot,Round(StrToFloat(Edit_MoveTo.Text)*Motor[SelectedNo].Conv),true,true);
+  if Motor[SelectedNo].Enable then
+  begin
+    Go := true;
+    if CB_PLS.Checked then
+      MoveTo(SelectedMot,Round(StrToFloat(Edit_MoveTo.Text)),true,true)
+    else
+      MoveTo(SelectedMot,Round(StrToFloat(Edit_MoveTo.Text)*Motor[SelectedNo].Conv),true,true);
 
-  TmpPos :=GetPos(SelectedMot);
+    TmpPos :=GetPos(SelectedMot);
 
-  SG_PosSelectCell(Sender, SG_Pos.Col, SG_Pos.Row, lBool);
+    SG_PosSelectCell(Sender, SG_Pos.Col, SG_Pos.Row, lBool);
 
-  Motor[SelectedNo].Position := TmpPos;
-  SG_Pos.Cells[2,SelectedNo+1] :=TmpPos.ToString;
-  SG_Pos.Cells[3,SelectedNo+1] :=(TmpPos/Motor[SelectedNo].Conv).ToString+' ['+Motor[SelectedNo].Unit_Name+']';
+    Motor[SelectedNo].Position := TmpPos;
+    SG_Pos.Cells[2,SelectedNo+1] :=TmpPos.ToString;
+    SG_Pos.Cells[3,SelectedNo+1] :=(TmpPos/Motor[SelectedNo].Conv).ToString+' ['+Motor[SelectedNo].Unit_Name+']';
+  end;
 end;
 
 procedure TForm_PM16C.RG_SPClick(Sender: TObject);
@@ -523,6 +542,7 @@ begin
       Ini.WriteString('Mot_'+li.ToString, 'CW',Motor[li].CW);
       Ini.WriteString('Mot_'+li.ToString, 'CCW',Motor[li].CCW);
       Ini.WriteFloat('Mot_'+li.ToString, 'Conv',Motor[li].Conv);
+      Ini.WriteBool('Mot_'+li.ToString, 'Enable',Motor[li].Enable);
     end;
   finally
     Ini.Free;
@@ -544,6 +564,7 @@ begin
       Motor[i].CCW := Ini.ReadString('Mot_'+i.ToString, 'CCW', 'Down' );
 
       Motor[i].Conv := Ini.ReadFloat('Mot_'+i.ToString, 'Conv', 1000 );
+      Motor[i].Enable := Ini.ReadBool('Mot_'+i.ToString, 'Enable',false);
     end;
     finally
       Ini.Free;
