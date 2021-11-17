@@ -57,6 +57,8 @@
 *.tvsconfig
 *.dsk
 
+*.log
+
 # Delphi history and backups
 __history/
 __recovery/
