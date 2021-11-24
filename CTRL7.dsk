@@ -16,16 +16,16 @@ File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Statu
 File_14=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_CT48.pas',0,1,1,1,1,0,0,,
 
 [Modules]
-Module0=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
-Module1=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module0=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module1=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
 Module2=c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas
 Count=3
 EditWindowCount=1
 
-[C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas]
+[C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas]
 ModuleType=TSourceModule
 
-[C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas]
+[C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas]
 ModuleType=TSourceModule
 
 [c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas]
@@ -33,7 +33,7 @@ ModuleType=TSourceModule
 
 [EditWindow0]
 ViewCount=3
-CurrentEditView=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+CurrentEditView=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
 View0=0
 View1=1
 View2=2
@@ -74,9 +74,9 @@ EditViewName=c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\Syste
 [View1]
 CustomEditViewType=TEditView
 Module=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
-CursorX=28
-CursorY=1066
-TopLine=1037
+CursorX=80
+CursorY=150
+TopLine=131
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -394,7 +394,7 @@ Left42=1221
 Top42=342
 Width42=797
 Height42=679
-Visible42=1
+Visible42=0
 State42=0
 Module43=C:\Users\SiC\Dropbox\Documents\Program\CTRL_3\Option.pas
 Left43=673
@@ -946,7 +946,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=-213
+Top=0
 Width=1031
 Height=3638
 MaxLeft=-4
@@ -980,8 +980,8 @@ SplitPos=102
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,
-ExpandedItems=Anchors=0,Constraints=0,Font=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0
+SelectedItem=Action,OnActivate
+ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0,GlassFrame=0,HorzScrollBar=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,Padding=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -1150,12 +1150,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=4324
-Height=1021
+Width=4383
+Height=1298
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=4324
-ClientHeight=1021
+ClientWidth=4383
+ClientHeight=1298
 TBDockHeight=5078
 LRDockWidth=5301
 Dockable=1
@@ -1187,7 +1187,7 @@ Visible=0
 Docked=0
 State=0
 Left=1723
-Top=8759
+Top=8972
 Width=3672
 Height=1241
 MaxLeft=-4
@@ -1270,8 +1270,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-449
-Top=-1443
+Left=-779
+Top=-1222
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -1289,8 +1289,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-449
-Top=-1443
+Left=-779
+Top=-1222
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -1373,7 +1373,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=6248
+Top=6461
 Width=1469
 Height=8255
 MaxLeft=-4
@@ -1396,7 +1396,7 @@ Visible=0
 Docked=0
 State=0
 Left=1723
-Top=8525
+Top=8738
 Width=4387
 Height=1475
 MaxLeft=-4
@@ -1409,7 +1409,7 @@ Dockable=1
 StayOnTop=0
 TabPosition=1
 ActiveTabID=RefactoringForm
-TabDockClients=RefactoringForm,FindReferencsForm,MetricsView,QAView
+TabDockClients=RefactoringForm,FindReferencsForm,QAView,MetricsView
 
 [DockSite1]
 DockSiteType=1
