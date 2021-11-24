@@ -96,6 +96,7 @@ type
 
     procedure BB_CT_STClick(Sender: TObject);
     procedure BB_CT_STOPClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -126,6 +127,12 @@ uses Unit_PM16C, Unit_Imager, Unit_SAKAS, main, Unit_Shutter;
 
 {$R *.dfm}
 
+
+procedure TForm_ACT.FormActivate(Sender: TObject);
+begin
+  if Form_SAKAS.Edit_SName.Modified then
+    Edit_Samp_Name.Text := Form_SAKAS.Edit_SName.Text;
+end;
 
 procedure TForm_ACT.FormCreate(Sender: TObject);
 var
