@@ -38,7 +38,6 @@ type
     BB_ImgCopy: TBitBtn;
     Label_Size: TLabel;
     SS: TSelShape;
-    BB_ROICopy: TBitBtn;
     BB_Save: TBitBtn;
     Bevel1: TBevel;
     Bevel2: TBevel;
@@ -46,6 +45,11 @@ type
     Edit_No: TEdit;
     UD_No: TUpDown;
     SaveDialog1: TSaveDialog;
+    Label6: TLabel;
+    Bevel3: TBevel;
+    SB_Copy: TSpeedButton;
+    Label8: TLabel;
+    Label10: TLabel;
     procedure BB_ReDrawClick(Sender: TObject);
     procedure Draw_Data(Sender: TObject);
     procedure Load_Data(FN:string;Sender: Tobject);
@@ -86,12 +90,12 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure CB_MagChange(Sender: TObject);
     procedure BB_SaveClick(Sender: TObject);
-    procedure BB_ROICopyClick(Sender: TObject);
     procedure Edit_LeftKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure UD_NoClick(Sender: TObject; Button: TUDBtnType);
     procedure Edit_PMaxKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure SB_CopyClick(Sender: TObject);
   private
     { Private éŒ¾ }
   public
@@ -203,15 +207,6 @@ end;
 procedure TForm_Ph_PW.BB_ReDrawClick(Sender: TObject);
 begin
   Draw_Data(Sender);
-end;
-
-procedure TForm_Ph_PW.BB_ROICopyClick(Sender: TObject);
-begin
-
-  Form_Imager.Edit_ROI_X1.Text := Edit_Left.Text;
-  Form_Imager.Edit_ROI_Y1.Text := Edit_Top.Text;
-  Form_Imager.Edit_ROI_X2.Text := Edit_Right.Text;
-  Form_Imager.Edit_ROI_Y2.Text := Edit_Bottom.Text;
 end;
 
 procedure TForm_Ph_PW.BB_SaveClick(Sender: TObject);
@@ -371,7 +366,8 @@ begin
     3:lMag := 1;
   end;
 
-  Label4.Caption := IntToStr(X*lMag)+','+IntToStr(Y*lMag);
+  Label4.Caption := IntToStr(X*lMag);
+  Label6.Caption := IntToStr(Y*lMag);
   if (X>0) and (Y>0) and (X*lMag<PX_Max) and (Y*lMag<PY_Max) then
     Label2.Caption := Format('%12.2f',[PData[Y*lMag,X*lMag]])
   else
@@ -1025,4 +1021,12 @@ begin
   end;
   FS.Free;
 end;
+procedure TForm_Ph_PW.SB_CopyClick(Sender: TObject);
+begin
+  Form_Imager.Edit_ROI_X1.Text := Edit_Left.Text;
+  Form_Imager.Edit_ROI_Y1.Text := Edit_Top.Text;
+  Form_Imager.Edit_ROI_X2.Text := Edit_Right.Text;
+  Form_Imager.Edit_ROI_Y2.Text := Edit_Bottom.Text;
+end;
+
 end.

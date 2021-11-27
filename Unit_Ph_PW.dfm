@@ -2,8 +2,8 @@ object Form_Ph_PW: TForm_Ph_PW
   Left = 0
   Top = 0
   Caption = 'Phase map'
-  ClientHeight = 606
-  ClientWidth = 795
+  ClientHeight = 840
+  ClientWidth = 761
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,27 +18,28 @@ object Form_Ph_PW: TForm_Ph_PW
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 795
-    Height = 606
+    Width = 761
+    Height = 840
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
-    ExplicitWidth = 830
+    ExplicitWidth = 795
+    ExplicitHeight = 606
     object Panel3: TPanel
       Left = 2
       Top = 2
-      Width = 791
-      Height = 85
+      Width = 757
+      Height = 105
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 826
+      ExplicitWidth = 912
       object GroupBox2: TGroupBox
         Left = 0
         Top = 0
-        Width = 791
-        Height = 85
+        Width = 757
+        Height = 105
         Align = alClient
         Caption = 'Drawing'
         Color = clCream
@@ -51,25 +52,31 @@ object Form_Ph_PW: TForm_Ph_PW
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 826
+        ExplicitWidth = 912
+        object Bevel3: TBevel
+          Left = 552
+          Top = 46
+          Width = 76
+          Height = 22
+        end
         object Bevel2: TBevel
-          Left = 522
-          Top = 53
+          Left = 533
+          Top = 74
           Width = 95
           Height = 22
         end
         object Bevel1: TBevel
-          Left = 522
-          Top = 22
-          Width = 95
+          Left = 552
+          Top = 16
+          Width = 76
           Height = 22
         end
         object Label7: TLabel
-          Left = 10
-          Top = 25
-          Width = 73
+          Left = 7
+          Top = 52
+          Width = 33
           Height = 14
-          Caption = 'Image Level'
+          Caption = 'B && C'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
@@ -78,8 +85,8 @@ object Form_Ph_PW: TForm_Ph_PW
           ParentFont = False
         end
         object Label9: TLabel
-          Left = 162
-          Top = 25
+          Left = 169
+          Top = 52
           Width = 30
           Height = 14
           Caption = 'Mag.'
@@ -91,15 +98,15 @@ object Form_Ph_PW: TForm_Ph_PW
           ParentFont = False
         end
         object Shape1: TShape
-          Left = 326
-          Top = 26
-          Width = 105
+          Left = 341
+          Top = 40
+          Width = 116
           Height = 40
           Brush.Color = clMoneyGreen
         end
         object Label1: TLabel
-          Left = 444
-          Top = 57
+          Left = 463
+          Top = 78
           Width = 72
           Height = 16
           Caption = 'Intensity : '
@@ -111,8 +118,8 @@ object Form_Ph_PW: TForm_Ph_PW
           ParentFont = False
         end
         object Label2: TLabel
-          Left = 526
-          Top = 57
+          Left = 541
+          Top = 76
           Width = 83
           Height = 16
           Alignment = taRightJustify
@@ -126,8 +133,8 @@ object Form_Ph_PW: TForm_Ph_PW
           ParentFont = False
         end
         object Label3: TLabel
-          Left = 443
-          Top = 25
+          Left = 463
+          Top = 24
           Width = 64
           Height = 16
           Caption = 'Position : '
@@ -139,13 +146,13 @@ object Form_Ph_PW: TForm_Ph_PW
           ParentFont = False
         end
         object Label4: TLabel
-          Left = 526
-          Top = 25
-          Width = 83
+          Left = 560
+          Top = 19
+          Width = 66
           Height = 16
           Alignment = taRightJustify
           AutoSize = False
-          Caption = '0,0'
+          Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -154,8 +161,8 @@ object Form_Ph_PW: TForm_Ph_PW
           ParentFont = False
         end
         object Label_Size: TLabel
-          Left = 333
-          Top = 38
+          Left = 341
+          Top = 52
           Width = 90
           Height = 14
           Alignment = taCenter
@@ -169,8 +176,8 @@ object Form_Ph_PW: TForm_Ph_PW
           ParentFont = False
         end
         object Label5: TLabel
-          Left = 236
-          Top = 25
+          Left = 249
+          Top = 53
           Width = 48
           Height = 14
           Caption = 'Img No.'
@@ -181,10 +188,76 @@ object Form_Ph_PW: TForm_Ph_PW
           Font.Style = [fsBold]
           ParentFont = False
         end
+        object Label6: TLabel
+          Left = 560
+          Top = 49
+          Width = 66
+          Height = 16
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = '0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object SB_Copy: TSpeedButton
+          Left = 427
+          Top = 50
+          Width = 22
+          Height = 22
+          Hint = 'COPY ROI to Clipboard'
+          Flat = True
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000120B0000120B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF003FFFFFFFFFFF
+            FFFF33333333333FFFFF3FFFFFFFFF00000F333333333377777F33FFFFFFFF09
+            990F33333333337F337F333FFFFFFF09990F33333333337F337F3333FFFFFF09
+            990F33333333337FFF7F33333FFFFF00000F3333333333777773333333FFFFFF
+            FFFF3333333333333F333333333FFFFF0FFF3333333333337FF333333333FFF0
+            00FF33333333333777FF333333333F00000F33FFFFF33777777F300000333000
+            0000377777F33777777730EEE033333000FF37F337F3333777F330EEE0333330
+            00FF37F337F3333777F330EEE033333000FF37FFF7F333F77733300000333000
+            03FF3777773337777333333333333333333F3333333333333333}
+          NumGlyphs = 2
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = SB_CopyClick
+        end
+        object Label8: TLabel
+          Left = 532
+          Top = 19
+          Width = 9
+          Height = 16
+          Caption = 'X'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label10: TLabel
+          Left = 532
+          Top = 46
+          Width = 9
+          Height = 16
+          Caption = 'Y'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
         object Edit_PMin: TEdit
-          Left = 10
-          Top = 44
-          Width = 60
+          Left = 7
+          Top = 72
+          Width = 75
           Height = 22
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -198,9 +271,9 @@ object Form_Ph_PW: TForm_Ph_PW
           OnKeyUp = Edit_PMaxKeyUp
         end
         object Edit_PMax: TEdit
-          Left = 78
-          Top = 44
-          Width = 64
+          Left = 88
+          Top = 72
+          Width = 75
           Height = 22
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -214,8 +287,8 @@ object Form_Ph_PW: TForm_Ph_PW
           OnKeyUp = Edit_PMaxKeyUp
         end
         object CB_Mag: TComboBox
-          Left = 158
-          Top = 44
+          Left = 169
+          Top = 72
           Width = 61
           Height = 22
           Font.Charset = DEFAULT_CHARSET
@@ -234,7 +307,7 @@ object Form_Ph_PW: TForm_Ph_PW
             '100%')
         end
         object BB_ReDraw: TBitBtn
-          Left = 624
+          Left = 7
           Top = 21
           Width = 75
           Height = 25
@@ -249,8 +322,8 @@ object Form_Ph_PW: TForm_Ph_PW
           OnClick = BB_ReDrawClick
         end
         object Edit_Left: TEdit
-          Left = 311
-          Top = 11
+          Left = 335
+          Top = 24
           Width = 40
           Height = 22
           BevelOuter = bvRaised
@@ -266,8 +339,8 @@ object Form_Ph_PW: TForm_Ph_PW
           OnKeyUp = Edit_LeftKeyUp
         end
         object Edit_Top: TEdit
-          Left = 357
-          Top = 11
+          Left = 381
+          Top = 24
           Width = 40
           Height = 22
           BevelOuter = bvRaised
@@ -283,8 +356,8 @@ object Form_Ph_PW: TForm_Ph_PW
           OnKeyUp = Edit_LeftKeyUp
         end
         object Edit_Right: TEdit
-          Left = 354
-          Top = 57
+          Left = 362
+          Top = 71
           Width = 40
           Height = 22
           BevelOuter = bvRaised
@@ -300,8 +373,8 @@ object Form_Ph_PW: TForm_Ph_PW
           OnKeyUp = Edit_LeftKeyUp
         end
         object Edit_Bottom: TEdit
-          Left = 400
-          Top = 57
+          Left = 408
+          Top = 71
           Width = 40
           Height = 22
           BevelOuter = bvRaised
@@ -317,26 +390,11 @@ object Form_Ph_PW: TForm_Ph_PW
           OnKeyUp = Edit_LeftKeyUp
         end
         object BB_ImgCopy: TBitBtn
-          Left = 705
+          Left = 88
           Top = 21
           Width = 75
           Height = 25
-          Caption = 'Img Copy'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 11
-          OnClick = BB_ImgCopyClick
-        end
-        object BB_ROICopy: TBitBtn
-          Left = 624
-          Top = 52
-          Width = 75
-          Height = 25
-          Caption = 'ROI Copy'
+          Caption = 'Copy Img'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
@@ -344,26 +402,26 @@ object Form_Ph_PW: TForm_Ph_PW
           Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 10
-          OnClick = BB_ROICopyClick
+          OnClick = BB_ImgCopyClick
         end
         object BB_Save: TBitBtn
-          Left = 705
-          Top = 52
+          Left = 169
+          Top = 21
           Width = 75
           Height = 25
-          Caption = 'Save'
+          Caption = 'Save Img'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 12
+          TabOrder = 11
           OnClick = BB_SaveClick
         end
         object Edit_No: TEdit
-          Left = 233
-          Top = 44
+          Left = 249
+          Top = 73
           Width = 53
           Height = 22
           NumbersOnly = True
@@ -371,8 +429,8 @@ object Form_Ph_PW: TForm_Ph_PW
           Text = '0'
         end
         object UD_No: TUpDown
-          Left = 286
-          Top = 44
+          Left = 303
+          Top = 73
           Width = 16
           Height = 22
           Associate = Edit_No
@@ -384,12 +442,14 @@ object Form_Ph_PW: TForm_Ph_PW
     end
     object ScrollBox1: TScrollBox
       Left = 2
-      Top = 87
-      Width = 791
-      Height = 517
+      Top = 107
+      Width = 757
+      Height = 731
       Align = alClient
       TabOrder = 1
-      ExplicitWidth = 826
+      ExplicitTop = 87
+      ExplicitWidth = 791
+      ExplicitHeight = 517
       object Image1: TImage
         Left = 0
         Top = 0
