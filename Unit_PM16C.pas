@@ -301,7 +301,8 @@ begin
   //クリックした後の状態でコーディング
   if not(CB_Connect.Checked) then
   begin
-    DisConnect;
+    if IdTCPClient.Connected then
+      DisConnect;
     Save_IniFile(Sender);
     Panel1.Enabled := false;
   end
@@ -668,7 +669,7 @@ begin
   IdTCPClient.IOHandler.WriteLn('PS'+IntToHex(lCh,1)+IntToStr(lSP)+CHR(13)+CHR(10));
 
   if (Form_Main.CB_Log.Checked) and (TmpInt<>lSP) then
-    Form_Main.Memo.Lines.Add('SetPreset('+lCh.ToString+','+TmpInt.ToString+','+lSP.ToString+')');
+    Form_Main.AddLine('SetPreset('+lCh.ToString+','+TmpInt.ToString+','+lSP.ToString+')',true);
 end;
 
 function TForm_PM16C.MoveBy(lCh, TPos: Integer; lWait,
@@ -702,7 +703,7 @@ begin
           repeat
             Sleep(100);
           until not(isBusy(lCh));
-          Form_Main.Memo.Lines.Add('Stopped('+lCh.ToString+','+OPOS.ToString+','+GetPos(lCh).ToString+')');
+          Form_Main.AddLine('Stopped('+lCh.ToString+','+OPOS.ToString+','+GetPos(lCh).ToString+')',true);
         end;
         exit;
       end;
@@ -712,7 +713,7 @@ begin
   if ShowDlg then
     Form_Status.Close;
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('MoveBy('+lCh.ToString+','+OPOS.ToString+','+TPOS.ToString+')');
+    Form_Main.AddLine('MoveBy('+lCh.ToString+','+OPOS.ToString+','+TPOS.ToString+')',true);
 end;
 
 function TForm_PM16C.MoveTo(lCh, TPos: Integer; lWait,
@@ -745,7 +746,7 @@ begin
           repeat
             Sleep(100);
           until not(isBusy(lCh));
-          Form_Main.Memo.Lines.Add('Stopped('+lCh.ToString+','+OPOS.ToString+','+GetPos(lCh).ToString+')');
+          Form_Main.AddLine('Stopped('+lCh.ToString+','+OPOS.ToString+','+GetPos(lCh).ToString+')',true);
         end;
         exit;
       end;
@@ -755,7 +756,7 @@ begin
   if ShowDlg then
     Form_Status.Close;
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('MoveTo('+lCh.ToString+','+OPOS.ToString+','+TPOS.ToString+')');
+    Form_Main.AddLine('MoveTo('+lCh.ToString+','+OPOS.ToString+','+TPOS.ToString+')',true);
 end;
 
 function TForm_PM16C.Stop: string;

@@ -161,7 +161,7 @@ begin
   Res := AT_GetFloat(Hndl,'ExposureTime',@lExpTime);
   ExpTime := lExpTime;
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('ExpT : '+lExpTime.ToString);
+    Form_Main.AddLine('ExpT : '+lExpTime.ToString,true);
 end;
 
 procedure TForm_Imager.GetFrameRate(var FrameRate: double);
@@ -187,7 +187,7 @@ begin
     4:Res := AT_SetEnumString(Hndl, 'TriggerMode', 'External Exposure');
   end;
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('Trigger : '+TrigMode.ToString);
+    Form_Main.AddLine('Trigger : '+TrigMode.ToString,true);
 end;
 
 function TForm_Imager.GetImageSize: longint;
@@ -220,7 +220,7 @@ begin
   end;
 
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('Get_Img');
+    Form_Main.AddLine('Get_Img',true);
 
   AT_Command(Hndl,'AcquisitionStop');
   AT_Flush(Hndl);
@@ -263,7 +263,7 @@ begin
   end;
 
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('Get_mImg : '+SN.ToString);
+    Form_Main.AddLine('Get_mImg : '+SN.ToString,true);
 
   AT_Command(Hndl, 'AcquisitionStop');
   AT_Flush(Hndl);
@@ -304,7 +304,7 @@ begin
     for i:=0 to PW+-1 do
       RawData[j,i] := AlignedBuffers[li mod NumberOfBuffers]^[j*PW+i];
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('Get_Img');
+    Form_Main.AddLine('Get_Img',true);
 end;
 
 procedure TForm_Imager.Aquire_Stop;
@@ -321,7 +321,7 @@ procedure TForm_Imager.Soft_Trigger;
 begin
   AT_Command(Hndl,'SoftwareTrigger');
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('Soft_Trig');
+    Form_Main.AddLine('Soft_Trig',true);
 end;
 
 
@@ -444,7 +444,7 @@ begin
 
   if AT_InitialiseLibrary=AT_SUCCESS then
   begin
-    Form_Main.Memo.Lines.Add('Initialize Andor Library: OK');
+    Form_Main.AddLine('Initialize Andor Library: OK',true);
   end
   else
   begin
@@ -510,7 +510,7 @@ begin
     New(AlignedBuffers[li]);
 
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('Imager Inited');
+    Form_Main.AddLine('Imager Inited',true);
 
   BB_Init.Enabled := false;
 end;
@@ -545,7 +545,7 @@ begin
 //  AT_WaitBuffer(Hndl,@Buf,@Buf_Size,AT_INFINITE);
   AT_WaitBuffer(Hndl,@Buf,@rBufSize,AT_INFINITE);
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('Get_Img');
+    Form_Main.AddLine('Get_Img',true);
 
   AT_Command(Hndl,'AcquisitionStop');
   AT_Flush(Hndl);
@@ -662,7 +662,7 @@ begin
   Form_Ph_PW.PH := PH;
 
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('ROI : '+PW.ToString+'x'+PH.ToString);
+    Form_Main.AddLine('ROI : '+PW.ToString+'x'+PH.ToString,true);
 
 end;
 
@@ -686,7 +686,7 @@ begin
   Form_Ph_PW.PH := PH;
 
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('ROI : '+PW.ToString+'x'+PH.ToString);
+    Form_Main.AddLine('ROI : '+PW.ToString+'x'+PH.ToString,true);
 end;
 
 procedure TForm_Imager.BB_SetExpClick(Sender: TObject);
@@ -701,7 +701,7 @@ begin
   if AT_GetFloat(Hndl,'FrameRate',@FPS)=AT_SUCCESS then
     Label_FPS.Caption := Format('%3.3f',[FPS]);
   if Form_Main.CB_Log.Checked then
-    Form_Main.Memo.Lines.Add('ExpT : '+ExpTime.ToString);
+    Form_Main.AddLine('ExpT : '+ExpTime.ToString,true);
 end;
 
 procedure TForm_Imager.CB_BINChange(Sender: TObject);
@@ -721,7 +721,7 @@ begin
 
     AT_GetEnumIndex(Hndl, 'AOIBinning',@TmpInt) ;
     if AT_GetEnumStringByIndex(Hndl, 'AOIBinning',TmpInt,@TmpChr,64)=AT_SUCCESS then
-      Form_Main.Memo.Lines.Add('Set Binning : '+TmpChr);
+      Form_Main.AddLine('Set Binning : '+TmpChr,true);
 
     AT_GetInt(Hndl, 'AOIWidth', @TmpInt);
     PW := TmpInt;
@@ -763,7 +763,7 @@ begin
 
     AT_GetEnumIndex(Hndl, 'SimplePreAmpGainControl',@TmpInt) ;
     if AT_GetEnumStringByIndex(Hndl, 'SimplePreAmpGainControl',TmpInt,@TmpChr,64)=AT_SUCCESS then
-      Form_Main.Memo.Lines.Add('Set Range : '+TmpChr);
+      Form_Main.AddLine('Set Range : '+TmpChr,true);
   end;
 end;
 
@@ -784,7 +784,7 @@ begin
 
     AT_GetEnumIndex(Hndl, 'TriggerMode',@TmpInt) ;
     if AT_GetEnumStringByIndex(Hndl, 'TriggerMode',TmpInt,@TmpChr,64)=AT_SUCCESS then
-      Form_Main.Memo.Lines.Add('Trigger Mode : '+TmpChr);
+      Form_Main.AddLine('Trigger Mode : '+TmpChr,true);
 //    if Form_Main.CB_Log.Checked then
 //      Form_Main.Memo.Lines.Add('Trigger : '+CB_Trig.ItemIndex.ToString);
   end;
@@ -804,7 +804,7 @@ begin
 
     AT_GetEnumIndex(Hndl, 'ElectronicShutteringMode',@TmpInt) ;
     if AT_GetEnumStringByIndex(Hndl, 'ElectronicShutteringMode',TmpInt,@TmpChr,64)=AT_SUCCESS then
-      Form_Main.Memo.Lines.Add('Electronic Shuttering Mode : '+TmpChr);
+      Form_Main.AddLine('Electronic Shuttering Mode : '+TmpChr,true);
   end;
 end;
 
@@ -822,7 +822,7 @@ begin
 
     AT_GetEnumIndex(Hndl, 'PixelReadoutRate',@TmpInt) ;
     if AT_GetEnumStringByIndex(Hndl, 'PixelReadoutRate',TmpInt,@TmpChr,64)=AT_SUCCESS then
-      Form_Main.Memo.Lines.Add('Pixel Readout Rate : '+TmpChr);
+      Form_Main.AddLine('Pixel Readout Rate : '+TmpChr,true);
   end;
 end;
 
@@ -840,7 +840,7 @@ begin
 
     AT_GetEnumIndex(Hndl, 'TemperatureStatus',@TmpInt) ;
     AT_GetEnumStringByIndex(Hndl, 'TemperatureStatus', TmpInt, TmpChr, 64);
-    Form_Main.Memo.Lines.Add('Temperature Status : '+TmpChr);
+    Form_Main.AddLine('Temperature Status : '+TmpChr,true);
     SB_Get_TempClick(Sender);
   end;
 end;
@@ -870,9 +870,9 @@ begin
 
   if AT_GetBool(Hndl,'FullAOIControl',@lBool)=AT_SUCCESS then
     if lBool then
-      Form_Main.Memo.Lines.Add('ROI : supported')
+      Form_Main.AddLine('ROI : supported',true)
     else
-      Form_Main.Memo.Lines.Add('ROI : not supported')
+      Form_Main.AddLine('ROI : not supported',true)
 
 end;
 
@@ -976,7 +976,7 @@ begin
     AT_Command(Hndl,'SoftwareTrigger');
     AT_WaitBuffer(Hndl, Addr(pBuf), Addr(BufSize), AT_INFINITE);
     if Form_Main.CB_Log.Checked then
-      Form_Main.Memo.Lines.Add('Get_Img');
+      Form_Main.AddLine('Get_Img',true);
 
     for j:=0 to PH-1 do
       for i:=0 to PW+-1 do
@@ -1027,7 +1027,7 @@ begin
   until (ImgNo > SN-1) or not(Go);
 
   AStopWatch.Stop;
-  Form_Main.Memo.Lines.Add('Total time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString);
+  Form_Main.AddLine('Total time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString,true);
 
   AT_Command(Hndl, 'AcquisitionStop');
   AT_Flush(Hndl);
@@ -1085,7 +1085,7 @@ begin
   end;
 
   AStopWatch.Stop;
-  Form_Main.Memo.Lines.Add('Total time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString);
+  Form_Main.AddLine('Total time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString,true);
 
   AT_Command(Hndl, 'AcquisitionStop');
   AT_Flush(Hndl);

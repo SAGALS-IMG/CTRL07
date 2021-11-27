@@ -43,6 +43,8 @@ type
     procedure SB_HelpClick(Sender: TObject);
     procedure SB_timeClick(Sender: TObject);
 
+    procedure AddLine(AddStr : string; DT:boolean);
+
   private
     { Private êÈåæ }
   public
@@ -125,6 +127,14 @@ end;
 procedure TForm_main.BB_PM16CClick(Sender: TObject);
 begin
   Form_PM16C.Show
+end;
+
+procedure TForm_main.AddLine(AddStr: string; DT: boolean);
+begin
+  if DT then
+    Memo.Lines.Add(DateTimeToStr(Now)+' : '+AddStr)
+  else
+    Memo.Lines.Add(AddStr);
 end;
 
 procedure TForm_main.BB_CounterClick(Sender: TObject);
