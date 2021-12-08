@@ -1,21 +1,22 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PW.pas',0,1,70,1,102,0,0,,
-File_1=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas',0,1,493,36,501,0,0,,
-File_2=TSourceModule,'C:\Users\akn\Documents\GitHub\SAKAS-CONV\main.pas',0,1,1,1,1,0,0,,
-File_3=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas',0,1,899,111,973,0,0,,
-File_4=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\source\rtl\common\System.IniFiles.pas',0,1,284,1,317,0,0,,
-File_5=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL\Vcl.Controls.pas',0,1,7390,1,7430,0,0,,
-File_6=TSourceModule,'E:\Dropbox\Documents\Program\CTRL_3\Unit_CT.pas',0,1,770,1,817,0,0,,
-File_7=TSourceModule,'E:\Dropbox\Documents\Program\_20210418_Img_Tag\main.pas',0,1,379,1,417,0,0,,
-File_8=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\unit_option.pas',0,1,1,28,11,0,0,,
-File_9=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL\Vcl.StdCtrls.pas',0,1,6102,1,6136,0,0,{{1655,4}
-File_10=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL\Vcl.Forms.pas',0,1,3753,1,3786,0,0,{{1740,4}
-File_11=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Zyla.pas',0,1,1,12,47,0,0,,
-File_12=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Shutter.pas',0,1,77,1,154,0,0,,
-File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Status.pas',0,1,1,9,37,0,0,,
-File_14=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_CT48.pas',0,1,1,1,1,0,0,,
+File_0=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL\Vcl.Controls.pas',0,1,7390,1,7430,0,0,,
+File_1=TSourceModule,'C:\Users\Akio Yoneyama\Desktop\BL18_Current\main.pas',0,1,1,1,1,0,0,,
+File_2=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PW.pas',0,1,70,1,102,0,0,,
+File_3=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas',0,1,493,36,501,0,0,,
+File_4=TSourceModule,'C:\Users\akn\Documents\GitHub\SAKAS-CONV\main.pas',0,1,1,1,1,0,0,,
+File_5=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas',0,1,899,111,973,0,0,,
+File_6=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\source\rtl\common\System.IniFiles.pas',0,1,284,1,317,0,0,,
+File_7=TSourceModule,'E:\Dropbox\Documents\Program\CTRL_3\Unit_CT.pas',0,1,770,1,817,0,0,,
+File_8=TSourceModule,'E:\Dropbox\Documents\Program\_20210418_Img_Tag\main.pas',0,1,379,1,417,0,0,,
+File_9=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\unit_option.pas',0,1,1,28,11,0,0,,
+File_10=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL\Vcl.StdCtrls.pas',0,1,6102,1,6136,0,0,{{1655,4}
+File_11=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL\Vcl.Forms.pas',0,1,3753,1,3786,0,0,{{1740,4}
+File_12=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Zyla.pas',0,1,1,12,47,0,0,,
+File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Shutter.pas',0,1,77,1,154,0,0,,
+File_14=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Status.pas',0,1,1,9,37,0,0,,
 
 [Modules]
+<<<<<<< Updated upstream
 Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 Module1=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
 Module2=c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas
@@ -26,17 +27,67 @@ EditWindowCount=1
 ModuleType=TSourceModule
 
 [C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas]
+=======
+Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
+Module1=C:\Users\Akio Yoneyama\Documents\Embarcadero\Studio\Projects\Unit1.pas
+Module2=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Module3=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\CTRL7.dproj
+Module4=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module5=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
+Module6=c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas
+Module7=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
+Module8=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
+Count=9
+EditWindowCount=1
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\Embarcadero\Studio\Projects\Unit1.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\CTRL7.dproj]
+ModuleType=TBaseProject
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas]
+ModuleType=TSourceModule
+
+[c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas]
+>>>>>>> Stashed changes
 ModuleType=TSourceModule
 
 [c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas]
 ModuleType=TSourceModule
 
 [EditWindow0]
+<<<<<<< Updated upstream
 ViewCount=3
 CurrentEditView=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 View0=0
 View1=1
 View2=2
+=======
+ViewCount=9
+CurrentEditView=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+View8=8
+>>>>>>> Stashed changes
 PercentageSizes=1
 Create=1
 Visible=1
@@ -73,10 +124,61 @@ EditViewName=c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\Syste
 
 [View1]
 CustomEditViewType=TEditView
+<<<<<<< Updated upstream
 Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 CursorX=42
 CursorY=442
 TopLine=409
+=======
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
+CursorX=54
+CursorY=539
+TopLine=519
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
+
+[View2]
+CustomEditViewType=TEditView
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
+CursorX=43
+CursorY=49
+TopLine=34
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
+
+[View3]
+CustomEditViewType=TEditView
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
+CursorX=1
+CursorY=1133
+TopLine=127
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
+
+[View4]
+CustomEditViewType=TEditView
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
+CursorX=29
+CursorY=147
+TopLine=129
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
+
+[View5]
+CustomEditViewType=TEditView
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+CursorX=28
+CursorY=1073
+TopLine=1054
+>>>>>>> Stashed changes
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -85,16 +187,49 @@ EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 [View2]
 CustomEditViewType=TEditView
 Module=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+<<<<<<< Updated upstream
 CursorX=3
 CursorY=329
 TopLine=345
+=======
+CursorX=1
+CursorY=540
+TopLine=502
+>>>>>>> Stashed changes
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
 
+<<<<<<< Updated upstream
 [UndockedDesigner]
 Count=110
+=======
+[View7]
+CustomEditViewType=TEditView
+Module=C:\Users\Akio Yoneyama\Documents\Embarcadero\Studio\Projects\Unit1.pas
+CursorX=1
+CursorY=73
+TopLine=34
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Akio Yoneyama\Documents\Embarcadero\Studio\Projects\Unit1.pas
+
+[View8]
+CustomEditViewType=TEditView
+Module=c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas
+CursorX=1
+CursorY=8062
+TopLine=8017
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=c:\program files (x86)\embarcadero\studio\18.0\SOURCE\RTL\SYS\System.SysUtils.pas
+
+[UndockedDesigner]
+Count=103
+>>>>>>> Stashed changes
 Module0=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_DAKAS.pas
 Left0=433
 Top0=538
@@ -165,11 +300,19 @@ Width9=442
 Height9=334
 Visible9=0
 State9=0
+<<<<<<< Updated upstream
 Module10=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_CT48.pas
 Left10=473
 Top10=355
 Width10=643
 Height10=872
+=======
+Module10=C:\Users\Akio Yoneyama\Desktop\BL18_Current\main.pas
+Left10=303
+Top10=845
+Width10=595
+Height10=387
+>>>>>>> Stashed changes
 Visible10=0
 State10=0
 Module11=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_PM16C.pas
@@ -221,6 +364,7 @@ Width17=1016
 Height17=763
 Visible17=0
 State17=0
+<<<<<<< Updated upstream
 Module18=C:\Users\akn\Documents\GitHub\CTRL07\Unit_PM16C_Table.pas
 Left18=782
 Top18=449
@@ -865,6 +1009,603 @@ Width109=548
 Height109=978
 Visible109=0
 State109=0
+=======
+Module18=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_PW.pas
+Left18=534
+Top18=420
+Width18=946
+Height18=755
+Visible18=0
+State18=0
+Module19=C:\Users\Kyoto\Desktop\_h_20210501_CTRL7\Unit_ACT.pas
+Left19=708
+Top19=137
+Width19=500
+Height19=882
+Visible19=0
+State19=0
+Module20=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ACT.pas
+Left20=1502
+Top20=313
+Width20=473
+Height20=1062
+Visible20=0
+State20=0
+Module21=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\unit_macro.pas
+Left21=555
+Top21=360
+Width21=959
+Height21=791
+Visible21=0
+State21=0
+Module22=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\unit_option.pas
+Left22=990
+Top22=623
+Width22=533
+Height22=608
+Visible22=0
+State22=0
+Module23=C:\Users\akn\OneDrive - Hi image (1)\プログラム\CTRL_3\Unit_PM16C.pas
+Left23=1583
+Top23=326
+Width23=588
+Height23=754
+Visible23=0
+State23=0
+Module24=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_CT48.pas
+Left24=1302
+Top24=234
+Width24=618
+Height24=880
+Visible24=0
+State24=0
+Module25=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit1.pas
+Left25=432
+Top25=502
+Width25=535
+Height25=825
+Visible25=0
+State25=0
+Module26=E:\Dropbox\Documents\Program\_20210122_FCT\Unit_PW.pas
+Left26=876
+Top26=277
+Width26=980
+Height26=1044
+Visible26=0
+State26=0
+Module27=C:\Users\SiC\Dropbox\Documents\Program\CTRL_3\Unit_Ch_Op.pas
+Left27=1570
+Top27=378
+Width27=477
+Height27=515
+Visible27=0
+State27=0
+Module28=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_CT48.pas
+Left28=1497
+Top28=333
+Width28=673
+Height28=975
+Visible28=0
+State28=0
+Module29=C:\Users\SiC\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PM16C.pas
+Left29=261
+Top29=281
+Width29=556
+Height29=718
+Visible29=0
+State29=0
+Module30=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+Left30=1594
+Top30=304
+Width30=506
+Height30=760
+Visible30=0
+State30=0
+Module31=E:\Dropbox\Documents\Program\CTRL_3\Unit_CT.pas
+Left31=1706
+Top31=356
+Width31=543
+Height31=1042
+Visible31=0
+State31=0
+Module32=E:\Dropbox\Documents\Program\_20210716_SAKAS_Conv\Unit_SAKAS.pas
+Left32=921
+Top32=445
+Width32=776
+Height32=679
+Visible32=0
+State32=0
+Module33=D:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PM16C.pas
+Left33=392
+Top33=80
+Width33=625
+Height33=695
+Visible33=0
+State33=0
+Module34=E:\Dropbox\Documents\Program\_20190101_Fly_DEI\Unit_PW.pas
+Left34=1319
+Top34=219
+Width34=1081
+Height34=1044
+Visible34=0
+State34=0
+Module35=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\unit_option.pas
+Left35=956
+Top35=518
+Width35=539
+Height35=758
+Visible35=0
+State35=0
+Module36=C:\Users\akn\Documents\Embarcadero\Studio\Projects\Unit8.pas
+Left36=435
+Top36=353
+Width36=633
+Height36=1007
+Visible36=0
+State36=0
+Module37=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_ACT.pas
+Left37=866
+Top37=355
+Width37=483
+Height37=844
+Visible37=0
+State37=0
+Module38=E:\Dropbox\Documents\Program\_20210520_SAKAS_Viewer\main.pas
+Left38=539
+Top38=392
+Width38=736
+Height38=876
+Visible38=0
+State38=0
+Module39=C:\Users\akn\Documents\GitHub\CTRL07\Unit_Imager.pas
+Left39=749
+Top39=535
+Width39=490
+Height39=713
+Visible39=0
+State39=0
+Module40=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Ph_PW.pas
+Left40=1599
+Top40=446
+Width40=983
+Height40=737
+Visible40=0
+State40=0
+Module41=C:\Users\a_yon\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PM16C.pas
+Left41=1356
+Top41=445
+Width41=584
+Height41=687
+Visible41=0
+State41=0
+Module42=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Left42=1357
+Top42=505
+Width42=774
+Height42=679
+Visible42=0
+State42=0
+Module43=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Left43=1221
+Top43=342
+Width43=797
+Height43=679
+Visible43=0
+State43=0
+Module44=C:\Users\SiC\Dropbox\Documents\Program\CTRL_3\Option.pas
+Left44=673
+Top44=382
+Width44=829
+Height44=857
+Visible44=0
+State44=0
+Module45=E:\Dropbox\Documents\Program\_20190101_Fly_DEI\main.pas
+Left45=144
+Top45=189
+Width45=410
+Height45=1013
+Visible45=0
+State45=0
+Module46=C:\Users\akn\Documents\GitHub\CTRL07\main.pas
+Left46=136
+Top46=405
+Width46=378
+Height46=462
+Visible46=0
+State46=0
+Module47=E:\Dropbox\Documents\Program\_20200222_pCT2\Unit_PW.pas
+Left47=1151
+Top47=488
+Width47=1044
+Height47=682
+Visible47=0
+State47=0
+Module48=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_Ph_PW.pas
+Left48=1389
+Top48=425
+Width48=943
+Height48=737
+Visible48=0
+State48=0
+Module49=E:\Dropbox\Documents\Program\_h_20210421_SC5\Unit2.pas
+Left49=1032
+Top49=383
+Width49=781
+Height49=696
+Visible49=0
+State49=0
+Module50=E:\Dropbox\Documents\Program\_20200222_pCT2\Unit1.pas
+Left50=768
+Top50=439
+Width50=658
+Height50=883
+Visible50=0
+State50=0
+Module51=E:\Dropbox\Documents\Program\_20200222_pCT2\main.pas
+Left51=276
+Top51=380
+Width51=476
+Height51=929
+Visible51=0
+State51=0
+Module52=C:\Users\Kyoto\Desktop\_h_20210501_CTRL7\Unit_Imager.pas
+Left52=955
+Top52=309
+Width52=490
+Height52=670
+Visible52=0
+State52=0
+Module53=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_Imager.pas
+Left53=788
+Top53=324
+Width53=528
+Height53=662
+Visible53=0
+State53=0
+Module54=C:\Users\akn\Documents\Embarcadero\Studio\Projects\Unit10.pas
+Left54=488
+Top54=443
+Width54=538
+Height54=751
+Visible54=0
+State54=0
+Module55=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_PM16C_Op.pas
+Left55=909
+Top55=537
+Width55=512
+Height55=590
+Visible55=0
+State55=0
+Module56=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_CT48.pas
+Left56=1179
+Top56=495
+Width56=637
+Height56=872
+Visible56=0
+State56=0
+Module57=E:\Dropbox\Documents\Program\_20200222_pCT2\Unit_Tag.pas
+Left57=624
+Top57=251
+Width57=694
+Height57=981
+Visible57=0
+State57=0
+Module58=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PM16C_Table.pas
+Left58=563
+Top58=399
+Width58=1286
+Height58=849
+Visible58=0
+State58=0
+Module59=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\unit_macro.pas
+Left59=1458
+Top59=750
+Width59=636
+Height59=545
+Visible59=0
+State59=0
+Module60=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Scan.pas
+Left60=143
+Top60=580
+Width60=1209
+Height60=863
+Visible60=0
+State60=0
+Module61=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_PM16C.pas
+Left61=395
+Top61=507
+Width61=548
+Height61=675
+Visible61=0
+State61=0
+Module62=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_ABOUT.pas
+Left62=596
+Top62=820
+Width62=411
+Height62=334
+Visible62=0
+State62=0
+Module63=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_CT.pas
+Left63=1871
+Top63=303
+Width63=521
+Height63=1042
+Visible63=0
+State63=0
+Module64=C:\Users\SiC\Dropbox\Documents\Program\_h_20210501_CTRL7\unit_main.pas
+Left64=190
+Top64=417
+Width64=368
+Height64=503
+Visible64=0
+State64=0
+Module65=E:\Dropbox\Documents\Program\CTRL_3\main.pas
+Left65=113
+Top65=446
+Width65=339
+Height65=455
+Visible65=0
+State65=0
+Module66=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_CT.pas
+Left66=483
+Top66=209
+Width66=554
+Height66=1126
+Visible66=0
+State66=0
+Module67=C:\Users\Akio Yoneyama\Documents\Embarcadero\Studio\Projects\Unit1.pas
+Left67=1749
+Top67=794
+Width67=602
+Height67=681
+Visible67=0
+State67=0
+Module68=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Shutter.pas
+Left68=986
+Top68=512
+Width68=331
+Height68=295
+Visible68=0
+State68=0
+Module69=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\main.pas
+Left69=51
+Top69=411
+Width69=469
+Height69=592
+Visible69=0
+State69=0
+Module70=E:\Dropbox\Documents\Program\_h_20201215_CTRL\main.pas
+Left70=1366
+Top70=610
+Width70=364
+Height70=487
+Visible70=0
+State70=0
+Module71=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_Status.pas
+Left71=1041
+Top71=508
+Width71=362
+Height71=259
+Visible71=0
+State71=0
+Module72=E:\Dropbox\Documents\Program\_20200222_pCT2\Unit_LP.pas
+Left72=1398
+Top72=152
+Width72=751
+Height72=452
+Visible72=0
+State72=0
+Module73=C:\Users\akn\OneDrive - Hi image (1)\プログラム\CTRL_3\Unit_PM16C2.pas
+Left73=1000
+Top73=266
+Width73=370
+Height73=252
+Visible73=0
+State73=0
+Module74=C:\Users\SiC\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_CT.pas
+Left74=0
+Top74=30
+Width74=504
+Height74=1092
+Visible74=0
+State74=0
+Module75=C:\Users\akn\OneDrive - Hi image (1)\プログラム\CTRL_3\main.pas
+Left75=1999
+Top75=528
+Width75=333
+Height75=543
+Visible75=0
+State75=0
+Module76=C:\Users\akn\Documents\GitHub\CTRL07\unit_main.pas
+Left76=729
+Top76=247
+Width76=386
+Height76=462
+Visible76=0
+State76=0
+Module77=c:\program files (x86)\embarcadero\studio\18.0\ObjRepos\JA\DelphiWin32\About.pas
+Left77=1183
+Top77=780
+Width77=421
+Height77=334
+Visible77=0
+State77=0
+Module78=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
+Left78=473
+Top78=660
+Width78=561
+Height78=687
+Visible78=1
+State78=0
+Module79=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_PM16C.pas
+Left79=359
+Top79=457
+Width79=612
+Height79=687
+Visible79=0
+State79=0
+Module80=E:\Dropbox\Documents\Program\_20150530_AD_DC_ABS\Unit_Tag.pas
+Left80=1137
+Top80=368
+Width80=773
+Height80=865
+Visible80=0
+State80=0
+Module81=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Imager.pas
+Left81=558
+Top81=547
+Width81=502
+Height81=678
+Visible81=0
+State81=0
+Module82=E:\Dropbox\Documents\Program\CTRL_3\Unit_PM16C2.pas
+Left82=1413
+Top82=366
+Width82=392
+Height82=252
+Visible82=0
+State82=0
+Module83=E:\Dropbox\Documents\Program\_20150530_AD_DC_ABS\main.pas
+Left83=804
+Top83=480
+Width83=455
+Height83=1160
+Visible83=0
+State83=0
+Module84=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_PW.pas
+Left84=1115
+Top84=666
+Width84=966
+Height84=771
+Visible84=0
+State84=0
+Module85=C:\Users\Kyoto\Desktop\_h_20210501_CTRL7\Unit_DAKAS.pas
+Left85=993
+Top85=293
+Width85=702
+Height85=655
+Visible85=0
+State85=0
+Module86=C:\Users\akn\Documents\GitHub\SAKAS-CONV\main.pas
+Left86=1563
+Top86=340
+Width86=560
+Height86=1004
+Visible86=0
+State86=0
+Module87=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_PM16C.pas
+Left87=1187
+Top87=475
+Width87=563
+Height87=800
+Visible87=0
+State87=0
+Module88=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit1.pas
+Left88=716
+Top88=437
+Width88=986
+Height88=762
+Visible88=0
+State88=0
+Module89=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+Left89=1520
+Top89=683
+Width89=883
+Height89=755
+Visible89=0
+State89=0
+Module90=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_SAKAS.pas
+Left90=1573
+Top90=232
+Width90=791
+Height90=663
+Visible90=0
+State90=0
+Module91=E:\Dropbox\Documents\Program\CTRL_3\Unit_PM16C.pas
+Left91=882
+Top91=381
+Width91=571
+Height91=754
+Visible91=0
+State91=0
+Module92=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
+Left92=90
+Top92=278
+Width92=356
+Height92=462
+Visible92=0
+State92=0
+Module93=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\unit_main.pas
+Left93=66
+Top93=233
+Width93=376
+Height93=495
+Visible93=0
+State93=0
+Module94=E:\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_Shutter.pas
+Left94=425
+Top94=577
+Width94=387
+Height94=311
+Visible94=0
+State94=0
+Module95=C:\Users\SiC\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Scan.pas
+Left95=0
+Top95=30
+Width95=1233
+Height95=871
+Visible95=0
+State95=0
+Module96=C:\Users\SiC\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_CT48.pas
+Left96=1616
+Top96=356
+Width96=615
+Height96=880
+Visible96=0
+State96=0
+Module97=E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Status.pas
+Left97=549
+Top97=346
+Width97=321
+Height97=250
+Visible97=0
+State97=0
+Module98=E:\Dropbox\Documents\Program\_20210418_Img_Tag\main.pas
+Left98=640
+Top98=386
+Width98=750
+Height98=672
+Visible98=0
+State98=0
+Module99=C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_ABOUT.pas
+Left99=651
+Top99=366
+Width99=405
+Height99=334
+Visible99=0
+State99=0
+Module100=C:\Users\SiC\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Status.pas
+Left100=247
+Top100=987
+Width100=338
+Height100=258
+Visible100=0
+State100=0
+Module101=C:\Users\SiC\Dropbox\Documents\Program\_h_20210425_CTRL5\Unit_Status.pas
+Left101=967
+Top101=613
+Width101=354
+Height101=258
+Visible101=0
+State101=0
+Module102=D:\Dropbox\Documents\Program\_20200222_pCT2\main.pas
+Left102=35
+Top102=120
+Width102=548
+Height102=978
+Visible102=0
+State102=0
+>>>>>>> Stashed changes
 
 [Watches]
 Count=0
@@ -891,8 +1632,9 @@ Dockable=1
 StayOnTop=0
 
 [Breakpoints]
-Count=1
+Count=2
 Breakpoint0='C:\Users\Akio Yoneyama\Desktop\_h_20210501_CTRL7\Unit_Scan.pas',664,'',0,1,'',1,0,0,'',1,'','','',0,''
+Breakpoint1='C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas',529,'',0,1,'',1,0,0,'',1,'','','',0,''
 
 [EmbarcaderoWin32Debugger_AddressBreakpoints]
 Count=0
@@ -1033,8 +1775,13 @@ SplitPos=102
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
+<<<<<<< Updated upstream
 SelectedItem=Name,
 ExpandedItems=Font=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0
+=======
+SelectedItem=Name,Intercept
+ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=1,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,StyleElements=0,Options=0,Font.Style=1
+>>>>>>> Stashed changes
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -1324,7 +2071,11 @@ Visible=0
 Docked=1
 State=0
 Left=-449
+<<<<<<< Updated upstream
 Top=-1263
+=======
+Top=-1443
+>>>>>>> Stashed changes
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -1343,7 +2094,11 @@ Visible=0
 Docked=1
 State=0
 Left=-449
+<<<<<<< Updated upstream
 Top=-1263
+=======
+Top=-1443
+>>>>>>> Stashed changes
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -1426,7 +2181,11 @@ Visible=0
 Docked=0
 State=0
 Left=0
+<<<<<<< Updated upstream
 Top=6674
+=======
+Top=7950
+>>>>>>> Stashed changes
 Width=1469
 Height=8255
 MaxLeft=-4
@@ -1449,7 +2208,11 @@ Visible=0
 Docked=0
 State=0
 Left=1723
+<<<<<<< Updated upstream
 Top=8950
+=======
+Top=8738
+>>>>>>> Stashed changes
 Width=4387
 Height=1475
 MaxLeft=-4

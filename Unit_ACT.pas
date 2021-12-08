@@ -311,7 +311,6 @@ begin
     LEdit_OFFY.Text := Form_Imager.Edit_ROI_Y1.Text;
 
     CB_Method.ItemIndex := RG_Method.ItemIndex;
-    //Init_Cond(0,Sender);
 
     case CB_BKMode.ItemIndex of
       0: BKIte := 0;
@@ -1079,6 +1078,7 @@ begin
           SB_SAKASClick(Sender);
           Form_SAKAS.Edit_FN.Text := TmpFN;
           Form_SAKAS.Tag_FN := TmpFN+'.tag';
+          Form_SAKAS.Label_FN.Caption := TmpFN+'.tag';
           Form_SAKAS.Save_Karte(Form_SAKAS.Tag_FN,Sender);
 
           try
