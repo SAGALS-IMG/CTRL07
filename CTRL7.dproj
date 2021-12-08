@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>CTRL7.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>2</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -249,7 +249,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-<<<<<<< Updated upstream
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -403,29 +402,7 @@
                 <DeployClass Name="Android_LauncherIcon36">
                     <Platform Name="Android">
                         <RemoteDir>res\drawable-ldpi</RemoteDir>
-=======
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
-                    <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
->>>>>>> Stashed changes
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSDevice32">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="Android64">
                         <RemoteDir>res\drawable-ldpi</RemoteDir>
@@ -747,21 +724,10 @@
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
                     </Platform>
-<<<<<<< Updated upstream
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="iOSSimulator">
-=======
-                </DeployClass>
-                <DeployClass Name="AndroidSplashStylesV21">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\values-v21</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\values-v21</RemoteDir>
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -780,21 +746,10 @@
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
                     </Platform>
-<<<<<<< Updated upstream
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="iOSSimulator">
-=======
-                </DeployClass>
-                <DeployClass Name="Android_NotificationIcon48">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -846,21 +801,10 @@
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
                     </Platform>
-<<<<<<< Updated upstream
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="iOSSimulator">
-=======
-                </DeployClass>
-                <DeployClass Name="Android_Colors">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\values</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\values</RemoteDir>
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -889,21 +833,10 @@
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
                     </Platform>
-<<<<<<< Updated upstream
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="iOSSimulator">
-=======
-                </DeployClass>
-                <DeployClass Name="Android_NotificationIcon96">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\drawable-xxxhdpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\drawable-xxxhdpi</RemoteDir>
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -1066,7 +999,6 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-<<<<<<< Updated upstream
                 <DeployClass Name="iPhone_Launch2x">
                     <Platform Name="iOSDevice64">
                         <RemoteDir>..\$(PROJECTNAME).launchscreen\Assets\LaunchScreenImage.imageset</RemoteDir>
@@ -1074,15 +1006,6 @@
                     </Platform>
                     <Platform Name="iOSSimulator">
                         <RemoteDir>..\$(PROJECTNAME).launchscreen\Assets\LaunchScreenImage.imageset</RemoteDir>
-=======
-                <DeployClass Name="AndroidFileProvider">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\xml</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\xml</RemoteDir>
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -1191,7 +1114,6 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-<<<<<<< Updated upstream
                 <DeployClass Name="iPhone_Setting58">
                     <Platform Name="iOSDevice64">
                         <RemoteDir>..\$(PROJECTNAME).launchscreen\Assets\AppIcon.appiconset</RemoteDir>
@@ -1199,15 +1121,6 @@
                     </Platform>
                     <Platform Name="iOSSimulator">
                         <RemoteDir>..\$(PROJECTNAME).launchscreen\Assets\AppIcon.appiconset</RemoteDir>
-=======
-                <DeployClass Name="Android_Strings">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\values</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\values</RemoteDir>
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -1241,7 +1154,6 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-<<<<<<< Updated upstream
                 <DeployClass Name="ProjectAndroidManifest">
                     <Platform Name="Android">
                         <Operation>1</Operation>
@@ -1257,25 +1169,6 @@
                     </Platform>
                     <Platform Name="iOSDevice64">
                         <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
-=======
-                <DeployClass Name="Android_NotificationIcon24">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\drawable-mdpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\drawable-mdpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="Android_NotificationIcon72">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -1365,7 +1258,6 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-<<<<<<< Updated upstream
                 <DeployClass Required="true" Name="ProjectOutput">
                     <Platform Name="Android">
                         <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
@@ -1407,34 +1299,10 @@
                 </DeployClass>
                 <DeployClass Name="ProjectUWPManifest">
                     <Platform Name="Win32">
-=======
-                <DeployClass Name="Android_NotificationIcon36">
-                    <Platform Name="Android64">
-                        <RemoteDir>res\drawable-hdpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="Android">
-                        <RemoteDir>res\drawable-hdpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="Android_LauncherIcon36">
-                    <Platform Name="Android">
-                        <RemoteDir>res\drawable-ldpi</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
-                <DeployClass Name="iPad_Launch1536x2048">
-                    <Platform Name="iOSDevice64">
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
->>>>>>> Stashed changes
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win64">
                         <Operation>1</Operation>
-<<<<<<< Updated upstream
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="UWP_DelphiLogo150">
@@ -1455,8 +1323,6 @@
                     <Platform Name="Win64">
                         <RemoteDir>Assets</RemoteDir>
                         <Operation>1</Operation>
-=======
->>>>>>> Stashed changes
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
