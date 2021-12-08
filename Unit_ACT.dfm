@@ -406,6 +406,17 @@ object Form_ACT: TForm_ACT
       Margins.Bottom = 4
       Caption = #916
     end
+    object Label9: TLabel
+      Left = 231
+      Top = 56
+      Width = 63
+      Height = 14
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Projection'
+    end
     object CB_axis_rot: TComboBox
       Left = 117
       Top = 53
@@ -488,6 +499,14 @@ object Form_ACT: TForm_ACT
       Alignment = taRightJustify
       TabOrder = 6
       Text = '100'
+    end
+    object Edit_Pro: TEdit
+      Left = 308
+      Top = 53
+      Width = 79
+      Height = 22
+      TabOrder = 7
+      Text = '1000'
     end
   end
   object GroupBox2: TGroupBox

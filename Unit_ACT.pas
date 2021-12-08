@@ -71,6 +71,8 @@ type
     Label6: TLabel;
     CB_AutoSh: TCheckBox;
     CB_Ext_imager: TCheckBox;
+    Edit_Pro: TEdit;
+    Label9: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -158,6 +160,7 @@ begin
     Edit_R_ST.Text :=  Ini.ReadString('CT','RST','0');
     Edit_R_End.Text := Ini.ReadString('CT','REND','189000');
     Edit_R_d.Text :=   Ini.ReadString('CT','dR','180');
+    Edit_Pro.Text :=  Ini.ReadString('CT','Pro','1000');
     Edit_CT_Shift.Text := Ini.ReadString('CT','Shift','180');
     Edit_EXPT.Text :=   Ini.ReadString('CT','Exp_Time','1000');
     CB_Moni2.Checked := Ini.ReadBool('CT','Mon_Int',true);
@@ -210,6 +213,7 @@ begin
     Ini.WriteString('CT','RST',       Edit_R_ST.Text);
     Ini.WriteString('CT','REND',      Edit_R_End.Text);
     Ini.WriteString('CT','dR',        Edit_R_d.Text);
+    Ini.WriteString('CT','Pro',       Edit_Pro.Text);
     Ini.WriteString('CT','Shift',     Edit_CT_Shift.Text);
     Ini.WriteString('CT','Exp_Time',  Edit_EXPT.Text);
     Ini.WriteBool('CT','Mon_Int',CB_Moni2.Checked );
@@ -296,6 +300,8 @@ begin
 
     Edit_Exp_T.Text := Edit_EXPT.Text;
     Edit_BKExp_T.Text := Edit_BK_EXPT.Text;
+
+    LEdit_Pro.Text := Edit_Pro.Text;
 
     LEdit_OW.Text := Form_Imager.OW.ToString;
     LEdit_OH.Text := Form_Imager.OH.ToString;
@@ -444,6 +450,9 @@ begin
   BKm := StrToInt(Edit_XZ_M.Text);
   BKbk := StrToInt(Edit_XZ_BK.Text);
   BKN := StrToInt(Edit_BKN.Text);
+  if CB_BKMode.ItemIndex=1 then
+    Edit_BK_Int.Text := ((Rot2-Rot1) div dR).ToString;
+
   BK_Int := StrToInt(Edit_BK_Int.Text);
 
   PH_PH0 := StrToInt(Edit_FS_Orig.Text);
