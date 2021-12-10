@@ -676,6 +676,7 @@ object Form_ACT: TForm_ACT
       ItemIndex = 1
       TabOrder = 0
       Text = 'Start & End'
+      OnChange = CB_BKModeChange
       Items.Strings = (
         'non'
         'Start & End'

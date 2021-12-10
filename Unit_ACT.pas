@@ -99,6 +99,7 @@ type
     procedure BB_CT_STClick(Sender: TObject);
     procedure BB_CT_STOPClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure CB_BKModeChange(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -274,6 +275,16 @@ begin
   PH_Ch   :=     CB_axis_ph.ItemIndex ;
 end;
 
+procedure TForm_ACT.CB_BKModeChange(Sender: TObject);
+begin
+  Rot1 := StrToInt(Edit_R_ST.Text);
+  Rot2 := StrToInt(Edit_R_End.Text);
+  dR := StrToInt(Edit_R_d.Text);
+
+  if CB_BKMode.ItemIndex=1 then
+    Edit_BK_Int.Text := ((Rot2-Rot1) div dR).ToString;
+end;
+
 procedure TForm_ACT.SB_SAKASClick(Sender: TObject);
 var
   lPro, BKNum, BKIte, BKInt, FSN : longint;
@@ -318,6 +329,8 @@ begin
       2: BKIte :=lPRo div BKInt+1;
     end;
     Edit_ImgN.Text := ((lPro+BKNum*BKIte)*FSN).ToString ;
+
+    Edit_BKInt.Text := Edit_BK_Int.Text;
 
     Edit_FNBK1.Text := '';
     Edit_FNBK2.Text := '';
