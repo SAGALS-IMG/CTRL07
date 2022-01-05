@@ -16,29 +16,34 @@ File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Zyla.pas',
 File_14=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Shutter.pas',0,1,77,1,154,0,0,,
 
 [Modules]
-Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
-Module1=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
-Count=2
+Module0=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module1=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Module2=C:\Users\akn\Documents\GitHub\CTRL07\CTRL7.dproj
+Count=3
 EditWindowCount=1
 
-[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas]
+[C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas]
 ModuleType=TSourceModule
 
-[C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas]
+[C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas]
 ModuleType=TSourceModule
+
+[C:\Users\akn\Documents\GitHub\CTRL07\CTRL7.dproj]
+ModuleType=TBaseProject
 
 [EditWindow0]
-ViewCount=2
-CurrentEditView=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+ViewCount=3
+CurrentEditView=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
 View0=0
 View1=1
+View2=2
 PercentageSizes=1
 Create=1
 Visible=1
 Docked=0
 State=0
-Left=1969
-Top=2319
+Left=2961
+Top=1851
 Width=4156
 Height=6887
 MaxLeft=-4
@@ -57,42 +62,67 @@ BottomMiddelPanelData=0000080001000000000000000000000000000000000000000000000100
 
 [View0]
 CustomEditViewType=TEditView
-Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
-CursorX=41
-CursorY=333
-TopLine=293
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
-
-[View1]
-CustomEditViewType=TEditView
-Module=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Module=C:\Users\akn\Documents\GitHub\CTRL07\CTRL7.dpr
 CursorX=1
-CursorY=1
+CursorY=2
 TopLine=1
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+EditViewName=C:\Users\akn\Documents\GitHub\CTRL07\CTRL7.dpr
+
+[View1]
+CustomEditViewType=TEditView
+Module=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
+CursorX=3
+CursorY=576
+TopLine=655
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
+
+[View2]
+CustomEditViewType=TEditView
+Module=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+CursorX=78
+CursorY=392
+TopLine=364
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
 
 [UndockedDesigner]
-Count=2
-Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
-Left0=275
-Top0=437
-Width0=494
-Height0=760
-Visible0=1
+Count=4
+Module0=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Left0=1318
+Top0=529
+Width0=829
+Height0=679
+Visible0=0
 State0=0
-Module1=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
-Left1=1318
-Top1=529
-Width1=829
-Height1=679
-Visible1=1
+Module1=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+Left1=275
+Top1=437
+Width1=494
+Height1=760
+Visible1=0
 State1=0
+Module2=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
+Left2=142
+Top2=656
+Width2=485
+Height2=760
+Visible2=1
+State2=0
+Module3=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Left3=1451
+Top3=669
+Width3=805
+Height3=679
+Visible3=1
+State3=0
 
 [Watches]
 Count=0
@@ -126,6 +156,9 @@ Breakpoint1='C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas',5
 [EmbarcaderoWin32Debugger_AddressBreakpoints]
 Count=0
 
+[EmbarcaderoOSXDebugger_AddressBreakpoints]
+Count=0
+
 [EmbarcaderoWin64Debugger_AddressBreakpoints]
 Count=0
 
@@ -143,7 +176,7 @@ MaxLeft=-4
 MaxTop=-7
 ClientWidth=9938
 ClientHeight=638
-BottomPanelSize=167
+BottomPanelSize=0
 
 [ProjectManager]
 PercentageSizes=1
@@ -262,8 +295,8 @@ SplitPos=102
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,
-ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0,BevelEdges=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,StyleElements=0
+SelectedItem=Caption,Action
+ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=1,GlassFrame=0,HorzScrollBar=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,Padding=0,BevelEdges=0,StyleElements=0,Font.Style=0,Touch=0,Associate=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -432,12 +465,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=4324
-Height=1021
+Width=4383
+Height=1298
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=4324
-ClientHeight=1021
+ClientWidth=4383
+ClientHeight=1298
 TBDockHeight=5078
 LRDockWidth=5301
 Dockable=1
@@ -469,7 +502,7 @@ Visible=0
 Docked=0
 State=0
 Left=1723
-Top=8759
+Top=8972
 Width=3672
 Height=1241
 MaxLeft=-4
@@ -552,8 +585,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-449
-Top=-1383
+Left=-389
+Top=-1169
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -571,8 +604,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-449
-Top=-1383
+Left=-389
+Top=-1169
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -655,7 +688,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=7525
+Top=7738
 Width=1469
 Height=8255
 MaxLeft=-4
@@ -678,7 +711,7 @@ Visible=0
 Docked=0
 State=0
 Left=1723
-Top=9801
+Top=8525
 Width=4387
 Height=1475
 MaxLeft=-4
@@ -691,7 +724,7 @@ Dockable=1
 StayOnTop=0
 TabPosition=1
 ActiveTabID=RefactoringForm
-TabDockClients=RefactoringForm,FindReferencsForm,QAView,MetricsView
+TabDockClients=RefactoringForm,FindReferencsForm,MetricsView,QAView
 
 [DockSite1]
 DockSiteType=1

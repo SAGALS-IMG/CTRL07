@@ -326,7 +326,10 @@ begin
     case CB_BKMode.ItemIndex of
       0: BKIte := 0;
       1: BKIte := 2;
-      2: BKIte :=lPRo div BKInt+1;
+      2: if (lPRo mod BKInt) =0 then
+           BKIte := lPRo div BKInt+1
+         else
+           BKIte := lPRo div BKInt+2;
     end;
     Edit_ImgN.Text := ((lPro+BKNum*BKIte)*FSN).ToString ;
 
