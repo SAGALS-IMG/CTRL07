@@ -24,8 +24,6 @@ object Form_Ph_PW: TForm_Ph_PW
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
-    ExplicitWidth = 795
-    ExplicitHeight = 606
     object Panel3: TPanel
       Left = 2
       Top = 2
@@ -34,7 +32,6 @@ object Form_Ph_PW: TForm_Ph_PW
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 912
       object GroupBox2: TGroupBox
         Left = 0
         Top = 0
@@ -52,7 +49,6 @@ object Form_Ph_PW: TForm_Ph_PW
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 912
         object Bevel3: TBevel
           Left = 552
           Top = 46
@@ -429,7 +425,7 @@ object Form_Ph_PW: TForm_Ph_PW
           Text = '0'
         end
         object UD_No: TUpDown
-          Left = 303
+          Left = 302
           Top = 73
           Width = 16
           Height = 22
@@ -447,9 +443,6 @@ object Form_Ph_PW: TForm_Ph_PW
       Height = 731
       Align = alClient
       TabOrder = 1
-      ExplicitTop = 87
-      ExplicitWidth = 791
-      ExplicitHeight = 517
       object Image1: TImage
         Left = 0
         Top = 0
@@ -459,14 +452,12 @@ object Form_Ph_PW: TForm_Ph_PW
         OnMouseMove = Image1MouseMove
       end
       object SS: TSelShape
-        Left = 33
+        Left = 48
         Top = 48
         Width = 65
         Height = 65
         Brush.Style = bsClear
         Pen.Color = clRed
-        Pen.Width = 2
-        OnMouseMove = SSMouseMove
         SizeSense = 5
         MinWidth = 5
         MinHeight = 5

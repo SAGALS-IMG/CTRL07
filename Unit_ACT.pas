@@ -419,6 +419,10 @@ begin
 end;
 
 procedure TForm_ACT.Save_Ph_Map(Sender: TObject);
+var
+  i,j,k : longint;
+  FS : TFileStream;
+  lData : array[0..4100] of WORD;
 begin
   if SaveDialog1.Execute then
   begin
@@ -429,11 +433,28 @@ begin
     Form_Ph_PW.PData := Form_Ph_PW.SData[2];
     Form_Ph_PW.Save_Data(SaveDialog1.FileName+'.amp', Sender);
 
-    Form_Ph_PW.PData := Form_Ph_PW.SData[3];
-    Form_Ph_PW.Save_Data(SaveDialog1.FileName+'.re', Sender);
-    Form_Ph_PW.PData := Form_Ph_PW.SData[4];
-    Form_Ph_PW.Save_Data(SaveDialog1.FileName+'.im', Sender);
+    Form_Ph_PW.PData := Form_Ph_PW.SData[1];
+
+    FS := TfileStream.Create(SaveDialog1.FileName+'.dat',fmCreate);
+
+    for k:=0 to PH_n-1 do
+    begin
+      for j:=0 to Form_Imager.PH-1 do
+      begin
+        for i:=0 to Form_Imager.PW-1 do
+        begin
+          lData[i] := IData[k,j,i];
+        end;
+        FS.WriteBuffer(lData,Form_Imager.PW*2);
+      end;
+    end;
+    FS.Free;
   end;
+
+//    Form_Ph_PW.PData := Form_Ph_PW.SData[3];
+//    Form_Ph_PW.Save_Data(SaveDialog1.FileName+'.re', Sender);
+//    Form_Ph_PW.PData := Form_Ph_PW.SData[4];
+//    Form_Ph_PW.Save_Data(SaveDialog1.FileName+'.im', Sender);
 end;
 
 function TForm_ACT.Calc_AvI(Sender: TObject):double;

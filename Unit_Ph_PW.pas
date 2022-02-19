@@ -37,7 +37,6 @@ type
     Label4: TLabel;
     BB_ImgCopy: TBitBtn;
     Label_Size: TLabel;
-    SS: TSelShape;
     BB_Save: TBitBtn;
     Bevel1: TBevel;
     Bevel2: TBevel;
@@ -50,6 +49,7 @@ type
     SB_Copy: TSpeedButton;
     Label8: TLabel;
     Label10: TLabel;
+    SS: TSelShape;
     procedure BB_ReDrawClick(Sender: TObject);
     procedure Draw_Data(Sender: TObject);
     procedure Load_Data(FN:string;Sender: Tobject);
