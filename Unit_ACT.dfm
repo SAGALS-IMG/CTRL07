@@ -24,7 +24,6 @@ object Form_ACT: TForm_ACT
     Height = 19
     Panels = <>
     SimplePanel = True
-    ExplicitWidth = 397
   end
   object GroupBox4: TGroupBox
     Left = 0
@@ -43,8 +42,6 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 4
-    ExplicitTop = 417
-    ExplicitWidth = 397
     object Label7: TLabel
       Left = 95
       Top = 24
@@ -156,9 +153,6 @@ object Form_ACT: TForm_ACT
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 5
-    ExplicitTop = 472
-    ExplicitWidth = 397
-    ExplicitHeight = 138
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries
@@ -182,7 +176,6 @@ object Form_ACT: TForm_ACT
     Color = 16709617
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
     object SB_ReShow: TSpeedButton
       Left = 374
       Top = 9
@@ -369,8 +362,6 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 1
-    ExplicitTop = 82
-    ExplicitWidth = 397
     object Label3: TLabel
       Left = 9
       Top = 56
@@ -557,8 +548,6 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 2
-    ExplicitTop = 195
-    ExplicitWidth = 397
     object Label10: TLabel
       Left = 11
       Top = 53
@@ -727,8 +716,6 @@ object Form_ACT: TForm_ACT
     ParentBackground = False
     ParentColor = False
     TabOrder = 3
-    ExplicitTop = 335
-    ExplicitWidth = 397
     object Label18: TLabel
       Left = 9
       Top = 24

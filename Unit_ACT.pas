@@ -1152,7 +1152,7 @@ begin
           end;
           AStopWatch.Stop;
           if (Edit_Int.Text <>'') then
-            Sleep((StrToInt(Edit_Int.Text)- (AStopWatch.ElapsedMilliseconds div 1000))*1000);
+            Sleep(StrToInt(Edit_Int.Text){- (AStopWatch.ElapsedMilliseconds div 1000))}*1000);
         end;
       finally
         Form_PM16C.SB_RefreshClick(Sender);
