@@ -19,7 +19,6 @@ type
     Panel1: TPanel;
     BB_CT_ST: TBitBtn;
     BB_CT_STOP: TBitBtn;
-    Label13: TLabel;
     Edit_Ite: TEdit;
     UD_Ite: TUpDown;
     SB_ReShow: TSpeedButton;
@@ -73,6 +72,10 @@ type
     CB_Ext_imager: TCheckBox;
     Edit_Pro: TEdit;
     Label9: TLabel;
+    Edit_Int: TEdit;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label12: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -1079,6 +1082,7 @@ procedure TForm_ACT.BB_CT_STClick(Sender: TObject);
 var
   m:longint;
   TmpFN : string;
+
 begin
   if ((Form_Imager.Zyla_Opened) and (Form_PM16C.CB_Connect.Checked)) or
      ((CB_Ext_imager.Checked) and (Form_PM16C.CB_Connect.Checked))  then
@@ -1108,6 +1112,8 @@ begin
       try
         for m:=0 to UD_Ite.Position-1 do
         begin
+          AStopWatch := TStopwatch.StartNew;
+
           TmpFN := SaveDialog1.FileName+'_'+m.ToString;
           FS := TFileStream.Create(TmpFN,fmCreate);
           Init_Cond(m,Sender);
@@ -1144,6 +1150,9 @@ begin
             if not(CB_Ext_imager.Checked) then
               FS.Free;
           end;
+          AStopWatch.Stop;
+          if (Edit_Int.Text <>'') then
+            Sleep(StrToInt(Edit_Int.Text)- (AStopWatch.ElapsedMilliseconds div 1000));
         end;
       finally
         Form_PM16C.SB_RefreshClick(Sender);

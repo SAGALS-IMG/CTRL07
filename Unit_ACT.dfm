@@ -3,7 +3,7 @@ object Form_ACT: TForm_ACT
   Top = 0
   Caption = 'CT'
   ClientHeight = 629
-  ClientWidth = 397
+  ClientWidth = 396
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,15 +20,16 @@ object Form_ACT: TForm_ACT
   object SB_CT: TStatusBar
     Left = 0
     Top = 610
-    Width = 397
+    Width = 396
     Height = 19
     Panels = <>
     SimplePanel = True
+    ExplicitWidth = 397
   end
   object GroupBox4: TGroupBox
     Left = 0
-    Top = 417
-    Width = 397
+    Top = 416
+    Width = 396
     Height = 55
     Align = alTop
     Caption = ' SAKAS '
@@ -42,6 +43,8 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 4
+    ExplicitTop = 417
+    ExplicitWidth = 397
     object Label7: TLabel
       Left = 95
       Top = 24
@@ -94,9 +97,9 @@ object Form_ACT: TForm_ACT
   end
   object Chart1: TChart
     Left = 0
-    Top = 472
-    Width = 397
-    Height = 138
+    Top = 471
+    Width = 396
+    Height = 139
     BackWall.Brush.Gradient.Direction = gdBottomTop
     BackWall.Brush.Gradient.EndColor = clWhite
     BackWall.Brush.Gradient.StartColor = 15395562
@@ -153,6 +156,9 @@ object Form_ACT: TForm_ACT
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 5
+    ExplicitTop = 472
+    ExplicitWidth = 397
+    ExplicitHeight = 138
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries
@@ -169,25 +175,19 @@ object Form_ACT: TForm_ACT
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 397
-    Height = 82
+    Width = 396
+    Height = 81
     Align = alTop
     BevelOuter = bvNone
     Color = 16709617
     ParentBackground = False
     TabOrder = 0
-    object Label13: TLabel
-      Left = 284
-      Top = 4
-      Width = 55
-      Height = 14
-      Caption = 'Iteration'
-    end
+    ExplicitTop = -6
     object SB_ReShow: TSpeedButton
-      Left = 357
-      Top = 19
-      Width = 23
-      Height = 22
+      Left = 374
+      Top = 9
+      Width = 18
+      Height = 14
       Flat = True
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -206,21 +206,42 @@ object Form_ACT: TForm_ACT
       Visible = False
       OnClick = SB_ReShowClick
     end
+    object Label13: TLabel
+      Left = 239
+      Top = 8
+      Width = 18
+      Height = 14
+      Caption = 'Ite'
+    end
+    object Label14: TLabel
+      Left = 306
+      Top = 8
+      Width = 48
+      Height = 14
+      Caption = 'Interval'
+    end
+    object Label12: TLabel
+      Left = 368
+      Top = 30
+      Width = 16
+      Height = 14
+      Caption = '[s]'
+    end
     object RG_Method: TRadioGroup
       Left = 95
       Top = 8
-      Width = 90
+      Width = 67
       Height = 66
       Caption = 'Method'
       ItemIndex = 0
       Items.Strings = (
-        'Absorp.'
+        'Abs'
         'Phase')
       TabOrder = 4
     end
     object BB_CT_ST: TBitBtn
       Left = 9
-      Top = 10
+      Top = 12
       Width = 80
       Height = 28
       Caption = 'Start'
@@ -277,16 +298,16 @@ object Form_ACT: TForm_ACT
       OnClick = BB_CT_STOPClick
     end
     object Edit_Ite: TEdit
-      Left = 284
-      Top = 22
-      Width = 45
+      Left = 239
+      Top = 26
+      Width = 39
       Height = 22
       TabOrder = 2
       Text = '1'
     end
     object UD_Ite: TUpDown
-      Left = 329
-      Top = 22
+      Left = 278
+      Top = 26
       Width = 16
       Height = 22
       Associate = Edit_Ite
@@ -295,9 +316,9 @@ object Form_ACT: TForm_ACT
       TabOrder = 3
     end
     object RG_Scan: TRadioGroup
-      Left = 191
+      Left = 168
       Top = 8
-      Width = 80
+      Width = 65
       Height = 66
       Caption = 'Scan'
       ItemIndex = 0
@@ -307,26 +328,34 @@ object Form_ACT: TForm_ACT
       TabOrder = 5
     end
     object CB_AutoSh: TCheckBox
-      Left = 284
-      Top = 46
-      Width = 108
+      Left = 239
+      Top = 54
+      Width = 74
       Height = 17
-      Caption = 'Auto Shutter'
+      Caption = 'Shutter'
       TabOrder = 6
     end
     object CB_Ext_imager: TCheckBox
-      Left = 284
-      Top = 62
-      Width = 108
+      Left = 319
+      Top = 54
+      Width = 73
       Height = 17
-      Caption = 'Ext imager'
+      Caption = 'Ext. trig'
       TabOrder = 7
+    end
+    object Edit_Int: TEdit
+      Left = 304
+      Top = 26
+      Width = 53
+      Height = 22
+      TabOrder = 8
+      Text = '3600'
     end
   end
   object GroupBox3: TGroupBox
     Left = 0
-    Top = 82
-    Width = 397
+    Top = 81
+    Width = 396
     Height = 113
     Align = alTop
     Caption = '  Main CT  '
@@ -340,6 +369,8 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 1
+    ExplicitTop = 82
+    ExplicitWidth = 397
     object Label3: TLabel
       Left = 9
       Top = 56
@@ -511,8 +542,8 @@ object Form_ACT: TForm_ACT
   end
   object GroupBox2: TGroupBox
     Left = 0
-    Top = 195
-    Width = 397
+    Top = 194
+    Width = 396
     Height = 140
     Align = alTop
     Caption = ' Background '
@@ -526,6 +557,8 @@ object Form_ACT: TForm_ACT
     ParentColor = False
     ParentFont = False
     TabOrder = 2
+    ExplicitTop = 195
+    ExplicitWidth = 397
     object Label10: TLabel
       Left = 11
       Top = 53
@@ -685,8 +718,8 @@ object Form_ACT: TForm_ACT
   end
   object GroupBox5: TGroupBox
     Left = 0
-    Top = 335
-    Width = 397
+    Top = 334
+    Width = 396
     Height = 82
     Align = alTop
     Caption = ' Fringe Scanning '
@@ -694,6 +727,8 @@ object Form_ACT: TForm_ACT
     ParentBackground = False
     ParentColor = False
     TabOrder = 3
+    ExplicitTop = 335
+    ExplicitWidth = 397
     object Label18: TLabel
       Left = 9
       Top = 24
