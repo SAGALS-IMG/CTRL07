@@ -131,7 +131,7 @@ type
     Go,  Zyla_Opened : boolean;
 
     Hndl, Buf_Size, MotorAXIS:Int64;
-    PW, PH, OW, OH : Int64 ;
+    PW, PH, OW, OH, Stride : Int64 ;
 
     AlignedBuffers : array[0..NumberOfBuffers-1] of ^TIData;
 
@@ -213,8 +213,9 @@ begin
   if Show_Img then
   begin
     for j:=0 to PH-1 do
-      for i:=0 to PW+-1 do
-        Form_PW.PData[j,i] := AlignedBuffers[0][j*PW+i];
+      for i:=0 to Stride-1 do
+        if i<PW then
+          Form_PW.PData[j,i] := AlignedBuffers[0][j*Stride+i];
     Form_PW.Show;
     Form_PW.Draw_Data(Sender);
   end;
@@ -253,8 +254,9 @@ begin
     if Show_Img then
     begin
       for j:=0 to PH-1 do
-        for i:=0 to PW+-1 do
-          Form_PW.PData[j,i] := AlignedBuffers[k mod NumberOfBuffers]^[j*PW+i];
+        for i:=0 to Stride-1 do
+          if i<PW then
+            Form_PW.PData[j,i] := AlignedBuffers[k mod NumberOfBuffers]^[j*Stride+i];
       Form_PW.Draw_Data(Sender);
     end;
 
@@ -276,8 +278,9 @@ begin
   for k:=0 to SN-1 do
   begin
       for j:=0 to PH-1 do
-        for i:=0 to PW+-1 do
-          Form_PW.PData[j,i] := AlignedBuffers[k]^[j*PW+i];
+        for i:=0 to Stride-1 do
+          if i<PW then
+            Form_PW.PData[j,i] := AlignedBuffers[k]^[j*Stride+i];
     Form_PW.Save_Data(FN+'_'+k.ToString,Sender);
   end;
 end;
@@ -301,8 +304,9 @@ var
 begin
   AT_WaitBuffer(Hndl, @Buf, @rBufSize, AT_INFINITE);
   for j:=0 to PH-1 do
-    for i:=0 to PW+-1 do
-      RawData[j,i] := AlignedBuffers[li mod NumberOfBuffers]^[j*PW+i];
+    for i:=0 to Stride-1 do
+      if i<PW then
+        RawData[j,i] := AlignedBuffers[li mod NumberOfBuffers]^[j*Stride+i];
   if Form_Main.CB_Log.Checked then
     Form_Main.AddLine('Get_Img',true);
 end;
@@ -559,16 +563,20 @@ begin
   Form_PW.PW := PW;
   Form_PW.PH := PH;
   for j:=0 to PH-1 do
-    for i:=0 to PW-1 do
+    for i:=0 to Stride-1 do
     begin
-      Form_PW.IData[j,i] := AlignedBuffers[0]^[j*PW+i];
-      Form_PW.PData[j,i] := Form_PW.IData[j,i] ;
+      if i<PW then
+      begin
+        Form_PW.IData[j,i] := AlignedBuffers[0]^[j*Stride+i];
+        Form_PW.PData[j,i] := Form_PW.IData[j,i] ;
+      end;
     end;
 //  Form_PW.SData[0] := Form_PW.PData ;
 
   Form_PW.Show;
   Form_PW.Draw_Data(Sender);
 //  Dispose(AlignedBuffers[0]);
+
 end;
 
 procedure TForm_Imager.BB_LiveClick(Sender: TObject);
@@ -597,8 +605,9 @@ begin
     AT_WaitBuffer(Hndl, @Buf, @rBufSize, AT_INFINITE);
 
     for j:=0 to PH-1 do
-      for i:=0 to PW+-1 do
-        Form_PW.PData[j,i] := AlignedBuffers[k mod NumberOfBuffers]^[j*PW+i];
+      for i:=0 to Stride-1 do
+        if i<PW then
+          Form_PW.PData[j,i] := AlignedBuffers[k mod NumberOfBuffers]^[j*Stride+i];
     Form_PW.Draw_Data(Sender);
 
     AT_QueueBuffer(Hndl, AlignedBuffers[k mod NumberOfBuffers], Buf_Size);
@@ -633,22 +642,32 @@ begin
   PW := StrToInt(Edit_ROI_X2.Text)-StrToInt(Edit_ROI_X1.Text)+1;
   AT_SetInt(Hndl, 'AOIWidth', &PW);
 
+  if AT_GetInt(Hndl, 'AOIWidth', @TmpInt)=AT_SUCCESS then
+  begin
+    PW := TmpInt;
+//  Form_Main.Memo.Lines.Add('Image Width : '+PW.ToString);
+  end;
+
+  if AT_GetInt(Hndl, 'AOIStride', @TmpInt)=AT_SUCCESS then
+  begin
+    Stride := TmpInt div 2;
+//    Memo.Lines.Add('Stride : '+TmpInt.ToString);
+  end;
+
+
   PH := StrToInt(Edit_ROI_Y2.Text)-StrToInt(Edit_ROI_Y1.Text)+1;
   AT_SetInt(Hndl, 'AOIHeight', &PH);
+  if AT_GetInt(Hndl, 'AOIHeight', @TmpInt)=AT_SUCCESS then
+  begin
+    PH := TmpInt;
+//  Form_Main.Memo.Lines.Add('Image Height : '+PH.ToString);
+  end;
 
   PLeft := StrToInt(Edit_ROI_X1.Text);
   AT_SetInt(Hndl, 'AOILeft', &PLeft);
 
   PTop := StrToInt(Edit_ROI_Y1.Text);
   AT_SetInt(Hndl, 'AOITop', &PTop);
-
-  AT_GetInt(Hndl, 'AOIWidth', @TmpInt);
-  PW := TmpInt;
-//  Form_Main.Memo.Lines.Add('Image Width : '+PW.ToString);
-
-  AT_GetInt(Hndl, 'AOIHeight', @TmpInt);
-  PH := TmpInt;
-//  Form_Main.Memo.Lines.Add('Image Height : '+PH.ToString);
 
 //  AT_GetInt(Hndl, 'AOILeft', @TmpInt);
 //  PW := TmpInt;
@@ -979,8 +998,9 @@ begin
       Form_Main.AddLine('Get_Img',true);
 
     for j:=0 to PH-1 do
-      for i:=0 to PW+-1 do
-        RawData[j,i] := AlignedBuffers[ImgNo mod NumberOfBuffers]^[j*PW+i];
+      for i:=0 to STride-1 do
+        if i<PW then
+          RawData[j,i] := AlignedBuffers[ImgNo mod NumberOfBuffers]^[j*Stride+i];
 
     for j:=0 to PH-1 do
       for i:=0 to PW+-1 do
@@ -1072,8 +1092,9 @@ begin
     AT_WaitBuffer(Hndl, @Buf, @rBufSize, AT_INFINITE);
 
     for j:=0 to PH-1 do
-      for i:=0 to PW+-1 do
-        Form_PW.PData[j,i] := AlignedBuffers[k mod NumberOfBuffers]^[j*PW+i];
+      for i:=0 to Stride-1 do
+        if i<PW then
+          Form_PW.PData[j,i] := AlignedBuffers[k mod NumberOfBuffers]^[j*Stride+i];
     Form_PW.Draw_Data(Sender);
 //    if Form_Main.CB_Log.Checked then
 //      Form_Main.Memo.Lines.Add('Get_Img');

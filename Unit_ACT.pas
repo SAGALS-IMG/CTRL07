@@ -390,7 +390,7 @@ begin
         Form_Imager.Soft_Trigger;
         Form_Imager.Wait_Data(k mod NumberOfBuffers);
         for j:=0 to Form_PW.PH-1 do
-          for i:=0 to Form_PW.PW+-1 do
+          for i:=0 to Form_PW.PW-1 do
           begin
             Form_PW.PData[j,i] := Form_Imager.RAWData[j,i];
             IData[k,j,i] :=Form_Imager.RAWData[j,i];
