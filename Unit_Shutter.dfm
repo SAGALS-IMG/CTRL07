@@ -2,13 +2,9 @@ object Form_Shutter: TForm_Shutter
   Left = 0
   Top = 0
   Caption = 'Shutter'
-  ClientHeight = 125
-  ClientWidth = 259
+  ClientHeight = 210
+  ClientWidth = 274
   Color = clBtnFace
-  Constraints.MaxHeight = 164
-  Constraints.MaxWidth = 275
-  Constraints.MinHeight = 164
-  Constraints.MinWidth = 275
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,26 +17,42 @@ object Form_Shutter: TForm_Shutter
   TextHeight = 13
   object SB: TStatusBar
     Left = 0
-    Top = 106
-    Width = 259
+    Top = 191
+    Width = 274
     Height = 19
     Panels = <>
     SimplePanel = True
+    ExplicitTop = 106
+    ExplicitWidth = 259
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 259
-    Height = 24
+    Width = 274
+    Height = 89
     Align = alTop
-    BevelOuter = bvNone
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
     TabOrder = 1
     object Label1: TLabel
-      Left = 178
-      Top = 4
-      Width = 30
+      Left = 98
+      Top = 34
+      Width = 46
       Height = 14
-      Caption = 'GPIB '
+      Caption = 'GPIB/CH'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 61
+      Width = 103
+      Height = 14
+      Caption = 'OPEN/CLOSE POS.'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -49,8 +61,8 @@ object Form_Shutter: TForm_Shutter
       ParentFont = False
     end
     object CB_Connect: TCheckBox
-      Left = 2
-      Top = 3
+      Left = 98
+      Top = 5
       Width = 70
       Height = 17
       Caption = 'Connect : '
@@ -64,8 +76,8 @@ object Form_Shutter: TForm_Shutter
       OnClick = CB_ConnectClick
     end
     object Edit_IP: TEdit
-      Left = 76
-      Top = 1
+      Left = 176
+      Top = 3
       Width = 85
       Height = 22
       Font.Charset = DEFAULT_CHARSET
@@ -78,9 +90,9 @@ object Form_Shutter: TForm_Shutter
       Text = '10.7.3.105'
     end
     object Edit_Addr: TEdit
-      Left = 208
-      Top = 1
-      Width = 30
+      Left = 176
+      Top = 31
+      Width = 72
       Height = 22
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -92,23 +104,71 @@ object Form_Shutter: TForm_Shutter
       Text = '7'
     end
     object UD_Addr: TUpDown
-      Left = 238
-      Top = 1
+      Left = 245
+      Top = 31
       Width = 16
       Height = 22
       Associate = Edit_Addr
       Position = 7
       TabOrder = 3
     end
+    object RB_STR: TRadioButton
+      Left = 16
+      Top = 8
+      Width = 65
+      Height = 17
+      Caption = 'STR5'
+      TabOrder = 4
+    end
+    object RB_16C: TRadioButton
+      Left = 16
+      Top = 34
+      Width = 65
+      Height = 17
+      Caption = 'PM16C'
+      Checked = True
+      TabOrder = 5
+      TabStop = True
+    end
+    object Edit_OP: TEdit
+      Left = 176
+      Top = 59
+      Width = 41
+      Height = 21
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+      Text = '1000'
+    end
+    object Edit_CP: TEdit
+      Left = 224
+      Top = 59
+      Width = 37
+      Height = 21
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+      Text = '0'
+    end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 24
+    Top = 89
     Width = 121
-    Height = 82
+    Height = 102
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitTop = 24
+    ExplicitHeight = 82
     object BB_OPEN: TBitBtn
       Left = 8
       Top = 6
@@ -144,12 +204,13 @@ object Form_Shutter: TForm_Shutter
   end
   object Panel3: TPanel
     Left = 121
-    Top = 24
-    Width = 138
-    Height = 82
+    Top = 89
+    Width = 153
+    Height = 102
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 3
+    ExplicitTop = 59
     object Label2: TLabel
       Left = 6
       Top = 6
@@ -185,7 +246,7 @@ object Form_Shutter: TForm_Shutter
     IPVersion = Id_IPv4
     Port = 7777
     ReadTimeout = -1
-    Left = 224
-    Top = 166
+    Left = 184
+    Top = 126
   end
 end

@@ -24,6 +24,11 @@ type
     Panel3: TPanel;
     Label2: TLabel;
     Label_ST: TLabel;
+    RB_STR: TRadioButton;
+    RB_16C: TRadioButton;
+    Edit_OP: TEdit;
+    Edit_CP: TEdit;
+    Label3: TLabel;
 
     function Connect(IP,Port:string): boolean;
     function DisConnect: boolean;
@@ -150,21 +155,50 @@ end;
 
 
 procedure TForm_Shutter.CB_ConnectClick(Sender: TObject);
+var
+  GetPos: longint;
 begin
   //クリックした後の状態でコーディング
   if CB_Connect.checked then
   begin
-    if Connect(Edit_IP.Text,'1234') then
+    if RB_STR.Checked then
     begin
-      Form_Shutter.Prologic_Init;
-      Form_Shutter.GetStatus(Sender);
-      BB_OPEN.Enabled := true;
-      BB_CLOSE.Enabled := true;
+      if Connect(Edit_IP.Text,'1234') then
+      begin
+        Form_Shutter.Prologic_Init;
+        Form_Shutter.GetStatus(Sender);
+        BB_OPEN.Enabled := true;
+        BB_CLOSE.Enabled := true;
+      end
+      else
+      begin
+        ShowMessage('Could NOT Connectet to STR5!');
+      end;
     end
     else
     begin
-      ShowMessage('Could NOT Connectet to Shutter!');
-    end;
+      if Connect(Edit_IP.Text,'7777') then
+      begin
+        BB_OPEN.Enabled := true;
+        BB_CLOSE.Enabled := true;
+        IdTCPClient.IOHandler.WriteLn('PS?'+IntToHex(UD_Addr.Position,1)+CHR(13)+CHR(10));
+        GetPos := StrToInt(IdTCPClient.IOHandler.ReadLn());
+        if GetPos.ToString = Edit_OP.Text then
+        begin
+          Label_ST.Caption := 'OPEN';
+          Label_ST.Font.Color := clRed;
+        end;
+        if GetPos.ToString = Edit_CP.Text then
+        begin
+          Label_ST.Caption := 'CLOSE';
+          Label_ST.Font.Color := clBlue;
+        end;
+      end
+      else
+      begin
+        ShowMessage('Could NOT Connectet to PM16C!');
+      end;
+    end
   end
   else
   begin
@@ -177,27 +211,47 @@ end;
 
 procedure TForm_Shutter.BB_CLOSEClick(Sender: TObject);
 begin
-  repeat
-    IdTCPClient.IOHandler.WriteLn('SOP1'+CHR(13)+CHR(10)+CHR(10));
-    IdTCPClient.IOHandler.ReadLn();
-    Sleep(200);
+  if RB_STR.Checked then
+  begin
+    repeat
+      IdTCPClient.IOHandler.WriteLn('SOP1'+CHR(13)+CHR(10)+CHR(10));
+      IdTCPClient.IOHandler.ReadLn();
+      Sleep(200);
 
-    GetSTatus(Sender);
-    Sleep(200);
+      GetSTatus(Sender);
+      Sleep(200);
 
-  until Label_ST.Caption = 'CLOSE';
+    until Label_ST.Caption = 'CLOSE';
+  end
+  else
+  begin
+    IdTCPClient.IOHandler.WriteLn('ABS'+IntToHex(UD_Addr.Position,1)+Edit_CP.Text+CHR(13)+CHR(10));
+    Sleep(1000);
+    Label_ST.Caption := 'CLOSE';
+    Label_ST.Font.Color := clBlue;
+  end;
 end;
 
 procedure TForm_Shutter.BB_OPENClick(Sender: TObject);
 begin
-  repeat
-    IdTCPClient.IOHandler.WriteLn('SCL1'+CHR(13)+CHR(10)+CHR(10));
-    IdTCPClient.IOHandler.ReadLn();
-    Sleep(200);
+  if RB_STR.Checked then
+  begin
+    repeat
+      IdTCPClient.IOHandler.WriteLn('SCL1'+CHR(13)+CHR(10)+CHR(10));
+      IdTCPClient.IOHandler.ReadLn();
+      Sleep(200);
 
-    GetSTatus(Sender);
-    Sleep(200);
-  until Label_ST.Caption = 'OPEN';
+      GetSTatus(Sender);
+      Sleep(200);
+    until Label_ST.Caption = 'OPEN';
+  end
+  else
+  begin
+    IdTCPClient.IOHandler.WriteLn('ABS'+IntToHex(UD_Addr.Position,1)+Edit_OP.Text+CHR(13)+CHR(10));
+    Sleep(1000);
+    Label_ST.Caption := 'OPEN';
+    Label_ST.Font.Color := clRed;
+  end;
 end;
 
 
