@@ -22,8 +22,6 @@ object Form_Shutter: TForm_Shutter
     Height = 19
     Panels = <>
     SimplePanel = True
-    ExplicitTop = 106
-    ExplicitWidth = 259
   end
   object Panel1: TPanel
     Left = 0
@@ -104,7 +102,7 @@ object Form_Shutter: TForm_Shutter
       Text = '7'
     end
     object UD_Addr: TUpDown
-      Left = 245
+      Left = 248
       Top = 31
       Width = 16
       Height = 22
@@ -142,7 +140,7 @@ object Form_Shutter: TForm_Shutter
       Font.Style = []
       ParentFont = False
       TabOrder = 6
-      Text = '1000'
+      Text = '70'
     end
     object Edit_CP: TEdit
       Left = 224
@@ -167,8 +165,6 @@ object Form_Shutter: TForm_Shutter
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitTop = 24
-    ExplicitHeight = 82
     object BB_OPEN: TBitBtn
       Left = 8
       Top = 6
@@ -210,7 +206,6 @@ object Form_Shutter: TForm_Shutter
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitTop = 59
     object Label2: TLabel
       Left = 6
       Top = 6

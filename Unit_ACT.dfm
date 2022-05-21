@@ -207,7 +207,7 @@ object Form_ACT: TForm_ACT
       Caption = 'Ite'
     end
     object Label14: TLabel
-      Left = 306
+      Left = 310
       Top = 8
       Width = 48
       Height = 14
@@ -337,12 +337,12 @@ object Form_ACT: TForm_ACT
       TabOrder = 7
     end
     object Edit_Int: TEdit
-      Left = 304
+      Left = 308
       Top = 26
       Width = 53
       Height = 22
       TabOrder = 8
-      Text = '3600'
+      Text = '0'
     end
   end
   object GroupBox3: TGroupBox

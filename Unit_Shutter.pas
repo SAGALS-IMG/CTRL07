@@ -72,6 +72,12 @@ begin
 
     Edit_IP.Text := Ini.ReadString('Shutter', 'IP', '10.7.3.130');
     UD_Addr.Position := Ini.ReadInteger('Shutter', 'GPIB', 7);
+    if Ini.ReadString('Shutter','Inst','STR5')='STR5' then
+      RB_STR.Checked := true
+    else
+      RB_16C.Checked := true;
+    Edit_OP.Text := Ini.ReadString('Shutter', 'OPEN_P', '70');
+    Edit_CP.Text := Ini.ReadString('Shutter', 'CLOSE_P', '0');
   finally
     Ini.Free;
   end;
@@ -91,6 +97,14 @@ begin
 
     Ini.WriteString('Shutter', 'IP', Edit_IP.Text );
     Ini.WriteInteger('Shutter', 'GPIB', UD_Addr.Position);
+
+    Ini.WriteString('Shutter', 'OPEN_P', Edit_OP.Text);
+    Ini.WriteString('Shutter', 'CLOSE_P', Edit_CP.Text);
+    if RB_16C.Checked then
+      Ini.WriteString('Shutter','Inst','PM16C')
+    else
+      Ini.WriteString('Shutter','Inst','STR5');
+
   finally
     Ini.Free;
   end;

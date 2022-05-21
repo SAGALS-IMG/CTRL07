@@ -712,6 +712,8 @@ procedure TForm_Imager.BB_SetExpClick(Sender: TObject);
 var
   ExpTime, FPS : double;
 begin
+  AT_SetFloat(Hndl,'ExposureTime',0.01);
+  Sleep(500);
   ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
   AT_SetFloat(Hndl,'ExposureTime',ExpTime);
   if AT_GetFloat(Hndl,'ExposureTime',@ExpTime)=AT_SUCCESS then
