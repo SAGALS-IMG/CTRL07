@@ -85,22 +85,22 @@ object Form_PM16C_Op: TForm_PM16C_Op
     Caption = 'Conv rate'
   end
   object Label10: TLabel
-    Left = 7
-    Top = 305
+    Left = 8
+    Top = 361
     Width = 20
     Height = 14
     Caption = 'CW'
   end
   object Label11: TLabel
     Left = 7
-    Top = 333
+    Top = 389
     Width = 28
     Height = 14
     Caption = 'CCW'
   end
   object Label12: TLabel
     Left = 8
-    Top = 16
+    Top = 9
     Width = 39
     Height = 19
     Caption = 'CH : '
@@ -112,8 +112,8 @@ object Form_PM16C_Op: TForm_PM16C_Op
     ParentFont = False
   end
   object Label13: TLabel
-    Left = 7
-    Top = 277
+    Left = 8
+    Top = 333
     Width = 25
     Height = 14
     Caption = 'Unit'
@@ -461,7 +461,6 @@ object Form_PM16C_Op: TForm_PM16C_Op
     Width = 414
     Height = 19
     Panels = <>
-    ExplicitTop = 414
   end
   object Edit_AN0: TEdit
     Left = 104
@@ -532,7 +531,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_CW1: TEdit
     Left = 264
-    Top = 359
+    Top = 358
     Width = 140
     Height = 22
     TabOrder = 8

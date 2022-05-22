@@ -84,7 +84,7 @@ end;
 
 procedure TForm_PM16C_Op.FormShow(Sender: TObject);
 begin
-  Label12.Caption := 'CH : '+lCh.ToString+' Name : '+Form_PM16C.Motor[lCh].Axis_Name;
+  Label12.Caption := 'CH_'+lCh.ToString+' : '+Form_PM16C.Motor[lCh].Axis_Name;
   Edit_P0.Text := Form_PM16C.GetPos(lCh).ToString;
   Edit_P1.Text := Edit_P0.Text;
 
