@@ -3,7 +3,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   Top = 0
   BorderStyle = bsSingle
   Caption = 'PM16C Options'
-  ClientHeight = 433
+  ClientHeight = 486
   ClientWidth = 414
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,21 +24,21 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Label2: TLabel
     Left = 8
-    Top = 100
+    Top = 156
     Width = 71
     Height = 14
     Caption = 'High Spped'
   end
   object Label3: TLabel
     Left = 8
-    Top = 127
+    Top = 183
     Width = 83
     Height = 14
     Caption = 'Middle Spped'
   end
   object Label4: TLabel
     Left = 8
-    Top = 155
+    Top = 211
     Width = 68
     Height = 14
     Caption = 'Low Speed'
@@ -59,27 +59,27 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Label7: TLabel
     Left = 8
-    Top = 183
+    Top = 239
     Width = 65
     Height = 14
     Caption = 'ACC. RATE'
   end
   object Bevel1: TBevel
     Left = 254
-    Top = 60
-    Width = 3
-    Height = 290
+    Top = 48
+    Width = 4
+    Height = 358
   end
   object Label8: TLabel
     Left = 8
-    Top = 221
+    Top = 277
     Width = 67
     Height = 14
     Caption = 'AXIS Name'
   end
   object Label9: TLabel
     Left = 8
-    Top = 249
+    Top = 305
     Width = 60
     Height = 14
     Caption = 'Conv rate'
@@ -118,6 +118,20 @@ object Form_PM16C_Op: TForm_PM16C_Op
     Height = 14
     Caption = 'Unit'
   end
+  object Label14: TLabel
+    Left = 8
+    Top = 89
+    Width = 80
+    Height = 14
+    Caption = 'Soft Limit (-)'
+  end
+  object Label15: TLabel
+    Left = 8
+    Top = 117
+    Width = 85
+    Height = 14
+    Caption = 'Soft Limit (+)'
+  end
   object Edit_P0: TEdit
     Left = 104
     Top = 58
@@ -145,7 +159,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_HSP0: TEdit
     Left = 104
-    Top = 97
+    Top = 153
     Width = 140
     Height = 22
     TabStop = False
@@ -162,7 +176,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_HSP1: TEdit
     Left = 264
-    Top = 97
+    Top = 153
     Width = 140
     Height = 22
     TabOrder = 1
@@ -170,7 +184,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_MSP0: TEdit
     Left = 104
-    Top = 124
+    Top = 180
     Width = 140
     Height = 22
     TabStop = False
@@ -187,7 +201,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_MSP1: TEdit
     Left = 264
-    Top = 124
+    Top = 180
     Width = 140
     Height = 22
     TabOrder = 2
@@ -195,7 +209,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_LSP0: TEdit
     Left = 104
-    Top = 152
+    Top = 208
     Width = 140
     Height = 22
     TabStop = False
@@ -212,7 +226,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_LSP1: TEdit
     Left = 264
-    Top = 152
+    Top = 208
     Width = 140
     Height = 22
     TabOrder = 3
@@ -220,7 +234,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object BB_Set: TBitBtn
     Left = 193
-    Top = 371
+    Top = 427
     Width = 81
     Height = 32
     Caption = 'Set'
@@ -243,7 +257,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object BB_Close: TBitBtn
     Left = 304
-    Top = 371
+    Top = 427
     Width = 81
     Height = 32
     Caption = 'Close'
@@ -252,7 +266,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object RG_LS: TRadioGroup
     Left = 8
-    Top = 361
+    Top = 417
     Width = 145
     Height = 47
     Caption = ' LS '
@@ -265,7 +279,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object CB_Rate1: TComboBox
     Left = 104
-    Top = 180
+    Top = 236
     Width = 140
     Height = 22
     Enabled = False
@@ -355,7 +369,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object CB_Rate2: TComboBox
     Left = 264
-    Top = 180
+    Top = 236
     Width = 140
     Height = 22
     Font.Charset = DEFAULT_CHARSET
@@ -443,14 +457,15 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 414
+    Top = 467
     Width = 414
     Height = 19
     Panels = <>
+    ExplicitTop = 414
   end
   object Edit_AN0: TEdit
     Left = 104
-    Top = 218
+    Top = 274
     Width = 140
     Height = 22
     TabStop = False
@@ -467,7 +482,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_AN1: TEdit
     Left = 264
-    Top = 218
+    Top = 274
     Width = 140
     Height = 22
     TabOrder = 5
@@ -475,7 +490,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_CR0: TEdit
     Left = 104
-    Top = 246
+    Top = 302
     Width = 140
     Height = 22
     TabStop = False
@@ -492,7 +507,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_CR1: TEdit
     Left = 264
-    Top = 246
+    Top = 302
     Width = 140
     Height = 22
     TabOrder = 6
@@ -500,7 +515,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_CW0: TEdit
     Left = 104
-    Top = 302
+    Top = 358
     Width = 140
     Height = 22
     TabStop = False
@@ -517,7 +532,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_CW1: TEdit
     Left = 264
-    Top = 303
+    Top = 359
     Width = 140
     Height = 22
     TabOrder = 8
@@ -525,7 +540,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_CCW0: TEdit
     Left = 104
-    Top = 330
+    Top = 386
     Width = 140
     Height = 22
     TabStop = False
@@ -542,7 +557,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_CCW1: TEdit
     Left = 264
-    Top = 330
+    Top = 386
     Width = 140
     Height = 22
     TabOrder = 9
@@ -550,7 +565,7 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_U0: TEdit
     Left = 104
-    Top = 274
+    Top = 330
     Width = 140
     Height = 22
     TabStop = False
@@ -567,10 +582,60 @@ object Form_PM16C_Op: TForm_PM16C_Op
   end
   object Edit_U1: TEdit
     Left = 264
-    Top = 274
+    Top = 330
     Width = 140
     Height = 22
     TabOrder = 7
     Text = 'Edit_U1'
+  end
+  object Edit_SMin0: TEdit
+    Left = 104
+    Top = 86
+    Width = 140
+    Height = 22
+    TabStop = False
+    Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGray
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 24
+    Text = '-1000000'
+  end
+  object Edit_SMin1: TEdit
+    Left = 264
+    Top = 86
+    Width = 140
+    Height = 22
+    TabOrder = 25
+    Text = '-1000000'
+  end
+  object Edit_SMax0: TEdit
+    Left = 104
+    Top = 114
+    Width = 140
+    Height = 22
+    TabStop = False
+    Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGray
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 26
+    Text = '1000000'
+  end
+  object Edit_SMax1: TEdit
+    Left = 264
+    Top = 114
+    Width = 140
+    Height = 22
+    TabOrder = 27
+    Text = '1000000'
   end
 end

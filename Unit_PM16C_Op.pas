@@ -47,6 +47,12 @@ type
     Label13: TLabel;
     Edit_U0: TEdit;
     Edit_U1: TEdit;
+    Edit_SMin0: TEdit;
+    Edit_SMin1: TEdit;
+    Edit_SMax0: TEdit;
+    Edit_SMax1: TEdit;
+    Label14: TLabel;
+    Label15: TLabel;
     procedure FormShow(Sender: TObject);
     procedure BB_SetClick(Sender: TObject);
     procedure BB_CloseClick(Sender: TObject);
@@ -81,6 +87,13 @@ begin
   Label12.Caption := 'CH : '+lCh.ToString+' Name : '+Form_PM16C.Motor[lCh].Axis_Name;
   Edit_P0.Text := Form_PM16C.GetPos(lCh).ToString;
   Edit_P1.Text := Edit_P0.Text;
+
+  Edit_SMin0.Text := Form_PM16C.Get_LMin(lCh).ToString;
+  Edit_SMax0.Text := Form_PM16C.Get_LMax(lCh).ToString;
+  Edit_SMin1.Text := Edit_SMin0.Text;
+  Edit_SMax1.Text := Edit_SMax0.Text;
+
+
   Edit_HSP0.Text := Form_PM16C.GetHSP(lCh).ToString;
   Edit_MSP0.Text := Form_PM16C.GetMSP(lCh).ToString;
   Edit_LSP0.Text := Form_PM16C.GetLSP(lCh).ToString;
@@ -109,6 +122,9 @@ end;
 procedure TForm_PM16C_Op.BB_SetClick(Sender: TObject);
 begin
   Form_PM16C.SetPreset(lCh,StrToInt(Edit_P1.Text));
+  Form_PM16C.Set_LMin(lCh,StrToInt(Edit_SMin1.Text));
+  Form_PM16C.Set_LMax(lCh,StrToInt(Edit_SMax1.Text));
+
   Form_PM16C.SetHSP(lCh,StrToInt(Edit_HSP1.Text));
   Form_PM16C.SetMSP(lCh,StrToInt(Edit_MSP1.Text));
   Form_PM16C.SetLSP(lCh,StrToInt(Edit_LSP1.Text));

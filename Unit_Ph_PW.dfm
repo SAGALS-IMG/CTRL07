@@ -458,6 +458,7 @@ object Form_Ph_PW: TForm_Ph_PW
         Height = 65
         Brush.Style = bsClear
         Pen.Color = clRed
+        OnMouseMove = SSMouseMove
         SizeSense = 5
         MinWidth = 5
         MinHeight = 5

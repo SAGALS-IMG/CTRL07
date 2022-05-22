@@ -16,29 +16,39 @@ File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Zyla.pas',
 File_14=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Shutter.pas',0,1,77,1,154,0,0,,
 
 [Modules]
-Module0=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
-Module1=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
-Count=2
+Module0=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module1=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
+Module2=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Shutter.pas
+Module3=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
+Count=4
 EditWindowCount=1
-
-[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Ph_PW.pas]
-ModuleType=TSourceModule
 
 [C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas]
 ModuleType=TSourceModule
 
+[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Shutter.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Ph_PW.pas]
+ModuleType=TSourceModule
+
 [EditWindow0]
-ViewCount=2
-CurrentEditView=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
+ViewCount=4
+CurrentEditView=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
 View0=0
 View1=1
+View2=2
+View3=3
 PercentageSizes=1
 Create=1
 Visible=1
 Docked=0
 State=0
-Left=2816
-Top=816
+Left=2754
+Top=1695
 Width=5164
 Height=8305
 MaxLeft=-4
@@ -53,16 +63,16 @@ LeftPanelClients=BorlandEditorCodeExplorer@EditWindow0
 LeftPanelData=0000080001000100000019000000426F726C616E64456469746F72436F64654578706C6F726572B20C00000000000000DF01000000000000FFFFFFFF
 RightPanelSize=0
 BottomPanelSize=0
-BottomMiddlePanelSize=2694
+BottomMiddlePanelSize=1104
 BottomMiddlePanelClients=DockSite0,ToDo List,MessageView
-BottomMiddelPanelData=0000080001020200000009000000446F636B53697465300E000000546F446F4C69737457696E646F776D2300000000000002860A00000000000001000000006D2300000F0000004D65737361676556696577466F726DFFFFFFFF
+BottomMiddelPanelData=0000080001020200000009000000446F636B53697465300E000000546F446F4C69737457696E646F776D2300000000000002500400000000000001000000006D2300000F0000004D65737361676556696577466F726DFFFFFFFF
 
 [View0]
 CustomEditViewType=TEditView
 Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
-CursorX=3
-CursorY=430
-TopLine=461
+CursorX=31
+CursorY=245
+TopLine=221
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -79,21 +89,43 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
 
+[View2]
+CustomEditViewType=TEditView
+Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Shutter.pas
+CursorX=49
+CursorY=68
+TopLine=43
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Shutter.pas
+
+[View3]
+CustomEditViewType=TEditView
+Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
+CursorX=39
+CursorY=715
+TopLine=711
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
+
 [UndockedDesigner]
-Count=5
+Count=7
 Module0=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
 Left0=256
 Top0=254
 Width0=461
 Height0=768
-Visible0=0
+Visible0=1
 State0=0
-Module1=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
-Left1=1318
-Top1=529
-Width1=829
-Height1=679
-Visible1=0
+Module1=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Shutter.pas
+Left1=41
+Top1=331
+Width1=383
+Height1=349
+Visible1=1
 State1=0
 Module2=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 Left2=275
@@ -102,20 +134,34 @@ Width2=494
 Height2=760
 Visible2=0
 State2=0
-Module3=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
-Left3=142
-Top3=656
-Width3=485
-Height3=760
-Visible3=0
+Module3=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
+Left3=454
+Top3=137
+Width3=534
+Height3=721
+Visible3=1
 State3=0
-Module4=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
-Left4=1451
-Top4=669
-Width4=805
+Module4=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Left4=1318
+Top4=529
+Width4=829
 Height4=679
 Visible4=0
 State4=0
+Module5=C:\Users\akn\Documents\GitHub\CTRL07\Unit_ACT.pas
+Left5=142
+Top5=656
+Width5=485
+Height5=760
+Visible5=0
+State5=0
+Module6=C:\Users\akn\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
+Left6=1451
+Top6=669
+Width6=805
+Height6=679
+Visible6=0
+State6=0
 
 [Watches]
 Count=0
@@ -199,12 +245,12 @@ State=0
 Left=0
 Top=18
 Width=5102
-Height=2624
+Height=1000
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=5102
-ClientHeight=2624
-TBDockHeight=2624
+ClientHeight=1000
+TBDockHeight=1000
 LRDockWidth=3520
 Dockable=1
 StayOnTop=0
@@ -254,7 +300,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=-213
+Top=0
 Width=1031
 Height=3638
 MaxLeft=-4
@@ -292,7 +338,7 @@ Visible=0
 Docked=1
 State=0
 Left=-737
-Top=-928
+Top=-1233
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -311,7 +357,7 @@ Visible=0
 Docked=1
 State=0
 Left=-737
-Top=-928
+Top=-1233
 Width=3562
 Height=4837
 MaxLeft=-1
@@ -345,8 +391,8 @@ SplitPos=73
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Action,
-ExpandedItems=Anchors=0,Constraints=0,Font=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,BorderIcons=0
+SelectedItem=Name,
+ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0,GlassFrame=0,HorzScrollBar=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,Padding=0,StyleElements=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -364,6 +410,25 @@ ClientWidth=1723
 ClientHeight=7837
 TBDockHeight=5957
 LRDockWidth=2512
+Dockable=1
+StayOnTop=0
+
+[TFileExplorerForm]
+PercentageSizes=1
+Create=1
+Visible=0
+Docked=0
+State=0
+Left=23
+Top=3525
+Width=2152
+Height=6901
+MaxLeft=-4
+MaxTop=-7
+ClientWidth=2090
+ClientHeight=6624
+TBDockHeight=4582
+LRDockWidth=2273
 Dockable=1
 StayOnTop=0
 
@@ -497,11 +562,11 @@ State=0
 Left=0
 Top=0
 Width=4383
-Height=1064
+Height=1298
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=4383
-ClientHeight=1064
+ClientHeight=1298
 TBDockHeight=5078
 LRDockWidth=5301
 Dockable=1
@@ -532,8 +597,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=0
+Left=375
+Top=986
 Width=3672
 Height=1000
 MaxLeft=-1
@@ -661,8 +726,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=0
+Left=375
+Top=242
 Width=1469
 Height=8255
 MaxLeft=-1
@@ -685,8 +750,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=8
-Top=8
+Left=375
+Top=986
 Width=4383
 Height=1241
 MaxLeft=-1
@@ -699,7 +764,7 @@ Dockable=1
 StayOnTop=0
 TabPosition=1
 ActiveTabID=RefactoringForm
-TabDockClients=RefactoringForm,PatchForm,FindReferencsForm,QAView,MetricsView
+TabDockClients=RefactoringForm,PatchForm,FindReferencsForm,MetricsView,QAView
 
 [DockSite1]
 DockSiteType=1

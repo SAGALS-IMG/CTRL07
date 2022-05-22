@@ -107,6 +107,11 @@ type
     function MoveTo(lCh, TPos: Integer;lWait, ShowDlg:boolean): string;
     function WaitForStop:boolean;
 
+    function Get_LMin(lPos: byte): longint;
+    function Get_LMax(lPos: byte): longint;
+    function Set_LMin(lPos: byte; TPos:longint): longint;
+    function Set_LMax(lPos: byte; TPos:longint): longint;
+
     function Get_SP(lPos: byte): byte;
     function GetHSP(lPos: byte): longint;
     function GetMSP(lPos: byte): longint;
@@ -1005,6 +1010,46 @@ begin
 
     CloseFile(BKF);
   end;
+end;
+
+function TForm_PM16C.Get_LMax(lPos: byte): longint;
+var
+  lStr : string;
+begin
+  IdTCPClient.IOHandler.WriteLn('FL?'+IntToHex(lPos,1)+CHR(13)+CHR(10));
+  lStr :=IdTCPClient.IOHandler.ReadLn();
+  Get_LMax := StrToInt(lStr);
+end;
+
+function TForm_PM16C.Get_LMin(lPos: byte): longint;
+var
+  lStr : string;
+begin
+  IdTCPClient.IOHandler.WriteLn('BL?'+IntToHex(lPos,1)+CHR(13)+CHR(10));
+  lStr :=IdTCPClient.IOHandler.ReadLn();
+  Get_LMin := StrToInt(lStr);
+end;
+
+function TForm_PM16C.Set_LMax(lPos: byte; TPos: Integer): longint;
+var
+  lStr:string;
+begin
+  if TPos>0 then
+    lStr := '+'+Format('%.7d',[TPos])
+  else
+    lStr := Format('%.7d',[TPos]);
+  IdTCPClient.IOHandler.WriteLn('FL'+IntToHex(lPos,1)+lStr+CHR(13)+CHR(10)) ;
+end;
+
+function TForm_PM16C.Set_LMin(lPos: byte; TPos: Integer): longint;
+var
+  lStr:string;
+begin
+  if TPos>0 then
+    lStr := '+'+Format('%.7d',[TPos])
+  else
+    lStr := Format('%.7d',[TPos]);
+  IdTCPClient.IOHandler.WriteLn('BL'+IntToHex(lPos,1)+lStr+CHR(13)+CHR(10)) ;
 end;
 
 
