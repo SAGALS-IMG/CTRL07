@@ -451,6 +451,7 @@ object Form_Imager: TForm_Imager
         Width = 81
         Height = 17
         Caption = 'Cooling'
+        Enabled = False
         TabOrder = 12
         OnClick = CB_CoolingClick
       end
