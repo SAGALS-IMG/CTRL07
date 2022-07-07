@@ -706,7 +706,12 @@ begin
       end;
 
       if CB_DispPh.Checked then
-        Calc_Phase(Sender);
+      begin
+        if CB_XI_DEI.ItemIndex = 0 then
+          Calc_Phase(Sender)
+        else
+          Calc_DEI(Sender);
+      end;
 
       if not(Go) then
       begin

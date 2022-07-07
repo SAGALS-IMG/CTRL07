@@ -628,7 +628,7 @@ function TForm_PM16C.isBusy(lCh: byte): boolean;
 var
   TmpStr : string;
 begin
-  Sleep(50);
+  //Sleep(50);
   IdTCPClient.IOHandler.WriteLn('STQ?'+CHR(13)+CHR(10));
   TmpStr := IdTCPClient.IOHandler.ReadLn();
   if Copy(TmpStr,2,1) = '4' then

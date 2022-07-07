@@ -16,29 +16,44 @@ File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Zyla.pas',
 File_14=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Unit_Shutter.pas',0,1,77,1,154,0,0,,
 
 [Modules]
-Module0=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_PM16C.pas
-Module1=C:\Users\Kyoto\Documents\GitHub\CTRL07\CTRL7.dproj
-Count=2
+Module0=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module1=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_PM16C.pas
+Module2=C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+Module3=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
+Module4=C:\Users\Kyoto\Documents\GitHub\CTRL07\CTRL7.dproj
+Count=5
 EditWindowCount=1
 
+[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas]
+ModuleType=TSourceModule
+
 [C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_PM16C.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas]
 ModuleType=TSourceModule
 
 [C:\Users\Kyoto\Documents\GitHub\CTRL07\CTRL7.dproj]
 ModuleType=TBaseProject
 
 [EditWindow0]
-ViewCount=2
-CurrentEditView=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_PM16C.pas
+ViewCount=5
+CurrentEditView=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
 View0=0
 View1=1
+View2=2
+View3=3
+View4=4
 PercentageSizes=1
 Create=1
 Visible=1
 Docked=0
 State=0
-Left=1496
-Top=2163
+Left=2832
+Top=1220
 Width=3293
 Height=8305
 MaxLeft=-4
@@ -72,12 +87,45 @@ EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\CTRL7.dpr
 CustomEditViewType=TEditView
 Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_PM16C.pas
 CursorX=3
-CursorY=663
-TopLine=675
+CursorY=685
+TopLine=651
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_PM16C.pas
+
+[View2]
+CustomEditViewType=TEditView
+Module=C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+CursorX=32
+CursorY=238
+TopLine=223
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+
+[View3]
+CustomEditViewType=TEditView
+Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
+CursorX=24
+CursorY=837
+TopLine=804
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
+
+[View4]
+CustomEditViewType=TEditView
+Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
 
 [UndockedDesigner]
 Count=12
@@ -93,7 +141,7 @@ Left1=256
 Top1=254
 Width1=461
 Height1=768
-Visible1=0
+Visible1=1
 State1=0
 Module2=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Shutter.pas
 Left2=41
@@ -117,11 +165,11 @@ Height4=760
 Visible4=0
 State4=0
 Module5=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
-Left5=454
-Top5=137
+Left5=1231
+Top5=758
 Width5=534
 Height5=721
-Visible5=0
+Visible5=1
 State5=0
 Module6=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
 Left6=1323
@@ -142,7 +190,7 @@ Left8=1554
 Top8=544
 Width8=894
 Height8=763
-Visible8=0
+Visible8=1
 State8=0
 Module9=C:\Users\akn\Documents\GitHub\CTRL07\Unit_Imager.pas
 Left9=487
@@ -163,7 +211,7 @@ Left11=16
 Top11=569
 Width11=588
 Height11=695
-Visible11=1
+Visible11=0
 State11=0
 
 [Watches]
@@ -178,7 +226,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=4567
+Top=4993
 Width=2625
 Height=1936
 MaxLeft=-4
@@ -284,7 +332,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=851
+Top=1277
 Width=1461
 Height=3156
 MaxLeft=-4
@@ -322,7 +370,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=1064
+Top=1489
 Width=1895
 Height=3277
 MaxLeft=-4
@@ -378,8 +426,8 @@ Create=1
 Visible=1
 Docked=0
 State=0
-Left=0
-Top=5780
+Left=47
+Top=5270
 Width=1691
 Height=4887
 MaxLeft=-4
@@ -394,8 +442,8 @@ SplitPos=119
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Action,
-ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0
+SelectedItem=Align,OnSelectCell
+ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,Options=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -423,7 +471,7 @@ Visible=0
 Docked=0
 State=0
 Left=23
-Top=4163
+Top=4589
 Width=2152
 Height=6901
 MaxLeft=-4
@@ -442,7 +490,7 @@ Visible=0
 Docked=0
 State=0
 Left=8215
-Top=6340
+Top=6766
 Width=1785
 Height=4553
 MaxLeft=-4
@@ -464,7 +512,7 @@ Visible=0
 Docked=0
 State=0
 Left=2625
-Top=8922
+Top=9348
 Width=3484
 Height=2142
 MaxLeft=-4
@@ -483,7 +531,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=8922
+Top=9348
 Width=2625
 Height=2142
 MaxLeft=-4
@@ -506,7 +554,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=6511
+Top=6936
 Width=2625
 Height=2404
 MaxLeft=-4
@@ -525,7 +573,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=2227
+Top=2652
 Width=2625
 Height=2348
 MaxLeft=-4
@@ -647,7 +695,7 @@ Visible=0
 Docked=0
 State=0
 Left=1930
-Top=9007
+Top=9433
 Width=2855
 Height=3206
 MaxLeft=-4
@@ -666,7 +714,7 @@ Visible=0
 Docked=0
 State=0
 Left=6105
-Top=8922
+Top=9348
 Width=3895
 Height=2142
 MaxLeft=-4
@@ -777,7 +825,7 @@ Visible=1
 Docked=0
 State=0
 Left=8215
-Top=2369
+Top=2794
 Width=1785
 Height=8291
 MaxLeft=-4
