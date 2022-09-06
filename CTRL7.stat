@@ -1,14 +1,26 @@
 [Stats]
 <<<<<<< Updated upstream
-EditorSecs=55876
-DesignerSecs=15555
+<<<<<<< Updated upstream
+EditorSecs=55882
+DesignerSecs=15570
 InspectorSecs=4989
 CompileSecs=775913
-OtherSecs=2104
+OtherSecs=2110
 StartTime=2021/05/01 19:04:22
 RealKeys=0
 EffectiveKeys=0
 DebugSecs=143639
+=======
+EditorSecs=55511
+DesignerSecs=15588
+InspectorSecs=5004
+CompileSecs=774224
+OtherSecs=2095
+StartTime=2021/05/01 19:04:22
+RealKeys=0
+EffectiveKeys=0
+DebugSecs=144462
+>>>>>>> Stashed changes
 =======
 EditorSecs=52226
 DesignerSecs=14635

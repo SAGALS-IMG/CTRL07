@@ -76,6 +76,8 @@ type
     Edit_Comm: TEdit;
     SB_Com: TSpeedButton;
     SB_Copy: TSpeedButton;
+    Label1: TLabel;
+    Edit_WaitT: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -1029,6 +1031,7 @@ begin
 
     AT_QueueBuffer(Hndl, AlignedBuffers[ImgNo mod NumberOfBuffers], BufferSize);
 
+    Sleep(StrToInt(Edit_WaitT.Text));
     if not(Go) then
     begin
       AT_Command(Hndl, 'AcquisitionStop');

@@ -486,7 +486,7 @@ object Form_Imager: TForm_Imager
     Left = 0
     Top = 297
     Width = 399
-    Height = 82
+    Height = 104
     Align = alTop
     Caption = ' Aquasition test  '
     Enabled = False
@@ -547,6 +547,13 @@ object Form_Imager: TForm_Imager
       Caption = 'Move Axis'
       Flat = True
       OnClick = SB_Re_ShowClick
+    end
+    object Label1: TLabel
+      Left = 15
+      Top = 83
+      Width = 109
+      Height = 14
+      Caption = 'Waiting time [ms]'
     end
     object BB_Scan_ST: TBitBtn
       Left = 10
@@ -646,12 +653,25 @@ object Form_Imager: TForm_Imager
       TabOrder = 4
       Text = '0'
     end
+    object Edit_WaitT: TEdit
+      Left = 158
+      Top = 80
+      Width = 50
+      Height = 22
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Alignment = taRightJustify
+      TabOrder = 8
+      Text = '100'
+    end
   end
   object Chart1: TChart
     Left = 0
-    Top = 379
+    Top = 401
     Width = 399
-    Height = 184
+    Height = 162
     BackWall.Brush.Gradient.Direction = gdBottomTop
     BackWall.Brush.Gradient.EndColor = clWhite
     BackWall.Brush.Gradient.StartColor = 15395562
@@ -708,6 +728,8 @@ object Form_Imager: TForm_Imager
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 3
+    ExplicitTop = 379
+    ExplicitHeight = 184
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries
