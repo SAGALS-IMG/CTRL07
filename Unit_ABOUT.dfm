@@ -42,9 +42,9 @@ object AboutBox: TAboutBox
     object Label1: TLabel
       Left = 82
       Top = 98
-      Width = 107
+      Width = 91
       Height = 16
-      Caption = 'Ver. 2021/11/15'
+      Caption = 'Ver. 2022/9/6'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
