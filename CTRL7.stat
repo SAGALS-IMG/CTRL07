@@ -1,6 +1,7 @@
 [Stats]
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 EditorSecs=55882
 DesignerSecs=15570
 InspectorSecs=4989
@@ -11,6 +12,8 @@ RealKeys=0
 EffectiveKeys=0
 DebugSecs=143639
 =======
+=======
+>>>>>>> Stashed changes
 EditorSecs=55511
 DesignerSecs=15588
 InspectorSecs=5004
@@ -20,6 +23,9 @@ StartTime=2021/05/01 19:04:22
 RealKeys=0
 EffectiveKeys=0
 DebugSecs=144462
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 EditorSecs=52226
