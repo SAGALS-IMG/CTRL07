@@ -621,7 +621,12 @@ begin
     exit;
   end;
 
-  lExpTime  := StrToFloat(Edit_BK_EXPT.Text)/1000;
+//  Form_Imager.Edit_ExpT.Text := Edit_BK_EXPT.Text;
+//  Form_Imager.BB_SetExpClick(Sender);
+//  lExpTime := StrToFloat(Form_Imager.Edit_ExpT.Text)/1000;
+//  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+
+  lExpTime := StrToFloat(Edit_BK_EXPT.Text)/1000;
   Form_Imager.SetExpTime(lExpTime,Res);
   Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
@@ -915,8 +920,56 @@ var
   lExpTime, Total_T, lrate,lrate2 : double;
   Res: longint;
 begin
-  lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
+//  Form_Imager.Edit_ExpT.Text := Edit_EXPT.Text;
+//  Form_Imager.BB_SetExpClick(Sender);
+//  lExpTime  := RoundTo(lExpTime,-2);
 
+  lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
+  Form_Imager.SetExpTime(lExpTime,Res);
+  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+  lExpTime  := RoundTo(lExpTime,-2);
+
+  Form_Imager.GetFrameRate(FPS);
+  FPS := RoundTo(FPS, -3);
+
+  if FPS=-1 then
+  begin
+    ShowMessage('FPS can NOT obtained !');
+    Go := false;
+    exit;
+  end;
+
+  if FPS<>1/lExpTime then
+  begin
+    if MessageDlg('Obtained frame rate '+FPS.ToString+' [fps] is NOT coincide with Exp. Time! Use REAL FPS?',
+       mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+      lExpTime := 1/FPS;
+      Form_main.Memo.Lines.Add('Frame rate : '+FPS.ToString );
+    end;
+  end;
+
+  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+
+  Rot1 := StrToInt(Edit_R_ST.Text);
+  Rot2 := StrToInt(Edit_R_End.Text);
+  dR := StrToInt(Edit_R_d.Text);
+  CT_N := (Rot2-Rot1) div dR;
+
+  Total_T := CT_N*lExpTime;
+
+  lrate := (Rot2-Rot1)/Total_T;
+  if MessageDlg('Rotation rate: '+lrate.ToString+' [pls/s]',
+     mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrNo then
+    Go := false
+  else
+  begin
+    Go := true;
+    rate := Round(lrate);
+    Form_main.Memo.Lines.Add('Rot table rate: '+rate.ToString+' [pls/s]');
+  end;
+
+  {
   Form_Imager.SetExpTime(lExpTime,Res);
   lExpTime  := RoundTo(lExpTime,-2);
 
@@ -981,7 +1034,7 @@ begin
       Form_main.Memo.Lines.Add('Rot table rate : '+rate.ToString);
       Form_main.Memo.Lines.Add('Shift table rate : '+rate2.ToString);
     end;
-  end;
+  end;  }
 end;
 
 
@@ -989,21 +1042,98 @@ end;
 procedure TForm_ACT.Cont_CT(Sender: TObject);
 var
   lExpTime : double;
-  i,j,k, Res, bk_rate, bk_rate2:longint;
+  i,j,k,kk, Res, bk_rate, bk_rate2, n_Scan:longint;
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
-  Series1.Clear;
-
-  lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
-  Form_Imager.SetExpTime(lExpTime,Res);
-  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+  Check_rate(Sender);
+  if not(Go) then exit;
 
   BufferSize := Form_Imager.GetImageSize;
   for i:=0 to NumberOfBuffers-1 do
     Form_Imager.Que_Buff(i,BufferSize);
   Form_Imager.SetCycleMode;
   Form_Imager.SetTrigMode(0);
+
+  bk_rate := Form_PM16C.GetLSP(CT_R_Ch);
+  Form_PM16C.SetLSP(CT_R_Ch,rate);
+
+  if RG_Method.ItemIndex=1 then
+  begin
+    n_Scan := StrToInt(Edit_FS_n.Text);
+
+    Form_PM16C.MoveTo(Ph_Ch, PH_PH0,true,true);
+    Form_PM16C.MoveTo(Ph_Ch, PH_PH1-PH_dPH,true,true);
+  end
+  else
+    n_Scan := 1;
+
+  for kk:=0 to n_SCan-1 do
+  begin
+    Series1.Clear;
+
+    if RG_Method.ItemIndex=1 then
+      Form_PM16C.MoveBy(Ph_Ch, PH_dPH,true,true);
+
+    Form_PM16C.SelectSP(CT_R_Ch,0);
+    Form_PM16C.MoveTo(CT_R_Ch, Rot1-1000,true,true);
+    Form_PM16C.MoveTo(CT_R_Ch, Rot1-rate*2,true,true);
+
+    Form_PM16C.SelectSP(CT_R_Ch,2);
+    Form_PM16C.MoveTo(CT_R_Ch, Rot2+rate*5,false,false);
+
+    Sleep(2000);
+    Form_Imager.Aquire_Start;
+    AStopWatch := TStopwatch.StartNew;
+
+    for k := 0 to CT_N do
+    begin
+      SB_CT.SimpleText := 'CONT CT : '+k.ToString+'/'+CT_N.ToString;
+
+      Form_Imager.Wait_Data(k mod NumberOfBuffers);
+      for j:=0 to Form_PW.PH-1 do
+      begin
+        for i:=0 to Form_PW.PW+-1 do
+        begin
+          Form_PW.PData[j,i] := Form_Imager.RAWData[j,i];
+          lData[i] := Form_Imager.RAWData[j,i];
+        end;
+        FS.WriteBuffer(lData,Form_PW.PW*2);
+      end;
+      Form_PW.Draw_Data(Sender);
+
+      if CB_Moni2.Checked then
+        Series1.AddY(Calc_AvI(Sender));
+
+      Form_Imager.Que_Buff(k mod NumberOfBuffers,BufferSize);
+      if not(Go) then
+      begin
+        Form_Imager.Aquire_Stop;
+        Form_Imager.Flush;
+        Form_PM16C.STOP;
+        Form_PM16C.SetLSP(CT_R_Ch,bk_rate);
+        Form_PM16C.SelectSP(CT_R_Ch,0);
+        ShowMessage('CT Canceled!');
+        exit;
+      end;
+      Application.ProcessMessages;
+    end;
+
+    AStopWatch.Stop;
+    Form_Imager.Aquire_Stop;
+    Form_Imager.Flush;
+    Form_PM16C.Stop;
+
+    Form_Main.Memo.Lines.Add('Cont CT time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString+'/'+(CT_N+1).ToString+' imgs');
+    Form_SAKAS.Add_Str(Form_SAKAS.Tag_FN,'Proc_1', 'CT_frame_rate', AStopWatch.ElapsedMilliseconds.ToString+' / '+(CT_N+1).ToString+' imgs',Sender);
+  end;
+
+  Form_PM16C.SetLSP(CT_R_Ch,bk_rate);
+  Form_PM16C.SelectSP(CT_R_Ch,0);
+end;
+
+
+{
 
   Form_PM16C.MoveTo(CT_R_Ch, Rot1-1000,true,true);
   Form_PM16C.MoveTo(CT_R_Ch, Rot1-rate*2,true,true);
@@ -1081,7 +1211,7 @@ begin
     Form_PM16C.SetLSP(PH_Ch,bk_rate2);
     Form_PM16C.SelectSP(Ph_Ch,0);
   end;
-end;
+end;            }
 
 procedure TForm_ACT.BB_CT_STClick(Sender: TObject);
 var
@@ -1095,12 +1225,6 @@ begin
     if CB_Ext_imager.Checked then
       RG_Scan.ItemIndex:=0;
 
-    if RG_Scan.ItemIndex=1 then
-    begin
-      Check_rate(Sender);
-      if not(Go) then
-        exit;
-    end;
     if (SaveDialog1.Execute) then
     begin
       Go := true;

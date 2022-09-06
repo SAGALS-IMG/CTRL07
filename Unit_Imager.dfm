@@ -728,8 +728,6 @@ object Form_Imager: TForm_Imager
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 3
-    ExplicitTop = 379
-    ExplicitHeight = 184
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries

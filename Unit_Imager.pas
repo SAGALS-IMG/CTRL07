@@ -714,13 +714,14 @@ procedure TForm_Imager.BB_SetExpClick(Sender: TObject);
 var
   ExpTime, FPS : double;
 begin
-  AT_SetFloat(Hndl,'ExposureTime',0.01);
+  AT_SetFloat(Hndl,'ExposureTime',0.05);
   Sleep(500);
   ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
   AT_SetFloat(Hndl,'ExposureTime',ExpTime);
   if AT_GetFloat(Hndl,'ExposureTime',@ExpTime)=AT_SUCCESS then
     Edit_ExpT.Text := Format('%5.0f',[ExpTime*1000]);
 
+  Sleep(200);
   if AT_GetFloat(Hndl,'FrameRate',@FPS)=AT_SUCCESS then
     Label_FPS.Caption := Format('%3.3f',[FPS]);
   if Form_Main.CB_Log.Checked then
