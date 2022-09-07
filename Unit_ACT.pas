@@ -1051,6 +1051,7 @@ begin
     end;
 
     AStopWatch.Stop;
+    Sleep(5000);
     Form_Imager.Aquire_Stop;
     Form_Imager.Flush;
     Form_PM16C.Stop;
