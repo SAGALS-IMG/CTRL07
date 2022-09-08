@@ -626,9 +626,9 @@ begin
 //  lExpTime := StrToFloat(Form_Imager.Edit_ExpT.Text)/1000;
 //  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
-  lExpTime := StrToFloat(Edit_BK_EXPT.Text)/1000;
-  Form_Imager.SetExpTime(lExpTime,Res);
-  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+//  lExpTime := StrToFloat(Edit_BK_EXPT.Text)/1000;
+//  Form_Imager.SetExpTime(lExpTime,Res);
+//  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
   BufferSize := Form_Imager.GetImageSize;
   for i:=0 to NumberOfBuffers-1 do
@@ -763,10 +763,10 @@ begin
     exit;
   end;
 
-  lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
-  Form_Imager.SetExpTime(lExpTime,Res);
-  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
-
+//  lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
+//  Form_Imager.SetExpTime(lExpTime,Res);
+//  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+//
   BufferSize := Form_Imager.GetImageSize;
   for i:=0 to NumberOfBuffers-1 do
     Form_Imager.Que_Buff(i,BufferSize);
@@ -920,10 +920,12 @@ var
   lExpTime, Total_T, lrate,lrate2 : double;
   Res: longint;
 begin
-
   lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
-  Form_Imager.SetExpTime(lExpTime,Res);
-  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+  if StrToFloat(Edit_EXPT.Text)<>StrToFloat(Form_Imager.Edit_ExpT.Text) then
+  begin
+    Form_Imager.SetExpTime(lExpTime,Res);
+    Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+  end;
   lExpTime  := RoundTo(lExpTime,-2);
 
   Form_Imager.GetFrameRate(FPS);
@@ -977,17 +979,17 @@ var
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
-  Check_rate(Sender);
+//  Check_rate(Sender);
   if not(Go) then exit;
+
+  bk_rate := Form_PM16C.GetLSP(CT_R_Ch);
+  Form_PM16C.SetLSP(CT_R_Ch,rate);
 
   BufferSize := Form_Imager.GetImageSize;
   for i:=0 to NumberOfBuffers-1 do
     Form_Imager.Que_Buff(i,BufferSize);
   Form_Imager.SetCycleMode;
   Form_Imager.SetTrigMode(0);
-
-  bk_rate := Form_PM16C.GetLSP(CT_R_Ch);
-  Form_PM16C.SetLSP(CT_R_Ch,rate);
 
   if RG_Method.ItemIndex=1 then
   begin
@@ -1002,6 +1004,9 @@ begin
   for kk:=0 to n_SCan-1 do
   begin
     Series1.Clear;
+
+    for i:=0 to NumberOfBuffers-1 do
+      Form_Imager.Que_Buff(i,BufferSize);
 
     if RG_Method.ItemIndex=1 then
       Form_PM16C.MoveBy(Ph_Ch, PH_dPH,true,true);
@@ -1051,7 +1056,7 @@ begin
     end;
 
     AStopWatch.Stop;
-    Sleep(5000);
+    Sleep(2000);
     Form_Imager.Aquire_Stop;
     Form_Imager.Flush;
     Form_PM16C.Stop;
@@ -1090,6 +1095,8 @@ begin
       Form_PM16C.SetCh(0,PH_Ch);
       Form_PM16C.SetCh(1,CT_R_Ch);
       Form_PM16C.SetCh(2,CT_X_Ch);
+
+      Check_rate(Sender);
 
       try
         for m:=0 to UD_Ite.Position-1 do

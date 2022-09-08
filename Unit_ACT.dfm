@@ -591,6 +591,8 @@ object Form_ACT: TForm_ACT
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'Exp. Time'
+      Enabled = False
+      Visible = False
     end
     object Label22: TLabel
       Left = 93
@@ -674,8 +676,10 @@ object Form_ACT: TForm_ACT
       Margins.Right = 4
       Margins.Bottom = 4
       Alignment = taRightJustify
+      Enabled = False
       TabOrder = 4
       Text = '100'
+      Visible = False
     end
     object Edit_BK_Int: TEdit
       Left = 308

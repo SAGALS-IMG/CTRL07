@@ -721,7 +721,7 @@ begin
   if AT_GetFloat(Hndl,'ExposureTime',@ExpTime)=AT_SUCCESS then
     Edit_ExpT.Text := Format('%5.0f',[ExpTime*1000]);
 
-  Sleep(200);
+  Sleep(500);
   if AT_GetFloat(Hndl,'FrameRate',@FPS)=AT_SUCCESS then
     Label_FPS.Caption := Format('%3.3f',[FPS]);
   if Form_Main.CB_Log.Checked then
