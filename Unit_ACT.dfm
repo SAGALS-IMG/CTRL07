@@ -406,17 +406,6 @@ object Form_ACT: TForm_ACT
       Margins.Bottom = 4
       Caption = 'Init. Shift'
     end
-    object Label5: TLabel
-      Left = 9
-      Top = 27
-      Width = 89
-      Height = 14
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
-      Caption = 'Exp. Time [ms]'
-    end
     object Label6: TLabel
       Left = 152
       Top = 85
@@ -438,6 +427,15 @@ object Form_ACT: TForm_ACT
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'Projection'
+    end
+    object SB_ExpT: TSpeedButton
+      Left = 5
+      Top = 24
+      Width = 100
+      Height = 22
+      Caption = 'Exp. Time [ms]'
+      Flat = True
+      OnClick = SB_ExpTClick
     end
     object CB_axis_rot: TComboBox
       Left = 117

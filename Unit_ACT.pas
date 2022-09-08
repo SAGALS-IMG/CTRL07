@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VclTee.TeeGDIPlus, Vcl.ComCtrls,
   Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, VCLTee.TeEngine, VCLTee.Series,
-  VCLTee.TeeProcs, VCLTee.Chart, Unit_PW, Unit_Ph_PW, Math, IniFiles,  Diagnostics;
+  VCLTee.TeeProcs, VCLTee.Chart, Unit_PW, Unit_Ph_PW, Math, IniFiles,  Diagnostics, Zyla;
 
 type
   TForm_ACT = class(TForm)
@@ -30,7 +30,6 @@ type
     Label4: TLabel;
     Label8: TLabel;
     Label15: TLabel;
-    Label5: TLabel;
     CB_axis_rot: TComboBox;
     Edit_R_ST: TEdit;
     Edit_R_End: TEdit;
@@ -76,6 +75,7 @@ type
     Label13: TLabel;
     Label14: TLabel;
     Label12: TLabel;
+    SB_ExpT: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -103,6 +103,7 @@ type
     procedure BB_CT_STOPClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure CB_BKModeChange(Sender: TObject);
+    procedure SB_ExpTClick(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -928,8 +929,10 @@ begin
   end;
   lExpTime  := RoundTo(lExpTime,-2);
 
+  Sleep(500);
   Form_Imager.GetFrameRate(FPS);
   FPS := RoundTo(FPS, -3);
+  Form_main.Memo.Lines.Add('Frame rate : '+FPS.ToString );
 
   if FPS=-1 then
   begin
@@ -938,36 +941,26 @@ begin
     exit;
   end;
 
-  if FPS<>1/lExpTime then
-  begin
-    if MessageDlg('Obtained frame rate '+FPS.ToString+' [fps] is NOT coincide with Exp. Time! Use REAL FPS?',
-       mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
-    begin
-      lExpTime := 1/FPS;
-      Form_main.Memo.Lines.Add('Frame rate : '+FPS.ToString );
-    end;
-  end;
-
-  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
-
   Rot1 := StrToInt(Edit_R_ST.Text);
   Rot2 := StrToInt(Edit_R_End.Text);
   dR := StrToInt(Edit_R_d.Text);
   CT_N := (Rot2-Rot1) div dR;
 
-  Total_T := CT_N*lExpTime;
-
-  lrate := (Rot2-Rot1)/Total_T;
-  if MessageDlg('Rotation rate: '+lrate.ToString+' [pls/s]',
-     mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrNo then
-    Go := false
+  if FPS<>1/lExpTime then
+    if MessageDlg('Frame rate '+FPS.ToString+' [fps] is SLOW! Adjust rot speed?',
+       mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+      Total_T := CT_N/FPS
+    else
+    begin
+      Go := false;
+      ShowMessage('CT Canceled!');
+      exit;
+    end
   else
-  begin
-    Go := true;
-    rate := Round(lrate);
-    Form_main.Memo.Lines.Add('Rot table rate: '+rate.ToString+' [pls/s]');
-  end;
+    Total_T := CT_N*lExpTime;
 
+  rate := Round((Rot2-Rot1)/Total_T);
+  Form_main.Memo.Lines.Add('Rot table rate: '+rate.ToString+' [pls/s]');
 end;
 
 
@@ -986,8 +979,6 @@ begin
   Form_PM16C.SetLSP(CT_R_Ch,rate);
 
   BufferSize := Form_Imager.GetImageSize;
-  for i:=0 to NumberOfBuffers-1 do
-    Form_Imager.Que_Buff(i,BufferSize);
   Form_Imager.SetCycleMode;
   Form_Imager.SetTrigMode(0);
 
@@ -1016,7 +1007,7 @@ begin
     Form_PM16C.MoveTo(CT_R_Ch, Rot1-rate*2,true,true);
 
     Form_PM16C.SelectSP(CT_R_Ch,2);
-    Form_PM16C.MoveTo(CT_R_Ch, Rot2+rate*5,false,false);
+    Form_PM16C.MoveTo(CT_R_Ch, Rot2+rate*2,false,false);
 
     Sleep(2000);
     Form_Imager.Aquire_Start;
@@ -1056,11 +1047,11 @@ begin
     end;
 
     AStopWatch.Stop;
-    Sleep(2000);
     Form_Imager.Aquire_Stop;
     Form_Imager.Flush;
     Form_PM16C.Stop;
 
+    Sleep(2500);
     Form_Main.Memo.Lines.Add('Cont CT time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString+'/'+(CT_N+1).ToString+' imgs');
     Form_SAKAS.Add_Str(Form_SAKAS.Tag_FN,'Proc_1', 'CT_frame_rate', AStopWatch.ElapsedMilliseconds.ToString+' / '+(CT_N+1).ToString+' imgs',Sender);
   end;
@@ -1075,7 +1066,6 @@ procedure TForm_ACT.BB_CT_STClick(Sender: TObject);
 var
   m:longint;
   TmpFN : string;
-
 begin
   if ((Form_Imager.Zyla_Opened) and (Form_PM16C.CB_Connect.Checked)) or
      ((CB_Ext_imager.Checked) and (Form_PM16C.CB_Connect.Checked))  then
@@ -1162,6 +1152,20 @@ begin
   Go := false;
 end;
 
+procedure TForm_ACT.SB_ExpTClick(Sender: TObject);
+var
+  ExpTime, FPS : double;
+  Res : longint;
+begin
+  ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
+  Form_Imager.SetExpTime(ExpTime,Res);
+  Edit_ExpT.Text := Format('%5.0f',[ExpTime*1000]);
+
+  Sleep(500);
+  Form_Imager.GetFrameRate(FPS);
+
+  SB_CT.SimpleText := 'FPS: '+Format('%3.3f',[FPS]);
+end;
 
 end.
 

@@ -158,10 +158,15 @@ procedure TForm_Imager.SetExpTime(var ExpTime:double; var Res :longint);
 var
   lExpTime : double;
 begin
+  //  AT_SetFloat(Hndl,'ExposureTime',0.05);
+  //  Sleep(500);
   lExpTime := ExpTime;
   AT_SetFloat(Hndl,'ExposureTime',lExpTime);
-  Res := AT_GetFloat(Hndl,'ExposureTime',@lExpTime);
-  ExpTime := lExpTime;
+  if AT_GetFloat(Hndl,'ExposureTime',@lExpTime) =AT_SUCCESS then
+    ExpTime := lExpTime
+  else
+    ExpTime := -1;
+
   if Form_Main.CB_Log.Checked then
     Form_Main.AddLine('ExpT : '+lExpTime.ToString,true);
 end;
@@ -471,6 +476,7 @@ begin
     ShowMessage('Could NOT open Andor camera!');
     Exit;
   end;
+
   Zyla_Opened := true;
   Panel2.Enabled := true;
   BB_SetExp.Enabled := true;
@@ -714,8 +720,8 @@ procedure TForm_Imager.BB_SetExpClick(Sender: TObject);
 var
   ExpTime, FPS : double;
 begin
-  AT_SetFloat(Hndl,'ExposureTime',0.05);
-  Sleep(500);
+//  AT_SetFloat(Hndl,'ExposureTime',0.05);
+//  Sleep(500);
   ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
   AT_SetFloat(Hndl,'ExposureTime',ExpTime);
   if AT_GetFloat(Hndl,'ExposureTime',@ExpTime)=AT_SUCCESS then
