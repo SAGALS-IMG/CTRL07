@@ -664,7 +664,7 @@ object Form_Imager: TForm_Imager
       Margins.Bottom = 4
       Alignment = taRightJustify
       TabOrder = 8
-      Text = '100'
+      Text = '0'
     end
   end
   object Chart1: TChart

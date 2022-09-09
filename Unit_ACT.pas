@@ -356,8 +356,8 @@ end;
 
 procedure TForm_ACT.SB_FS_TestClick(Sender: TObject);
 var
-  lExpTime : double;
-  i,j,k, Res:longint;
+  lExpTime, FPS : double;
+  i,j,k:longint;
   BufferSize : Int64;
 begin
   if Form_Imager.Zyla_Opened then
@@ -372,7 +372,7 @@ begin
       Form_PM16C.MoveTo(Ph_Ch,PH_PH1,true,true);
 
       lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
-      Form_Imager.SetExpTime(lExpTime,Res);
+      Form_Imager.SetExpTime(lExpTime,FPS);
       Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
       BufferSize := Form_Imager.GetImageSize;
@@ -593,8 +593,8 @@ end;
 
 procedure TForm_ACT.BK(Sender: TObject);
 var
-  lExpTime : double;
-  i,j,k,m, Res :longint;
+  lExpTime, FPS : double;
+  i,j,k,m :longint;
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
@@ -622,14 +622,9 @@ begin
     exit;
   end;
 
-//  Form_Imager.Edit_ExpT.Text := Edit_BK_EXPT.Text;
-//  Form_Imager.BB_SetExpClick(Sender);
-//  lExpTime := StrToFloat(Form_Imager.Edit_ExpT.Text)/1000;
-//  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
-
-//  lExpTime := StrToFloat(Edit_BK_EXPT.Text)/1000;
-//  Form_Imager.SetExpTime(lExpTime,Res);
-//  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+  lExpTime := StrToFloat(Edit_BK_EXPT.Text)/1000;
+  Form_Imager.SetExpTime(lExpTime,FPS);
+  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
   BufferSize := Form_Imager.GetImageSize;
   for i:=0 to NumberOfBuffers-1 do
@@ -740,8 +735,8 @@ end;
 
 procedure TForm_ACT.Step_lCT(n:longint;Sender: TObject);
 var
-  lExpTime : double;
-  i,j,k,m, Res:longint;
+  lExpTime, FPS : double;
+  i,j,k,m:longint;
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
@@ -764,10 +759,10 @@ begin
     exit;
   end;
 
-//  lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
-//  Form_Imager.SetExpTime(lExpTime,Res);
-//  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
-//
+  lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
+  Form_Imager.SetExpTime(lExpTime,FPS);
+  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+
   BufferSize := Form_Imager.GetImageSize;
   for i:=0 to NumberOfBuffers-1 do
     Form_Imager.Que_Buff(i,BufferSize);
@@ -918,21 +913,13 @@ end;
 
 procedure TForm_ACT.Check_rate(Sender: TObject);
 var
-  lExpTime, Total_T, lrate,lrate2 : double;
-  Res: longint;
+  lExpTime, FPS, Total_T, lrate,lrate2 : double;
 begin
   lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
-  if StrToFloat(Edit_EXPT.Text)<>StrToFloat(Form_Imager.Edit_ExpT.Text) then
-  begin
-    Form_Imager.SetExpTime(lExpTime,Res);
-    Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
-  end;
+  Form_Imager.SetExpTime(lExpTime,FPS);
+  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
   lExpTime  := RoundTo(lExpTime,-2);
-
-  Sleep(500);
-  Form_Imager.GetFrameRate(FPS);
   FPS := RoundTo(FPS, -3);
-  Form_main.Memo.Lines.Add('Frame rate : '+FPS.ToString );
 
   if FPS=-1 then
   begin
@@ -967,12 +954,15 @@ end;
 
 procedure TForm_ACT.Cont_CT(Sender: TObject);
 var
-  lExpTime : double;
-  i,j,k,kk, Res, bk_rate, bk_rate2, n_Scan:longint;
+  lExpTime, FPS : double;
+  i,j,k,kk, bk_rate, bk_rate2, n_Scan:longint;
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
-//  Check_rate(Sender);
+  lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
+  Form_Imager.SetExpTime(lExpTime,FPS);
+  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+
   if not(Go) then exit;
 
   bk_rate := Form_PM16C.GetLSP(CT_R_Ch);
@@ -1158,13 +1148,9 @@ var
   Res : longint;
 begin
   ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
-  Form_Imager.SetExpTime(ExpTime,Res);
+  Form_Imager.SetExpTime(ExpTime,FPS);
   Edit_ExpT.Text := Format('%5.0f',[ExpTime*1000]);
-
-  Sleep(500);
-  Form_Imager.GetFrameRate(FPS);
-
-  SB_CT.SimpleText := 'FPS: '+Format('%3.3f',[FPS]);
+//  SB_CT.SimpleText := 'FPS: '+Format('%3.3f',[FPS]);
 end;
 
 end.

@@ -83,7 +83,7 @@ procedure TForm_Macro.JvInterpreterProgram1GetValue(Sender: TObject;
   var Done: Boolean);
 var
   I: Integer;
-  TmpDbl : double;
+  TmpDbl, TmpDbl2 : double;
 begin
 //  if AnsiSameText(Identifier, 'Add') then
 //  begin
@@ -130,7 +130,7 @@ begin
   if AnsiSameText(AnsiLowerCase(Identifier), 'set_expt') then
   begin
     TmpDbl := Args.Values[0];
-    Form_Imager.SetExpTime(TmpDbl,i);
+    Form_Imager.SetExpTime(TmpDbl,TmpDbl2);
     Memo_res.Lines.Add('Exp : '+TmpDbl.ToString);
     Done := True;
   end;

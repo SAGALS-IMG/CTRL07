@@ -104,7 +104,7 @@ type
     procedure SB_Re_ShowClick(Sender: TObject);
     procedure BB_LiveOFFClick(Sender: TObject);
 
-    procedure SetExpTime(var ExpTime:double;var Res :longint);
+    procedure SetExpTime(var ExpTime, FPS:double);
     procedure GetFrameRate(var FrameRate : double);
     procedure SetTrigMode(TrigMode:longint);
     procedure SetCycleMode;
@@ -154,21 +154,32 @@ begin
   AT_SetEnumString(Hndl, 'CycleMode', 'Continuous');
 end;
 
-procedure TForm_Imager.SetExpTime(var ExpTime:double; var Res :longint);
+procedure TForm_Imager.SetExpTime(var ExpTime, FPS:double);
 var
-  lExpTime : double;
+  FPSMin, FPSMax : double;
 begin
-  //  AT_SetFloat(Hndl,'ExposureTime',0.05);
-  //  Sleep(500);
-  lExpTime := ExpTime;
-  AT_SetFloat(Hndl,'ExposureTime',lExpTime);
-  if AT_GetFloat(Hndl,'ExposureTime',@lExpTime) =AT_SUCCESS then
-    ExpTime := lExpTime
-  else
-    ExpTime := -1;
+  AT_SetFloat(Hndl,'ExposureTime',ExpTime);
+  if AT_GetFloat(Hndl,'ExposureTime',@ExpTime)=AT_SUCCESS then
+    Form_Main.AddLine('ExpT : '+ExpTime.ToString,true);
 
+  Sleep(100);
+
+  AT_GetFloatMin(Hndl,'FrameRate',@FPSMin);
   if Form_Main.CB_Log.Checked then
-    Form_Main.AddLine('ExpT : '+lExpTime.ToString,true);
+    Form_Main.AddLine('FPS Min'+FPSMin.ToString,true);
+  AT_GetFloatMax(Hndl,'FrameRate',@FPSMax);
+  if Form_Main.CB_Log.Checked then
+    Form_Main.AddLine('FPS Max'+FPSMax.ToString,true);
+
+  if AT_SetFloat(Hndl,'FrameRate',FPSMax) = AT_SUCCESS then
+    if Form_Main.CB_Log.Checked then
+      Form_Main.AddLine('FPS set successed',true)
+  else
+    if Form_Main.CB_Log.Checked then
+      Form_Main.AddLine('FPS set Not successed',true);
+
+  if AT_GetFloat(Hndl,'FrameRate',@FPS)=AT_SUCCESS then
+    Form_Main.AddLine('Framerate : '+FPS.ToString,true);
 end;
 
 procedure TForm_Imager.GetFrameRate(var FrameRate: double);
@@ -451,8 +462,6 @@ var
   TmpChr : array[0..64] of Char;
   li:longint;
 begin
-//  Memo.Lines.Clear;
-
   if AT_InitialiseLibrary=AT_SUCCESS then
   begin
     Form_Main.AddLine('Initialize Andor Library: OK',true);
@@ -476,6 +485,8 @@ begin
     ShowMessage('Could NOT open Andor camera!');
     Exit;
   end;
+
+  Application.ProcessMessages;
 
   Zyla_Opened := true;
   Panel2.Enabled := true;
@@ -653,13 +664,11 @@ begin
   if AT_GetInt(Hndl, 'AOIWidth', @TmpInt)=AT_SUCCESS then
   begin
     PW := TmpInt;
-//  Form_Main.Memo.Lines.Add('Image Width : '+PW.ToString);
   end;
 
   if AT_GetInt(Hndl, 'AOIStride', @TmpInt)=AT_SUCCESS then
   begin
     Stride := TmpInt div 2;
-//    Memo.Lines.Add('Stride : '+TmpInt.ToString);
   end;
 
 
@@ -668,7 +677,6 @@ begin
   if AT_GetInt(Hndl, 'AOIHeight', @TmpInt)=AT_SUCCESS then
   begin
     PH := TmpInt;
-//  Form_Main.Memo.Lines.Add('Image Height : '+PH.ToString);
   end;
 
   PLeft := StrToInt(Edit_ROI_X1.Text);
@@ -688,7 +696,7 @@ begin
   Form_Ph_PW.PW := PW;
   Form_Ph_PW.PH := PH;
 
-  if Form_Main.CB_Log.Checked then
+//  if Form_Main.CB_Log.Checked then
     Form_Main.AddLine('ROI : '+PW.ToString+'x'+PH.ToString,true);
 
 end;
@@ -718,20 +726,12 @@ end;
 
 procedure TForm_Imager.BB_SetExpClick(Sender: TObject);
 var
-  ExpTime, FPS : double;
+  ExpTime ,FPS: double;
 begin
-//  AT_SetFloat(Hndl,'ExposureTime',0.05);
-//  Sleep(500);
   ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
-  AT_SetFloat(Hndl,'ExposureTime',ExpTime);
-  if AT_GetFloat(Hndl,'ExposureTime',@ExpTime)=AT_SUCCESS then
-    Edit_ExpT.Text := Format('%5.0f',[ExpTime*1000]);
-
-  Sleep(500);
-  if AT_GetFloat(Hndl,'FrameRate',@FPS)=AT_SUCCESS then
-    Label_FPS.Caption := Format('%3.3f',[FPS]);
-  if Form_Main.CB_Log.Checked then
-    Form_Main.AddLine('ExpT : '+ExpTime.ToString,true);
+  SetExpTime(ExpTime, FPS);
+  Edit_ExpT.Text := Format('%5.0f',[ExpTime*1000]);
+  Label_FPS.Caption := Format('%3.3f',[FPS]);
 end;
 
 procedure TForm_Imager.CB_BINChange(Sender: TObject);
@@ -1005,6 +1005,7 @@ begin
 
     AT_Command(Hndl,'SoftwareTrigger');
     AT_WaitBuffer(Hndl, Addr(pBuf), Addr(BufSize), AT_INFINITE);
+
     if Form_Main.CB_Log.Checked then
       Form_Main.AddLine('Get_Img',true);
 
