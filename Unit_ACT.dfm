@@ -45,9 +45,9 @@ object Form_ACT: TForm_ACT
     object Label7: TLabel
       Left = 95
       Top = 24
-      Width = 81
+      Width = 44
       Height = 14
-      Caption = 'Sample Name'
+      Caption = 'Sample'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -12
@@ -79,9 +79,9 @@ object Form_ACT: TForm_ACT
       OnClick = SB_SAKASClick
     end
     object Edit_Samp_Name: TEdit
-      Left = 182
+      Left = 153
       Top = 21
-      Width = 205
+      Width = 234
       Height = 22
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
@@ -581,7 +581,7 @@ object Form_ACT: TForm_ACT
     end
     object Label1: TLabel
       Left = 231
-      Top = 53
+      Top = 45
       Width = 58
       Height = 14
       Margins.Left = 4
@@ -589,6 +589,12 @@ object Form_ACT: TForm_ACT
       Margins.Right = 4
       Margins.Bottom = 4
       Caption = 'Exp. Time'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label22: TLabel
       Left = 93
@@ -614,6 +620,23 @@ object Form_ACT: TForm_ACT
       Width = 34
       Height = 14
       Caption = 'Mode'
+    end
+    object Label5: TLabel
+      Left = 231
+      Top = 61
+      Width = 70
+      Height = 14
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = '(Step scan)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object CB_axis_x: TComboBox
       Left = 117

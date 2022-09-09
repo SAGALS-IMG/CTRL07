@@ -136,6 +136,7 @@ object Form_Imager: TForm_Imager
       BevelOuter = bvLowered
       Enabled = False
       TabOrder = 1
+      ExplicitHeight = 240
       object Shape2: TShape
         Left = 24
         Top = 25
@@ -181,7 +182,7 @@ object Form_Imager: TForm_Imager
         Left = 193
         Top = 9
         Width = 3
-        Height = 187
+        Height = 193
       end
       object Bevel3: TBevel
         Left = 300
@@ -288,10 +289,24 @@ object Form_Imager: TForm_Imager
       end
       object SB_Com: TSpeedButton
         Left = 353
-        Top = 208
+        Top = 214
         Width = 27
         Height = 22
         Flat = True
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+          555555FFFFFFFFFF5F5557777777777505555777777777757F55555555555555
+          055555555555FF5575F555555550055030555555555775F7F7F55555550FB000
+          005555555575577777F5555550FB0BF0F05555555755755757F555550FBFBF0F
+          B05555557F55557557F555550BFBF0FB005555557F55575577F555500FBFBFB0
+          305555577F555557F7F5550E0BFBFB003055557575F55577F7F550EEE0BFB0B0
+          305557FF575F5757F7F5000EEE0BFBF03055777FF575FFF7F7F50000EEE00000
+          30557777FF577777F7F500000E05555BB05577777F75555777F5500000555550
+          3055577777555557F7F555000555555999555577755555577755}
+        NumGlyphs = 2
         OnClick = SB_ComClick
       end
       object SB_Copy: TSpeedButton
@@ -315,6 +330,19 @@ object Form_Imager: TForm_Imager
           03FF3777773337777333333333333333333F3333333333333333}
         NumGlyphs = 2
         OnClick = SB_CopyClick
+      end
+      object Label13: TLabel
+        Left = 8
+        Top = 196
+        Width = 65
+        Height = 14
+        Caption = 'Command:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object Edit_ROI_Y1: TEdit
         Left = 59
@@ -475,7 +503,7 @@ object Form_Imager: TForm_Imager
       end
       object Edit_Comm: TEdit
         Left = 8
-        Top = 208
+        Top = 214
         Width = 345
         Height = 22
         TabOrder = 13

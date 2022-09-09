@@ -76,6 +76,7 @@ type
     Label14: TLabel;
     Label12: TLabel;
     SB_ExpT: TSpeedButton;
+    Label5: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -622,9 +623,12 @@ begin
     exit;
   end;
 
-  lExpTime := StrToFloat(Edit_BK_EXPT.Text)/1000;
-  Form_Imager.SetExpTime(lExpTime,FPS);
-  Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+  if RG_Scan.ItemIndex=0 then
+  begin
+    lExpTime := StrToFloat(Edit_BK_EXPT.Text)/1000;
+    Form_Imager.SetExpTime(lExpTime,FPS);
+    Edit_BK_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+  end;
 
   BufferSize := Form_Imager.GetImageSize;
   for i:=0 to NumberOfBuffers-1 do
@@ -959,9 +963,9 @@ var
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
-  lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
-  Form_Imager.SetExpTime(lExpTime,FPS);
-  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+//  lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
+//  Form_Imager.SetExpTime(lExpTime,FPS);
+//  Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
   if not(Go) then exit;
 
@@ -1076,9 +1080,13 @@ begin
       Form_PM16C.SetCh(1,CT_R_Ch);
       Form_PM16C.SetCh(2,CT_X_Ch);
 
-      Check_rate(Sender);
-
       try
+        if RG_Scan.ItemIndex=1 then
+        begin
+          Check_rate(Sender);
+          if not(go) then exit;
+        end;
+
         for m:=0 to UD_Ite.Position-1 do
         begin
           AStopWatch := TStopwatch.StartNew;
@@ -1110,6 +1118,7 @@ begin
                   Cont_CT(Sender);
                 if not(go) then exit;
                 BK(Sender);
+                if not(go) then exit;
               end;
             2:begin
                 Step_Int_CT(Sender);

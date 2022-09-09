@@ -78,6 +78,7 @@ type
     SB_Copy: TSpeedButton;
     Label1: TLabel;
     Edit_WaitT: TEdit;
+    Label13: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -877,7 +878,7 @@ end;
 
 procedure TForm_Imager.SB_ComClick(Sender: TObject);
 var
-  ExpTime, FPS : double;
+  ExpTime, FPS,Temp : double;
   lBool : boolean;
 begin
 //  ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
@@ -898,12 +899,13 @@ begin
 //  if AT_GetFloat(Hndl,'RowReadTime',@FPS)=AT_SUCCESS then
 //    Form_Main.Memo.Lines.Add('ExpT : '+FPS.ToString);
 
-  if AT_GetBool(Hndl,'FullAOIControl',@lBool)=AT_SUCCESS then
-    if lBool then
-      Form_Main.AddLine('ROI : supported',true)
-    else
-      Form_Main.AddLine('ROI : not supported',true)
-
+//  if AT_GetBool(Hndl,'FullAOIControl',@lBool)=AT_SUCCESS then
+//    if lBool then
+//      Form_Main.AddLine('ROI : supported',true)
+//    else
+//      Form_Main.AddLine('ROI : not supported',true)
+  AT_GetFloat(Hndl,PChar(Edit_Comm.Text),@Temp);
+  Form_Main.AddLine('Coomand res: '+Temp.ToString,true);
 end;
 
 procedure TForm_Imager.SB_CopyClick(Sender: TObject);
