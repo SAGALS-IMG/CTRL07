@@ -47,6 +47,9 @@ const
   function AT_SetFloat(Hndl:longint;AT_WC:PChar;Value:double):longint;stdcall;external 'atcore.dll';
   function AT_GetFloat(Hndl:longint;AT_WC:PChar; Value:pointer):longint;stdcall;external 'atcore.dll';
 
+  function AT_GetFloatMin(Hndl:longint;AT_WC:PChar; Value:pointer):longint;stdcall;external 'atcore.dll';
+  function AT_GetFloatMax(Hndl:longint;AT_WC:PChar; Value:pointer):longint;stdcall;external 'atcore.dll';
+
   function AT_SetBool(Hndl:longint;AT_WC:PChar;Value:integer):longint;stdcall;external 'atcore.dll';
   function AT_GetBool(Hndl:longint;AT_WC:PChar;Value:pointer):longint;stdcall;external 'atcore.dll';
 
