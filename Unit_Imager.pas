@@ -159,11 +159,13 @@ procedure TForm_Imager.SetExpTime(var ExpTime, FPS:double);
 var
   FPSMin, FPSMax : double;
 begin
+  Sleep(200);
+
   AT_SetFloat(Hndl,'ExposureTime',ExpTime);
   if AT_GetFloat(Hndl,'ExposureTime',@ExpTime)=AT_SUCCESS then
     Form_Main.AddLine('ExpT : '+ExpTime.ToString,true);
 
-  Sleep(100);
+  Sleep(200);
 
   AT_GetFloatMin(Hndl,'FrameRate',@FPSMin);
   if Form_Main.CB_Log.Checked then

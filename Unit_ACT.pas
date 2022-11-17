@@ -372,9 +372,9 @@ begin
       Sleep(100);
       Form_PM16C.MoveTo(Ph_Ch,PH_PH1,true,true);
 
-      lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
-      Form_Imager.SetExpTime(lExpTime,FPS);
-      Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+//      lExpTime  := StrToFloat(Edit_EXPT.Text)/1000;
+//      Form_Imager.SetExpTime(lExpTime,FPS);
+//      Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
       BufferSize := Form_Imager.GetImageSize;
       for i:=0 to NumberOfBuffers-1 do
@@ -918,9 +918,13 @@ end;
 procedure TForm_ACT.Check_rate(Sender: TObject);
 var
   lExpTime, FPS, Total_T, lrate,lrate2 : double;
+  FPSMin, FPSMax : double;
 begin
   lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
+  Sleep(500);
+
   Form_Imager.SetExpTime(lExpTime,FPS);
+
   Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
   lExpTime  := RoundTo(lExpTime,-2);
   FPS := RoundTo(FPS, -3);
@@ -1009,7 +1013,7 @@ begin
 
     for k := 0 to CT_N do
     begin
-      SB_CT.SimpleText := 'CONT CT : '+k.ToString+'/'+CT_N.ToString;
+      SB_CT.SimpleText := 'CONT CT : '+kk.ToString+' : '+k.ToString+'/'+CT_N.ToString;
 
       Form_Imager.Wait_Data(k mod NumberOfBuffers);
       for j:=0 to Form_PW.PH-1 do
