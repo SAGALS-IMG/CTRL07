@@ -500,9 +500,9 @@ object Form_ACT: TForm_ACT
     object CB_Moni2: TCheckBox
       Left = 232
       Top = 27
-      Width = 125
+      Width = 81
       Height = 17
-      Caption = 'Intensity Mon.'
+      Caption = 'Int. Mon.'
       Checked = True
       State = cbChecked
       TabOrder = 5
@@ -527,6 +527,14 @@ object Form_ACT: TForm_ACT
       Height = 22
       TabOrder = 7
       Text = '1000'
+    end
+    object CB_ROT_RESET: TCheckBox
+      Left = 319
+      Top = 27
+      Width = 61
+      Height = 17
+      Caption = 'Reset'
+      TabOrder = 8
     end
   end
   object GroupBox2: TGroupBox

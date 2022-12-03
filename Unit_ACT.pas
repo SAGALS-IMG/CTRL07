@@ -77,6 +77,7 @@ type
     Label12: TLabel;
     SB_ExpT: TSpeedButton;
     Label5: TLabel;
+    CB_ROT_RESET: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -183,6 +184,7 @@ begin
     Edit_FS_dP.Text    :=Ini.ReadString('CT','FS_dP','2000');
     Edit_FS_n.Text     :=Ini.ReadString('CT','FS_ND','5');
     CB_DispPh.Checked := Ini.ReadBool('CT','Disp_Phmap',false);
+    CB_XI_DEI.ItemIndex := Ini.ReadInteger('CT','Calc_XI_DEI',0);
 
     CB_AutoSh.Checked := Ini.ReadBool('CT','Auto_Shutter',false);
 
@@ -236,6 +238,8 @@ begin
     Ini.WriteString('CT','FS_dP',     Edit_FS_dP.Text);
     Ini.WriteString('CT','FS_ND',     Edit_FS_n.Text);
     Ini.WriteBool('CT','Disp_Phmap',CB_DispPh.Checked);
+    Ini.WriteInteger('CT','Calc_XI_DEI',CB_XI_DEI.ItemIndex);
+
     Ini.WriteBool('CT','Auto_Shutter',CB_AutoSh.Checked);
 
     Ini.WriteString('Sample','Name',  Edit_Samp_Name.Text);
@@ -361,7 +365,7 @@ var
   i,j,k:longint;
   BufferSize : Int64;
 begin
-  if Form_Imager.Zyla_Opened then
+  if (Form_Imager.Zyla_Opened) or (CB_Ext_imager.Checked) then
   begin
     if Ph_Ch>=0 then
     begin
@@ -376,12 +380,15 @@ begin
 //      Form_Imager.SetExpTime(lExpTime,FPS);
 //      Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
 
-      BufferSize := Form_Imager.GetImageSize;
-      for i:=0 to NumberOfBuffers-1 do
-        Form_Imager.Que_Buff(i,BufferSize);
-      Form_Imager.SetCycleMode;
-      Form_Imager.SetTrigMode(1);
-      Form_Imager.Aquire_Start;
+      if not(CB_Ext_imager.Checked) then
+      begin
+        BufferSize := Form_Imager.GetImageSize;
+        for i:=0 to NumberOfBuffers-1 do
+          Form_Imager.Que_Buff(i,BufferSize);
+        Form_Imager.SetCycleMode;
+        Form_Imager.SetTrigMode(1);
+        Form_Imager.Aquire_Start;
+      end;
 
       AStopWatch := TStopwatch.StartNew;
 
@@ -389,21 +396,30 @@ begin
       begin
         SB_CT.SimpleText := 'FS : '+(k+1).ToString+'/'+PH_n.ToString;
 
-        Form_Imager.Soft_Trigger;
-        Form_Imager.Wait_Data(k mod NumberOfBuffers);
-        for j:=0 to Form_PW.PH-1 do
-          for i:=0 to Form_PW.PW-1 do
-          begin
-            Form_PW.PData[j,i] := Form_Imager.RAWData[j,i];
-            IData[k,j,i] :=Form_Imager.RAWData[j,i];
-          end;
-        Form_PW.Draw_Data(Sender);
-        if CB_Moni2.Checked then
-          Series1.AddXY(PH_PH1+k*PH_dPH,Calc_AvI(Sender));
+        if not(CB_Ext_imager.Checked) then
+        begin
+          Form_Imager.Soft_Trigger;
+          Form_Imager.Wait_Data(k mod NumberOfBuffers);
+          for j:=0 to Form_PW.PH-1 do
+            for i:=0 to Form_PW.PW-1 do
+            begin
+              Form_PW.PData[j,i] := Form_Imager.RAWData[j,i];
+              IData[k,j,i] :=Form_Imager.RAWData[j,i];
+            end;
+          Form_PW.Draw_Data(Sender);
+          if CB_Moni2.Checked then
+            Series1.AddXY(PH_PH1+k*PH_dPH,Calc_AvI(Sender));
+        end
+        else
+        begin
+          Form_PM16C.SB_PulseClick(Sender);
+          Sleep(StrToInt(Edit_EXPT.Text)+100);
+        end;
         if (k<PH_n-1) then
           Form_PM16C.MoveBy(Ph_Ch,PH_dPH,true,false);
 
-        Form_Imager.Que_Buff(k mod NumberOfBuffers,BufferSize);
+        if not(CB_Ext_imager.Checked) then
+           Form_Imager.Que_Buff(k mod NumberOfBuffers,BufferSize);
 
         Application.ProcessMessages;
       end;
@@ -411,8 +427,11 @@ begin
       AStopWatch.Stop;
       Form_Main.Memo.Lines.Add('Total time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString);
 
-      Form_Imager.Aquire_Stop;
-      Form_Imager.Flush;
+      if not(CB_Ext_imager.Checked) then
+      begin
+        Form_Imager.Aquire_Stop;
+        Form_Imager.Flush;
+      end;
 
       if CB_XI_DEI.ItemIndex = 0 then
         Calc_Phase(Sender)
@@ -606,21 +625,46 @@ begin
 
   if CB_Ext_imager.Checked then
   begin
-    for k:=0 to BKN-1 do
+    if  RG_Method.ItemIndex=0 then
     begin
-      SB_CT.SimpleText := 'ABS BK : '+(k+1).ToString+'/'+BKN.ToString;
-      Form_PM16C.SB_PulseClick(Sender);
-      Sleep(StrToInt(Edit_BK_EXPT.Text));
-
-      if not(Go) then
+      for k:=0 to BKN-1 do
       begin
-        ShowMessage('CT Canceled!');
-        exit;
+        SB_CT.SimpleText := 'ABS BK : '+(k+1).ToString+'/'+BKN.ToString;
+        Form_PM16C.SB_PulseClick(Sender);
+        Sleep(StrToInt(Edit_BK_EXPT.Text));
+
+        if not(Go) then
+        begin
+          ShowMessage('CT Canceled!');
+          exit;
+        end;
+        Application.ProcessMessages;
       end;
-      Application.ProcessMessages;
+      Form_PM16C.MoveTo(CT_X_Ch, BKm,true,true);
+      exit;
+    end
+    else
+    begin
+      for k:=0 to BKN-1 do
+      begin
+        Form_PM16C.MoveTo(Ph_Ch,PH_PH0,true,false);
+        Sleep(100);
+        Form_PM16C.MoveTo(Ph_Ch,PH_PH1,true,false);
+        for m:=0 to PH_n-1 do
+        begin
+          SB_CT.SimpleText := 'PH BK : '+(k+1).ToString+'/'+BKN.ToString+ ' PH : '+m.ToString;
+
+          Form_PM16C.SB_PulseClick(Sender);
+          Sleep(StrToInt(Edit_BK_EXPT.Text));
+
+          if (m<PH_n-1) then
+            Form_PM16C.MoveBy(Ph_Ch,PH_dPH,true,false);
+          Application.ProcessMessages;
+        end;
+      end;
+      Form_PM16C.MoveTo(CT_X_Ch, BKm,true,true);
+      exit;
     end;
-    Form_PM16C.MoveTo(CT_X_Ch, BKm,true,true);
-    exit;
   end;
 
   if RG_Scan.ItemIndex=0 then
@@ -744,7 +788,7 @@ var
   BufferSize : Int64;
   lData : array[0..3000] of WORD;
 begin
-  if CB_Ext_imager.Checked then
+  if  RG_Method.ItemIndex=0 then
   begin
     for k := 0 to n-1 do
     begin
@@ -753,6 +797,34 @@ begin
       Sleep(StrToInt(Edit_EXPT.Text)+100);
       Form_PM16C.MoveBy(CT_R_Ch,dR,true,false);
 
+      if not(Go) then
+      begin
+        ShowMessage('CT Canceled!');
+        exit;
+      end;
+      Application.ProcessMessages;
+    end;
+  end
+  else
+  begin
+    for k := 0 to n-1 do
+    begin
+      Form_PM16C.MoveTo(Ph_Ch,PH_PH0,true,false);
+      Sleep(20);
+      Form_PM16C.MoveTo(Ph_Ch,PH_PH1,true,false);
+
+      for m:=0 to PH_n-1 do
+      begin
+        SB_CT.SimpleText := 'PH CT : '+(k+1).ToString+'/'+n.ToString+ ' FS : '+m.ToString;
+
+        Form_PM16C.SB_PulseClick(Sender);
+        Sleep(StrToInt(Edit_EXPT.Text)+100);
+        if (m<PH_n-1) then
+          Form_PM16C.MoveBy(Ph_Ch,PH_dPH,true,false);
+        Application.ProcessMessages;
+      end;
+
+      Form_PM16C.MoveBy(CT_R_Ch,dR,true,false);
       if not(Go) then
       begin
         ShowMessage('CT Canceled!');
@@ -1049,11 +1121,18 @@ begin
     Form_Imager.Flush;
     Form_PM16C.Stop;
 
-    Sleep(2500);
+    if CB_ROT_RESET.Checked then
+    begin
+      Form_PM16C.SelectSP(CT_R_Ch,0);
+      Form_PM16C.MoveTo(CT_R_Ch, 180000,true,true);
+      Form_PM16C.SetPreset(CT_R_Ch,0)
+    end;
+
+    Sleep(1000);
     Form_Main.Memo.Lines.Add('Cont CT time [ms]: '+ AStopWatch.ElapsedMilliseconds.ToString+'/'+(CT_N+1).ToString+' imgs');
-    Form_SAKAS.Add_Str(Form_SAKAS.Tag_FN,'Proc_1', 'CT_frame_rate', AStopWatch.ElapsedMilliseconds.ToString+' / '+(CT_N+1).ToString+' imgs',Sender);
   end;
 
+  Form_SAKAS.Add_Str(Form_SAKAS.Tag_FN,'Proc_1', 'CT_frame_rate', AStopWatch.ElapsedMilliseconds.ToString+' / '+(CT_N+1).ToString+' imgs',Sender);
   Form_PM16C.SetLSP(CT_R_Ch,bk_rate);
   Form_PM16C.SelectSP(CT_R_Ch,0);
 end;
