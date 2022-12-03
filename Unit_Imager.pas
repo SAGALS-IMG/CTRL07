@@ -660,9 +660,18 @@ end;
 
 procedure TForm_Imager.BB_ROIClick(Sender: TObject);
 var
-  PLeft, PTop, TmpInt : Int64;
+  PLeft, PTop, TmpInt, BINDIV : Int64;
 begin
+  case CB_BIN.ItemIndex of
+    0: BINDIV := 1;
+    1: BINDIV := 2;
+    2: BINDIV := 3;
+    3: BINDIV := 4;
+    4: BINDIV := 8;
+  end;
+
   PW := StrToInt(Edit_ROI_X2.Text)-StrToInt(Edit_ROI_X1.Text)+1;
+  PW := PW div BINDIV;
   AT_SetInt(Hndl, 'AOIWidth', &PW);
 
   if AT_GetInt(Hndl, 'AOIWidth', @TmpInt)=AT_SUCCESS then
@@ -677,16 +686,20 @@ begin
 
 
   PH := StrToInt(Edit_ROI_Y2.Text)-StrToInt(Edit_ROI_Y1.Text)+1;
+  PH := PH div BINDIV;
   AT_SetInt(Hndl, 'AOIHeight', &PH);
+
   if AT_GetInt(Hndl, 'AOIHeight', @TmpInt)=AT_SUCCESS then
   begin
     PH := TmpInt;
   end;
 
   PLeft := StrToInt(Edit_ROI_X1.Text);
+//  PLeft := PLeft div BINDIV;
   AT_SetInt(Hndl, 'AOILeft', &PLeft);
 
   PTop := StrToInt(Edit_ROI_Y1.Text);
+//  PTop := PTop div BINDIV;
   AT_SetInt(Hndl, 'AOITop', &PTop);
 
 //  AT_GetInt(Hndl, 'AOILeft', @TmpInt);

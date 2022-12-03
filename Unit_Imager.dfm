@@ -136,7 +136,6 @@ object Form_Imager: TForm_Imager
       BevelOuter = bvLowered
       Enabled = False
       TabOrder = 1
-      ExplicitHeight = 240
       object Shape2: TShape
         Left = 24
         Top = 25
