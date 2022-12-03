@@ -136,6 +136,7 @@ object Form_Imager: TForm_Imager
       BevelOuter = bvLowered
       Enabled = False
       TabOrder = 1
+      ExplicitHeight = 240
       object Shape2: TShape
         Left = 24
         Top = 25
@@ -333,9 +334,9 @@ object Form_Imager: TForm_Imager
       object Label13: TLabel
         Left = 8
         Top = 196
-        Width = 65
+        Width = 61
         Height = 14
-        Caption = 'Command:'
+        Caption = 'Command'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
