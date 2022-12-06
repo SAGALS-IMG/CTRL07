@@ -1218,7 +1218,8 @@ begin
         end;
       finally
         Form_PM16C.SB_RefreshClick(Sender);
-        Form_SAKAS.Add_Str(Form_SAKAS.Tag_FN,'BL_Cond', 'End_Time',TimeToStr(Now),Sender);
+        if not(Go) then
+          Form_SAKAS.Add_Str(Form_SAKAS.Tag_FN,'BL_Cond', 'End_Time',TimeToStr(Now),Sender);
         if CB_AutoSh.Enabled then
           if Form_Shutter.CB_Connect.Checked then
             Form_Shutter.BB_CLOSEClick(Sender);

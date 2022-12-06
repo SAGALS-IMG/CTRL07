@@ -15,42 +15,22 @@ File_12=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL
 File_13=TSourceModule,'E:\Dropbox\Documents\Program\_h_20210501_CTRL7\Zyla.pas',0,1,1,12,47,0,0,,
 
 [Modules]
-Module0=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
-Module1=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
-Module2=C:\Users\Kyoto\Documents\GitHub\CTRL07\Zyla.pas
-Module3=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_CT48.pas
-Module4=C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas
-Module5=default.htm
-Count=6
+Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module1=default.htm
+Count=2
 EditWindowCount=1
 
-[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Kyoto\Documents\GitHub\CTRL07\Zyla.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_CT48.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas]
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas]
 ModuleType=TSourceModule
 
 [default.htm]
 ModuleType=TURLModule
 
 [EditWindow0]
-ViewCount=6
-CurrentEditView=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
+ViewCount=2
+CurrentEditView=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 View0=0
 View1=1
-View2=2
-View3=3
-View4=4
-View5=5
 PercentageSizes=1
 Create=1
 Visible=1
@@ -80,58 +60,14 @@ WelcomePageURL=bds:/default.htm
 
 [View1]
 CustomEditViewType=TEditView
-Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
-CursorX=90
-CursorY=580
-TopLine=545
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_Imager.pas
-
-[View2]
-CustomEditViewType=TEditView
-Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Zyla.pas
-CursorX=103
-CursorY=24
-TopLine=1
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Zyla.pas
-
-[View3]
-CustomEditViewType=TEditView
-Module=C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas
-CursorX=40
-CursorY=99
-TopLine=75
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Users\Kyoto\Documents\GitHub\SAKAS-COM\Unit_PW.pas
-
-[View4]
-CustomEditViewType=TEditView
-Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_CT48.pas
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 CursorX=1
-CursorY=1
-TopLine=1
+CursorY=1223
+TopLine=1161
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_CT48.pas
-
-[View5]
-CustomEditViewType=TEditView
-Module=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
-CursorX=1
-CursorY=434
-TopLine=380
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Users\Kyoto\Documents\GitHub\CTRL07\Unit_ACT.pas
+EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 
 [UndockedDesigner]
 Count=10
@@ -140,14 +76,14 @@ Left0=1302
 Top0=401
 Width0=546
 Height0=768
-Visible0=1
+Visible0=0
 State0=0
 Module1=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 Left1=453
 Top1=490
 Width1=513
 Height1=760
-Visible1=0
+Visible1=1
 State1=0
 Module2=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
 Left2=1028
@@ -161,7 +97,7 @@ Left3=215
 Top3=334
 Width3=502
 Height3=721
-Visible3=1
+Visible3=0
 State3=0
 Module4=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas
 Left4=1250
@@ -189,7 +125,7 @@ Left7=982
 Top7=198
 Width7=877
 Height7=763
-Visible7=1
+Visible7=0
 State7=0
 Module8=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
 Left8=445
@@ -218,7 +154,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=7184
+Top=7397
 Width=3500
 Height=2603
 MaxLeft=-4
@@ -239,9 +175,6 @@ Breakpoint1='C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_SAKAS.pas',5
 Count=0
 
 [EmbarcaderoWin64Debugger_AddressBreakpoints]
-Count=0
-
-[EmbarcaderoOSXDebugger_AddressBreakpoints]
 Count=0
 
 [Main Window]
@@ -324,7 +257,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=3440
+Top=3652
 Width=1953
 Height=4227
 MaxLeft=-4
@@ -355,63 +288,6 @@ LRDockWidth=1031
 Dockable=1
 StayOnTop=0
 
-[ClassBrowserTool]
-PercentageSizes=1
-Create=1
-Visible=0
-Docked=0
-State=0
-Left=0
-Top=3660
-Width=2527
-Height=4397
-MaxLeft=-4
-MaxTop=-7
-ClientWidth=2465
-ClientHeight=4121
-TBDockHeight=4220
-LRDockWidth=2465
-Dockable=1
-StayOnTop=0
-
-[MetricsView]
-PercentageSizes=1
-Create=1
-Visible=0
-Docked=0
-State=0
-Left=0
-Top=9518
-Width=1453
-Height=1546
-MaxLeft=-4
-MaxTop=-7
-ClientWidth=1391
-ClientHeight=1270
-TBDockHeight=1546
-LRDockWidth=1453
-Dockable=1
-StayOnTop=0
-
-[QAView]
-PercentageSizes=1
-Create=1
-Visible=0
-Docked=0
-State=0
-Left=0
-Top=9518
-Width=1453
-Height=1546
-MaxLeft=-4
-MaxTop=-7
-ClientWidth=1391
-ClientHeight=1270
-TBDockHeight=1546
-LRDockWidth=1453
-Dockable=1
-StayOnTop=0
-
 [PropertyInspector]
 PercentageSizes=1
 Create=1
@@ -419,7 +295,7 @@ Visible=1
 Docked=0
 State=0
 Left=133
-Top=1716
+Top=1929
 Width=2254
 Height=8312
 MaxLeft=-4
@@ -435,7 +311,7 @@ SplitPos=73
 [PropInspDesignerSelection]
 ArrangeBy=Name
 SelectedItem=Caption,
-ExpandedItems=Constraints=0,Font=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,StyleElements=0,Anchors=0,BackWall=0,Border=0,BottomAxis=0,BottomWall=0,DepthAxis=0,DepthTopAxis=0,Emboss=0,Foot=0,Frame=0,Gradient=0,Hover=0,LeftAxis=0,LeftWall=0,Legend=0,Touch=0,Padding=0
+ExpandedItems=Anchors=0,Constraints=0,Font=0,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,StyleElements=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -463,7 +339,7 @@ Visible=0
 Docked=0
 State=0
 Left=27
-Top=1362
+Top=1574
 Width=2871
 Height=9277
 MaxLeft=-4
@@ -482,7 +358,7 @@ Visible=0
 Docked=0
 State=0
 Left=7621
-Top=4525
+Top=4738
 Width=2379
 Height=6113
 MaxLeft=-4
@@ -504,7 +380,7 @@ Visible=0
 Docked=0
 State=0
 Left=2629
-Top=7759
+Top=7972
 Width=4645
 Height=2879
 MaxLeft=-4
@@ -523,7 +399,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=7759
+Top=7972
 Width=3500
 Height=2879
 MaxLeft=-4
@@ -546,7 +422,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=7418
+Top=7631
 Width=3500
 Height=3220
 MaxLeft=-4
@@ -565,7 +441,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=4830
+Top=5043
 Width=3500
 Height=3163
 MaxLeft=-4
@@ -584,7 +460,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=1660
+Top=1872
 Width=3965
 Height=3255
 MaxLeft=-4
@@ -603,7 +479,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=1660
+Top=1872
 Width=1453
 Height=1546
 MaxLeft=-4
@@ -622,7 +498,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=1660
+Top=1872
 Width=1453
 Height=1546
 MaxLeft=-4
@@ -641,7 +517,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=9404
+Top=9830
 Width=3266
 Height=3362
 MaxLeft=-4
@@ -687,7 +563,7 @@ Visible=0
 Docked=0
 State=0
 Left=1938
-Top=6326
+Top=6539
 Width=3809
 Height=4312
 MaxLeft=-4
@@ -699,6 +575,63 @@ LRDockWidth=3809
 Dockable=1
 StayOnTop=0
 
+[ClassBrowserTool]
+PercentageSizes=1
+Create=1
+Visible=0
+Docked=0
+State=0
+Left=0
+Top=3872
+Width=2527
+Height=4397
+MaxLeft=-4
+MaxTop=-7
+ClientWidth=2465
+ClientHeight=4121
+TBDockHeight=4220
+LRDockWidth=2465
+Dockable=1
+StayOnTop=0
+
+[MetricsView]
+PercentageSizes=1
+Create=1
+Visible=0
+Docked=0
+State=0
+Left=0
+Top=9943
+Width=1453
+Height=1546
+MaxLeft=-4
+MaxTop=-7
+ClientWidth=1391
+ClientHeight=1270
+TBDockHeight=1546
+LRDockWidth=1453
+Dockable=1
+StayOnTop=0
+
+[QAView]
+PercentageSizes=1
+Create=1
+Visible=0
+Docked=0
+State=0
+Left=0
+Top=9943
+Width=1453
+Height=1546
+MaxLeft=-4
+MaxTop=-7
+ClientWidth=1391
+ClientHeight=1270
+TBDockHeight=1546
+LRDockWidth=1453
+Dockable=1
+StayOnTop=0
+
 [BreakpointWindow]
 PercentageSizes=1
 Create=1
@@ -706,7 +639,7 @@ Visible=0
 Docked=0
 State=0
 Left=4809
-Top=7759
+Top=7972
 Width=5191
 Height=2879
 MaxLeft=-4
@@ -770,7 +703,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=9518
+Top=9943
 Width=1453
 Height=1546
 MaxLeft=-4
@@ -793,7 +726,7 @@ Visible=1
 Docked=0
 State=0
 Left=7656
-Top=2553
+Top=2979
 Width=2379
 Height=10064
 MaxLeft=-4
