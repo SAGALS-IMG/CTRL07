@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VclTee.TeeGDIPlus, IdBaseComponent,
   IdComponent, IdTCPConnection, IdTCPClient, Vcl.StdCtrls, Vcl.ExtCtrls,
   VCLTee.TeEngine, VCLTee.Series, Vcl.ComCtrls, VCLTee.TeeProcs, VCLTee.Chart,
-  Vcl.Buttons;
+  Vcl.Buttons, IniFiles;
 
 type
   TForm_Cryo = class(TForm)
@@ -31,11 +31,13 @@ type
     Label4: TLabel;
     SB_SV_Set: TSpeedButton;
     RB_T: TRadioButton;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+
     procedure CB_ConnectClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure SB_Chart_ClearClick(Sender: TObject);
     procedure SB_SV_SetClick(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -48,6 +50,48 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm_Cryo.FormCreate(Sender: TObject);
+var
+  Ini: TIniFile;
+begin
+  Ini := TIniFile.Create( ChangeFileExt( Application.ExeName, '.INI' ) );
+  try
+    Top     := Ini.ReadInteger( 'Form_Cryo', 'Top', 100 );
+    Left    := Ini.ReadInteger( 'Form_Cryo', 'Left', 100 );
+    if Ini.ReadBool( 'Form_Cryo', 'InitMax', false ) then
+      WindowState := wsMaximized
+    else
+      WindowState := wsNormal;
+
+    Edit_IP.Text := Ini.ReadString('Cryo', 'IP', '10.7.3.130');
+  finally
+    Ini.Free;
+  end;
+end;
+
+procedure TForm_Cryo.FormDestroy(Sender: TObject);
+var
+  Ini: TIniFile;
+begin
+  Timer1.Enabled := false;
+  if IdTCPClient.Connected then
+  begin
+    IdTCPClient.IOHandler.WriteLn('~');
+    Sleep(200);
+    IdTCPClient.Disconnect;
+  end;
+  Ini := TIniFile.Create( ChangeFileExt( Application.ExeName, '.INI' ) );
+  try
+    Ini.WriteInteger( 'Form_Cryo', 'Top', Top);
+    Ini.WriteInteger( 'Form_Cryo', 'Left', Left);
+    Ini.WriteBool( 'Form_Cryo', 'InitMax', WindowState = wsMaximized );
+
+    Ini.WriteString('Cryo', 'IP', Edit_IP.Text );
+  finally
+    Ini.Free;
+  end;
+end;
 
 procedure TForm_Cryo.CB_ConnectClick(Sender: TObject);
 var
@@ -95,16 +139,6 @@ begin
   end;
 end;
 
-procedure TForm_Cryo.FormDestroy(Sender: TObject);
-begin
-  Timer1.Enabled := false;
-  if IdTCPClient.Connected then
-  begin
-    IdTCPClient.IOHandler.WriteLn('~');
-    Sleep(200);
-    IdTCPClient.Disconnect;
-  end;
-end;
 
 procedure TForm_Cryo.SB_Chart_ClearClick(Sender: TObject);
 begin

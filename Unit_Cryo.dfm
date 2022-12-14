@@ -11,6 +11,7 @@ object Form_Cryo: TForm_Cryo
   Font.Name = 'Tahoma'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13

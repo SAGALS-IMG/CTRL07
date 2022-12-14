@@ -198,6 +198,10 @@ begin
 
     CB_AutoSh.Checked := Ini.ReadBool('CT','Auto_Shutter',false);
 
+    CB_Outer_Type.ItemIndex := Ini.ReadInteger('Cond_CTRL','Type',0);
+    Edit_Outer_ST.Text := Ini.ReadString('Cond_CTRL','ST','10');
+    Edit_Outer_d.Text := Ini.ReadString('Cond_CTRL','d','10');
+
     Edit_Samp_Name.Text := Ini.ReadString('Sample','Name','');
 //    Edit_Samp_Part.Text := Ini.ReadString('Sample','Part','');
 //    Edit_Samp_Status.Text := Ini.ReadString('Sample','Status','');
@@ -249,6 +253,10 @@ begin
     Ini.WriteString('CT','FS_ND',     Edit_FS_n.Text);
     Ini.WriteBool('CT','Disp_Phmap',CB_DispPh.Checked);
     Ini.WriteInteger('CT','Calc_XI_DEI',CB_XI_DEI.ItemIndex);
+
+    Ini.WriteInteger('Cond_CTRL','Type',CB_Outer_Type.ItemIndex);
+    Ini.WriteString('Cond_CTRL','ST',Edit_Outer_ST.Text);
+    Ini.WriteString('Cond_CTRL','d',Edit_Outer_d.Text);
 
     Ini.WriteBool('CT','Auto_Shutter',CB_AutoSh.Checked);
 
