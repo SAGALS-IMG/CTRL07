@@ -32,10 +32,10 @@ type
     SB_SV_Set: TSpeedButton;
     RB_T: TRadioButton;
     procedure CB_ConnectClick(Sender: TObject);
-    procedure Edit_SVEnter(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure SB_Chart_ClearClick(Sender: TObject);
     procedure SB_SV_SetClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -95,13 +95,15 @@ begin
   end;
 end;
 
-procedure TForm_Cryo.Edit_SVEnter(Sender: TObject);
-var
-  TmpStr : string;
+procedure TForm_Cryo.FormDestroy(Sender: TObject);
 begin
-//  TmpStr := Format('%5.0f',[StrToFloat(Edit_SV.Text)]);
-//  if IdTCPClient.Connected then
-//    IdTCPClient.IOHandler.WriteLn(' 11,1,'+TmpStr);
+  Timer1.Enabled := false;
+  if IdTCPClient.Connected then
+  begin
+    IdTCPClient.IOHandler.WriteLn('~');
+    Sleep(200);
+    IdTCPClient.Disconnect;
+  end;
 end;
 
 procedure TForm_Cryo.SB_Chart_ClearClick(Sender: TObject);
@@ -145,7 +147,7 @@ begin
         Series3.AddY(PV);
       end;
       Label2.Caption := 'SV: '+Format('%10.2f',[SV])+'Åé  PV: '+Format('%10.2f',[PV])+'Åé';
-      if Abs(SV-PV)<1 then
+      if (Abs(SV-PV)<1) and (SV = StrToFloat(Edit_SV.Text)) then
         RB_T.Checked := true
       else
         RB_T.Checked := false;

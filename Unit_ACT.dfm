@@ -901,26 +901,28 @@ object Form_ACT: TForm_ACT
     Height = 79
     Align = alTop
     Caption = ' CT Condition CTRL '
-    Color = 14806015
+    Color = 15661043
     ParentBackground = False
     ParentColor = False
     TabOrder = 7
+    ExplicitLeft = 3
+    ExplicitTop = 477
     object Label16: TLabel
-      Left = 15
+      Left = 102
       Top = 51
       Width = 113
       Height = 14
       Caption = 'Mot. Pos. or Temp'
     end
     object Label17: TLabel
-      Left = 213
+      Left = 293
       Top = 52
       Width = 27
       Height = 14
       Caption = '~  '#916
     end
     object Label21: TLabel
-      Left = 120
+      Left = 102
       Top = 23
       Width = 74
       Height = 14
@@ -944,7 +946,7 @@ object Form_ACT: TForm_ACT
         'Cryo')
     end
     object Edit_Outer_ST: TEdit
-      Left = 149
+      Left = 229
       Top = 48
       Width = 60
       Height = 22
@@ -952,7 +954,7 @@ object Form_ACT: TForm_ACT
       Text = '-50'
     end
     object Edit_Outer_d: TEdit
-      Left = 246
+      Left = 326
       Top = 48
       Width = 60
       Height = 22
@@ -960,7 +962,7 @@ object Form_ACT: TForm_ACT
       Text = '10'
     end
     object CB_Outer_Axis: TComboBox
-      Left = 211
+      Left = 229
       Top = 20
       Width = 95
       Height = 22

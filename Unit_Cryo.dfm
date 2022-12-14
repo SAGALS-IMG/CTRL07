@@ -11,6 +11,7 @@ object Form_Cryo: TForm_Cryo
   Font.Name = 'Tahoma'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -124,7 +125,6 @@ object Form_Cryo: TForm_Cryo
       Height = 22
       TabOrder = 3
       Text = '-50'
-      OnEnter = Edit_SVEnter
     end
     object Edit_Int: TEdit
       Left = 264

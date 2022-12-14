@@ -1009,7 +1009,6 @@ end;
 procedure TForm_ACT.Check_rate(Sender: TObject);
 var
   lExpTime, FPS, Total_T, lrate,lrate2 : double;
-  FPSMin, FPSMax : double;
 begin
   lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
   Sleep(500);
@@ -1188,8 +1187,6 @@ procedure TForm_ACT.BB_CT_STClick(Sender: TObject);
 var
   m:longint;
   TmpFN : string;
-
-  Outer_ST, Outer_End, Outer_d : double;
 begin
   if ((Form_Imager.Zyla_Opened) and (Form_PM16C.CB_Connect.Checked)) or
      ((CB_Ext_imager.Checked) and (Form_PM16C.CB_Connect.Checked))  then
@@ -1288,7 +1285,6 @@ end;
 procedure TForm_ACT.SB_ExpTClick(Sender: TObject);
 var
   ExpTime, FPS : double;
-  Res : longint;
 begin
   ExpTime := StrToFloat(Edit_ExpT.Text)/1000;
   Form_Imager.SetExpTime(ExpTime,FPS);
