@@ -18,7 +18,8 @@ uses
   Unit_LP in '..\SAKAS-COM\Unit_LP.pas' {Form_LP},
   Unit_PW in '..\SAKAS-COM\Unit_PW.pas' {Form_PW},
   Unit_SAKAS in '..\SAKAS-COM\Unit_SAKAS.pas' {Form_SAKAS},
-  main in 'main.pas' {Form_main};
+  main in 'main.pas' {Form_main},
+  Unit_Cryo in 'Unit_Cryo.pas' {Form_Cryo};
 
 {$R *.res}
 
@@ -41,5 +42,6 @@ begin
   Application.CreateForm(TAboutBox, AboutBox);
   Application.CreateForm(TForm_PW, Form_PW);
   Application.CreateForm(TForm_SAKAS, Form_SAKAS);
+  Application.CreateForm(TForm_Cryo, Form_Cryo);
   Application.Run;
 end.

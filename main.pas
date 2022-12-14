@@ -29,6 +29,7 @@ type
     CB_Log: TCheckBox;
     SB_Help: TSpeedButton;
     SB_time: TSpeedButton;
+    BB_Cryo: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure SB_Log_SaveClick(Sender: TObject);
@@ -44,6 +45,7 @@ type
     procedure SB_timeClick(Sender: TObject);
 
     procedure AddLine(AddStr : string; DT:boolean);
+    procedure BB_CryoClick(Sender: TObject);
 
   private
     { Private êÈåæ }
@@ -59,7 +61,7 @@ implementation
 {$R *.dfm}
 
 uses Unit_Imager, Unit_PM16C, Unit_CT48, Unit_Shutter, unit_macro,
-  Unit_Scan, Unit_ACT, Unit_PW, Unit_Ph_PW, Unit_SAKAS, Unit_ABOUT;
+  Unit_Scan, Unit_ACT, Unit_PW, Unit_Ph_PW, Unit_SAKAS, Unit_ABOUT, Unit_Cryo;
 
 procedure TForm_main.FormCreate(Sender: TObject);
 var
@@ -140,6 +142,11 @@ end;
 procedure TForm_main.BB_CounterClick(Sender: TObject);
 begin
   Form_CT48.Show;
+end;
+
+procedure TForm_main.BB_CryoClick(Sender: TObject);
+begin
+  Form_Cryo.Show;
 end;
 
 procedure TForm_main.BB_ShutterClick(Sender: TObject);

@@ -2,7 +2,7 @@ object Form_main: TForm_main
   Left = 0
   Top = 0
   Caption = 'CTRL7'
-  ClientHeight = 331
+  ClientHeight = 388
   ClientWidth = 270
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object Form_main: TForm_main
     Left = 0
     Top = 0
     Width = 270
-    Height = 145
+    Height = 177
     Align = alTop
     BevelOuter = bvNone
     Font.Charset = DEFAULT_CHARSET
@@ -33,7 +33,7 @@ object Form_main: TForm_main
       Left = 132
       Top = 9
       Width = 3
-      Height = 130
+      Height = 162
     end
     object BB_Imager: TBitBtn
       Left = 8
@@ -164,16 +164,33 @@ object Form_main: TForm_main
       TabOrder = 7
       OnClick = BB_OptionClick
     end
+    object BB_Cryo: TBitBtn
+      Left = 8
+      Top = 142
+      Width = 105
+      Height = 28
+      Caption = 'Cryo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 8
+      OnClick = BB_CryoClick
+    end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 145
+    Top = 177
     Width = 270
-    Height = 167
+    Height = 192
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
+    ExplicitTop = 145
+    ExplicitHeight = 167
     object Panel3: TPanel
       Left = 2
       Top = 2
@@ -302,7 +319,7 @@ object Form_main: TForm_main
       Left = 2
       Top = 22
       Width = 266
-      Height = 143
+      Height = 168
       Align = alClient
       Font.Charset = SHIFTJIS_CHARSET
       Font.Color = clWindowText
@@ -314,14 +331,16 @@ object Form_main: TForm_main
       ScrollBars = ssBoth
       TabOrder = 1
       Zoom = 100
+      ExplicitHeight = 143
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 312
+    Top = 369
     Width = 270
     Height = 19
     Panels = <>
+    ExplicitTop = 312
   end
   object SaveDialog1: TSaveDialog
     Left = 24

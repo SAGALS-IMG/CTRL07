@@ -2,7 +2,7 @@ object Form_ACT: TForm_ACT
   Left = 0
   Top = 0
   Caption = 'CT'
-  ClientHeight = 629
+  ClientHeight = 777
   ClientWidth = 396
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,11 +19,12 @@ object Form_ACT: TForm_ACT
   TextHeight = 14
   object SB_CT: TStatusBar
     Left = 0
-    Top = 610
+    Top = 758
     Width = 396
     Height = 19
     Panels = <>
     SimplePanel = True
+    ExplicitTop = 610
   end
   object GroupBox4: TGroupBox
     Left = 0
@@ -94,9 +95,9 @@ object Form_ACT: TForm_ACT
   end
   object Chart1: TChart
     Left = 0
-    Top = 471
+    Top = 550
     Width = 396
-    Height = 139
+    Height = 208
     BackWall.Brush.Gradient.Direction = gdBottomTop
     BackWall.Brush.Gradient.EndColor = clWhite
     BackWall.Brush.Gradient.StartColor = 15395562
@@ -153,6 +154,8 @@ object Form_ACT: TForm_ACT
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 5
+    ExplicitTop = 600
+    ExplicitHeight = 158
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries
@@ -889,6 +892,80 @@ object Form_ACT: TForm_ACT
       Items.Strings = (
         'XI'
         'DEI')
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 471
+    Width = 396
+    Height = 79
+    Align = alTop
+    Caption = ' CT Condition CTRL '
+    Color = 14806015
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 7
+    object Label16: TLabel
+      Left = 15
+      Top = 51
+      Width = 113
+      Height = 14
+      Caption = 'Mot. Pos. or Temp'
+    end
+    object Label17: TLabel
+      Left = 213
+      Top = 52
+      Width = 27
+      Height = 14
+      Caption = '~  '#916
+    end
+    object Label21: TLabel
+      Left = 120
+      Top = 23
+      Width = 74
+      Height = 14
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Moving Axis'
+    end
+    object CB_Outer_Type: TComboBox
+      Left = 11
+      Top = 20
+      Width = 76
+      Height = 22
+      ItemIndex = 0
+      TabOrder = 0
+      Text = 'non'
+      Items.Strings = (
+        'non'
+        'PM16C'
+        'Cryo')
+    end
+    object Edit_Outer_ST: TEdit
+      Left = 149
+      Top = 48
+      Width = 60
+      Height = 22
+      TabOrder = 1
+      Text = '-50'
+    end
+    object Edit_Outer_d: TEdit
+      Left = 246
+      Top = 48
+      Width = 60
+      Height = 22
+      TabOrder = 2
+      Text = '10'
+    end
+    object CB_Outer_Axis: TComboBox
+      Left = 211
+      Top = 20
+      Width = 95
+      Height = 22
+      TabOrder = 3
+      OnChange = CB_axis_rotChange
     end
   end
   object SaveDialog1: TSaveDialog

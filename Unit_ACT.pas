@@ -78,6 +78,14 @@ type
     SB_ExpT: TSpeedButton;
     Label5: TLabel;
     CB_ROT_RESET: TCheckBox;
+    GroupBox1: TGroupBox;
+    CB_Outer_Type: TComboBox;
+    Edit_Outer_ST: TEdit;
+    Edit_Outer_d: TEdit;
+    Label16: TLabel;
+    Label17: TLabel;
+    CB_Outer_Axis: TComboBox;
+    Label21: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -106,6 +114,8 @@ type
     procedure FormActivate(Sender: TObject);
     procedure CB_BKModeChange(Sender: TObject);
     procedure SB_ExpTClick(Sender: TObject);
+
+    procedure CT_Cond_CTRL(Ite:longint;Sender: TObject);
   private
     { Private éŒ¾ }
   public
@@ -132,7 +142,7 @@ var
   X1,X2,Z1,Z2 : longint;
 
 implementation
-uses Unit_PM16C, Unit_Imager, Unit_SAKAS, main, Unit_Shutter;
+uses Unit_PM16C, Unit_Imager, Unit_SAKAS, main, Unit_Shutter, Unit_Cryo;
 
 {$R *.dfm}
 
@@ -263,17 +273,20 @@ begin
     CB_axis_rot.Items.Clear;
     CB_axis_x.Items.Clear;
     CB_axis_ph.Items.Clear;
+    CB_Outer_Axis.Items.Clear;
 
     for li:=0 to 15 do
     begin
       CB_axis_rot.Items.Add(Form_PM16C.Motor[li].Axis_Name);
       CB_axis_x.Items.Add(Form_PM16C.Motor[li].Axis_Name);
       CB_axis_ph.Items.Add(Form_PM16C.Motor[li].Axis_Name);
+      CB_Outer_Axis.Items.Add(Form_PM16C.Motor[li].Axis_Name);
     end;
 
     CB_axis_rot.ItemIndex := CT_R_Ch;
     CB_axis_x.ItemIndex := CT_X_ch;
     CB_axis_ph.ItemIndex := PH_Ch;
+    CB_Outer_Axis.ItemIndex := 1;
   end;
 end;
 
@@ -1146,16 +1159,43 @@ end;
 
 
 
+procedure TForm_ACT.CT_Cond_CTRL(Ite:longint;Sender: TObject);
+var
+  Target_V : double;
+  MV_Ch : longint;
+begin
+  Target_V := StrToFloat(Edit_Outer_ST.Text)+StrToFloat(Edit_Outer_d.Text)*Ite;
+  if CB_Outer_Type.ItemIndex=1 then
+  begin
+    MV_Ch := CB_Outer_Axis.ItemIndex;
+    if MV_CH>=0 then
+      Form_PM16C.MoveTo(MV_CH, Round(Target_V),true,true);
+  end;
+  if CB_Outer_Type.ItemIndex=2 then
+  begin
+    if Form_Cryo.CB_Connect.Checked then
+    begin
+      Form_Cryo.Edit_SV.Text := Target_V.ToString;
+      Form_Cryo.SB_SV_SetClick(Sender);
+      repeat
+        Sleep(2000);
+      until (Form_Cryo.RB_T.Checked) or (not(Go));
+    end;
+  end;
+end;
+
 procedure TForm_ACT.BB_CT_STClick(Sender: TObject);
 var
   m:longint;
   TmpFN : string;
+
+  Outer_ST, Outer_End, Outer_d : double;
 begin
   if ((Form_Imager.Zyla_Opened) and (Form_PM16C.CB_Connect.Checked)) or
      ((CB_Ext_imager.Checked) and (Form_PM16C.CB_Connect.Checked))  then
   begin
-    if CB_Ext_imager.Checked then
-      RG_Scan.ItemIndex:=0;
+//    if CB_Ext_imager.Checked then
+//      RG_Scan.ItemIndex:=0;
 
     if (SaveDialog1.Execute) then
     begin
@@ -1179,6 +1219,9 @@ begin
 
         for m:=0 to UD_Ite.Position-1 do
         begin
+          if CB_Outer_Type.ItemIndex>0 then
+            CT_Cond_CTRL(m,Sender);
+
           AStopWatch := TStopwatch.StartNew;
 
           TmpFN := SaveDialog1.FileName+'_'+m.ToString;
