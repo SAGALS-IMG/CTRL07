@@ -2,7 +2,7 @@ object Form_Cryo: TForm_Cryo
   Left = 0
   Top = 0
   Caption = 'Form_Cryo'
-  ClientHeight = 319
+  ClientHeight = 306
   ClientWidth = 409
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object Form_Cryo: TForm_Cryo
     Left = 0
     Top = 0
     Width = 409
-    Height = 97
+    Height = 84
     Align = alTop
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -30,8 +30,6 @@ object Form_Cryo: TForm_Cryo
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = -6
     object Label1: TLabel
       Left = 7
       Top = 36
@@ -41,20 +39,20 @@ object Form_Cryo: TForm_Cryo
     end
     object Label2: TLabel
       Left = 7
-      Top = 68
+      Top = 62
       Width = 16
       Height = 14
       Caption = 'SV'
     end
     object Label3: TLabel
-      Left = 319
+      Left = 361
       Top = 8
       Width = 27
       Height = 14
       Caption = '[ms]'
     end
     object Label4: TLabel
-      Left = 199
+      Left = 241
       Top = 8
       Width = 48
       Height = 14
@@ -81,6 +79,13 @@ object Form_Cryo: TForm_Cryo
         5990555555555555577755555555555555555555555555555555}
       NumGlyphs = 2
       OnClick = SB_SV_SetClick
+    end
+    object Label5: TLabel
+      Left = 241
+      Top = 62
+      Width = 45
+      Height = 14
+      Caption = 'Output'
     end
     object CB_Connect: TCheckBox
       Left = 7
@@ -112,8 +117,8 @@ object Form_Cryo: TForm_Cryo
       Text = '10.7.0.12'
     end
     object CB_Chart: TCheckBox
-      Left = 264
-      Top = 33
+      Left = 241
+      Top = 36
       Width = 97
       Height = 17
       Caption = 'Draw chart '
@@ -128,7 +133,7 @@ object Form_Cryo: TForm_Cryo
       Text = '-50'
     end
     object Edit_Int: TEdit
-      Left = 264
+      Left = 306
       Top = 5
       Width = 49
       Height = 22
@@ -142,10 +147,18 @@ object Form_Cryo: TForm_Cryo
       Height = 17
       TabOrder = 5
     end
+    object PB: TProgressBar
+      Left = 302
+      Top = 64
+      Width = 86
+      Height = 12
+      BarColor = clRed
+      TabOrder = 6
+    end
   end
   object Chart1: TChart
     Left = 0
-    Top = 97
+    Top = 84
     Width = 409
     Height = 203
     BackWall.Brush.Gradient.Direction = gdBottomTop
@@ -161,7 +174,7 @@ object Form_Cryo: TForm_Cryo
     Gradient.StartColor = 15395562
     Gradient.Visible = True
     LeftWall.Color = 14745599
-    Legend.Font.Height = -11
+    Legend.Font.Height = -9
     Legend.Font.Name = 'Verdana'
     Legend.Shadow.Transparency = 0
     Legend.Title.Font.Height = -9
@@ -192,9 +205,15 @@ object Form_Cryo: TForm_Cryo
     LeftAxis.LabelsFormat.Font.Name = 'Verdana'
     LeftAxis.TicksInner.Color = 11119017
     LeftAxis.Title.Font.Name = 'Verdana'
+    RightAxis.Automatic = False
+    RightAxis.AutomaticMaximum = False
+    RightAxis.AutomaticMinimum = False
     RightAxis.Axis.Color = 4210752
     RightAxis.Grid.Color = 11119017
+    RightAxis.Increment = 25.000000000000000000
+    RightAxis.LabelsFormat.Font.Height = -9
     RightAxis.LabelsFormat.Font.Name = 'Verdana'
+    RightAxis.Maximum = 100.000000000000000000
     RightAxis.TicksInner.Color = 11119017
     RightAxis.Title.Font.Name = 'Verdana'
     TopAxis.Axis.Color = 4210752
@@ -212,8 +231,8 @@ object Form_Cryo: TForm_Cryo
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object SB_Chart_Clear: TSpeedButton
-      Left = 320
-      Top = 143
+      Left = 323
+      Top = 135
       Width = 65
       Height = 46
       Caption = 'Clear chart'
@@ -277,10 +296,23 @@ object Form_Cryo: TForm_Cryo
       YValues.Name = 'Y'
       YValues.Order = loNone
     end
+    object Series4: TFastLineSeries
+      HoverElement = []
+      Selected.Hover.Visible = True
+      Title = 'Output'
+      VertAxis = aRightAxis
+      LinePen.Color = 11048782
+      LinePen.EndStyle = esRound
+      TreatNulls = tnDontPaint
+      XValues.Name = 'X'
+      XValues.Order = loAscending
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
   end
   object SB: TStatusBar
     Left = 0
-    Top = 300
+    Top = 287
     Width = 409
     Height = 19
     Panels = <>
@@ -292,8 +324,8 @@ object Form_Cryo: TForm_Cryo
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    Left = 368
-    Top = 209
+    Left = 176
+    Top = 161
   end
   object IdTCPClient: TIdTCPClient
     ConnectTimeout = 0
@@ -301,7 +333,7 @@ object Form_Cryo: TForm_Cryo
     IPVersion = Id_IPv4
     Port = 7777
     ReadTimeout = -1
-    Left = 317
-    Top = 206
+    Left = 125
+    Top = 182
   end
 end

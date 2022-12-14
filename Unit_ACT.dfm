@@ -2,7 +2,7 @@ object Form_ACT: TForm_ACT
   Left = 0
   Top = 0
   Caption = 'CT'
-  ClientHeight = 777
+  ClientHeight = 709
   ClientWidth = 396
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object Form_ACT: TForm_ACT
   TextHeight = 14
   object SB_CT: TStatusBar
     Left = 0
-    Top = 758
+    Top = 690
     Width = 396
     Height = 19
     Panels = <>
@@ -95,9 +95,9 @@ object Form_ACT: TForm_ACT
   end
   object Chart1: TChart
     Left = 0
-    Top = 550
+    Top = 547
     Width = 396
-    Height = 208
+    Height = 143
     BackWall.Brush.Gradient.Direction = gdBottomTop
     BackWall.Brush.Gradient.EndColor = clWhite
     BackWall.Brush.Gradient.StartColor = 15395562
@@ -898,31 +898,29 @@ object Form_ACT: TForm_ACT
     Left = 0
     Top = 471
     Width = 396
-    Height = 79
+    Height = 76
     Align = alTop
     Caption = ' CT Condition CTRL '
     Color = 15661043
     ParentBackground = False
     ParentColor = False
     TabOrder = 7
-    ExplicitLeft = 3
-    ExplicitTop = 477
     object Label16: TLabel
-      Left = 102
-      Top = 51
+      Left = 192
+      Top = 23
       Width = 113
       Height = 14
       Caption = 'Mot. Pos. or Temp'
     end
     object Label17: TLabel
-      Left = 293
-      Top = 52
-      Width = 27
+      Left = 241
+      Top = 47
+      Width = 23
       Height = 14
-      Caption = '~  '#916
+      Caption = '~ '#916
     end
     object Label21: TLabel
-      Left = 102
+      Left = 97
       Top = 23
       Width = 74
       Height = 14
@@ -932,10 +930,32 @@ object Form_ACT: TForm_ACT
       Margins.Bottom = 4
       Caption = 'Moving Axis'
     end
+    object Label25: TLabel
+      Left = 10
+      Top = 23
+      Width = 63
+      Height = 14
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'CTRL type'
+    end
+    object Label26: TLabel
+      Left = 336
+      Top = 23
+      Width = 48
+      Height = 14
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'Wait [s]'
+    end
     object CB_Outer_Type: TComboBox
-      Left = 11
-      Top = 20
-      Width = 76
+      Left = 10
+      Top = 43
+      Width = 70
       Height = 22
       ItemIndex = 0
       TabOrder = 0
@@ -946,28 +966,36 @@ object Form_ACT: TForm_ACT
         'Cryo')
     end
     object Edit_Outer_ST: TEdit
-      Left = 229
-      Top = 48
-      Width = 60
+      Left = 188
+      Top = 43
+      Width = 50
       Height = 22
       TabOrder = 1
       Text = '-50'
     end
     object Edit_Outer_d: TEdit
-      Left = 326
-      Top = 48
-      Width = 60
+      Left = 271
+      Top = 43
+      Width = 50
       Height = 22
       TabOrder = 2
       Text = '10'
     end
     object CB_Outer_Axis: TComboBox
-      Left = 229
-      Top = 20
-      Width = 95
+      Left = 97
+      Top = 43
+      Width = 74
       Height = 22
       TabOrder = 3
       OnChange = CB_axis_rotChange
+    end
+    object Edit_CTRL_Wait: TEdit
+      Left = 336
+      Top = 43
+      Width = 50
+      Height = 22
+      TabOrder = 4
+      Text = '0'
     end
   end
   object SaveDialog1: TSaveDialog

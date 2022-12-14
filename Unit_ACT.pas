@@ -86,6 +86,9 @@ type
     Label17: TLabel;
     CB_Outer_Axis: TComboBox;
     Label21: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Edit_CTRL_Wait: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -1170,6 +1173,7 @@ procedure TForm_ACT.CT_Cond_CTRL(Ite:longint;Sender: TObject);
 var
   Target_V : double;
   MV_Ch : longint;
+  m :longint;
 begin
   Target_V := StrToFloat(Edit_Outer_ST.Text)+StrToFloat(Edit_Outer_d.Text)*Ite;
   if CB_Outer_Type.ItemIndex=1 then
@@ -1184,11 +1188,23 @@ begin
     begin
       Form_Cryo.Edit_SV.Text := Target_V.ToString;
       Form_Cryo.SB_SV_SetClick(Sender);
+      Form_SAKAS.Edit_Temp.Text := 'SV: '+Target_V.ToString;
+
+      Sleep(1000);
       repeat
-        Sleep(2000);
+        Sleep(1000);
+        Application.ProcessMessages;
       until (Form_Cryo.RB_T.Checked) or (not(Go));
+      Sleep(1000);
     end;
   end;
+  m:=0;
+  repeat
+    Inc(m);
+    Sleep(1000);
+    SB_CT.SimpleText := 'Waiting...'+m.ToString+' [s]';
+    Application.ProcessMessages;
+  until m>StrToInt(Edit_CTRL_Wait.Text);
 end;
 
 procedure TForm_ACT.BB_CT_STClick(Sender: TObject);
@@ -1222,8 +1238,8 @@ begin
           if not(go) then exit;
         end;
 
-        for m:=0 to UD_Ite.Position-1 do
-        begin
+        m:=0;
+        repeat
           if CB_Outer_Type.ItemIndex>0 then
             CT_Cond_CTRL(m,Sender);
 
@@ -1269,7 +1285,8 @@ begin
           AStopWatch.Stop;
           if (Edit_Int.Text <>'') then
             Sleep(StrToInt(Edit_Int.Text){- (AStopWatch.ElapsedMilliseconds div 1000))}*1000);
-        end;
+          Inc(m);
+        until m > UD_Ite.Position-1;
       finally
         Form_PM16C.SB_RefreshClick(Sender);
         if not(Go) then

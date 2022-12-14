@@ -31,6 +31,9 @@ type
     Label4: TLabel;
     SB_SV_Set: TSpeedButton;
     RB_T: TRadioButton;
+    PB: TProgressBar;
+    Series4: TFastLineSeries;
+    Label5: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
@@ -65,6 +68,8 @@ begin
       WindowState := wsNormal;
 
     Edit_IP.Text := Ini.ReadString('Cryo', 'IP', '10.7.3.130');
+    Edit_SV.Text := Ini.ReadString('Cryo', 'SV', '-100');
+    Edit_Int.Text := Ini.ReadString('Cryo', 'Int', '1000');
   finally
     Ini.Free;
   end;
@@ -88,6 +93,8 @@ begin
     Ini.WriteBool( 'Form_Cryo', 'InitMax', WindowState = wsMaximized );
 
     Ini.WriteString('Cryo', 'IP', Edit_IP.Text );
+    Ini.WriteString('Cryo', 'SV', Edit_SV.Text);
+    Ini.WriteString('Cryo', 'Int', Edit_Int.Text);
   finally
     Ini.Free;
   end;
@@ -103,6 +110,7 @@ begin
     Series1.Clear;
     Series2.Clear;
     Series3.Clear;
+    Series4.Clear;
 
     IdTCPClient.Host := Edit_IP.Text;
     IdTCPClient.Port := 7777;
@@ -139,12 +147,12 @@ begin
   end;
 end;
 
-
 procedure TForm_Cryo.SB_Chart_ClearClick(Sender: TObject);
 begin
   Series1.Clear;
   Series2.Clear;
   Series3.Clear;
+  Series4.Clear;
 end;
 
 procedure TForm_Cryo.SB_SV_SetClick(Sender: TObject);
@@ -161,7 +169,7 @@ var
   TmpStr : string;
   sl:TStringList;
   li : longint;
-  SV,PV:double;
+  SV,PV,MV1:double;
 begin
   if IdTCPClient.Connected then
   begin
@@ -174,17 +182,20 @@ begin
     begin
       SV := StrToFloat(sl.Strings[4]);
       PV := StrToFloat(sl.Strings[2]);
+      MV1 := StrToFloat(sl.Strings[5]);
       if CB_Chart.Checked then
       begin
         Series1.AddY(StrToFloat(Edit_SV.Text));
         Series2.AddY(SV);
         Series3.AddY(PV);
+        Series4.AddY(MV1);
       end;
       Label2.Caption := 'SV: '+Format('%10.2f',[SV])+'Åé  PV: '+Format('%10.2f',[PV])+'Åé';
       if (Abs(SV-PV)<1) and (SV = StrToFloat(Edit_SV.Text)) then
         RB_T.Checked := true
       else
         RB_T.Checked := false;
+      PB.Position := Round(MV1);
     end;
     sl.Free;
   end;
