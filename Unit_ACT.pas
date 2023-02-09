@@ -1153,7 +1153,8 @@ begin
     if CB_ROT_RESET.Checked then
     begin
       Sleep(100);
-      Form_PM16C.MoveTo(CT_R_Ch, 180000,true,true);
+//      Form_PM16C.MoveTo(CT_R_Ch, 180000,true,true);
+      Form_PM16C.MoveTo(CT_R_Ch, 40000,true,true);
       Sleep(100);
       Form_PM16C.SetPreset(CT_R_Ch,0)
     end;
