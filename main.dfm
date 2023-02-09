@@ -74,7 +74,7 @@ object Form_main: TForm_main
       Width = 105
       Height = 28
       Hint = 'TC48'
-      Caption = 'Counter'
+      Caption = 'CT48'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -189,8 +189,6 @@ object Form_main: TForm_main
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitTop = 145
-    ExplicitHeight = 167
     object Panel3: TPanel
       Left = 2
       Top = 2
@@ -331,7 +329,6 @@ object Form_main: TForm_main
       ScrollBars = ssBoth
       TabOrder = 1
       Zoom = 100
-      ExplicitHeight = 143
     end
   end
   object StatusBar1: TStatusBar
@@ -340,7 +337,6 @@ object Form_main: TForm_main
     Width = 270
     Height = 19
     Panels = <>
-    ExplicitTop = 312
   end
   object SaveDialog1: TSaveDialog
     Left = 24

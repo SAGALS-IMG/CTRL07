@@ -8,7 +8,7 @@ uses
   Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.CheckLst, VCLTee.TeeSurfa, VCLTee.TeeEdit, IniFiles;
 
 const
-  PWidth = 1000;
+  PWidth = 2060;
 
 type
   TForm_Scan = class(TForm)
@@ -54,7 +54,6 @@ type
     BB_Start: TBitBtn;
     BB_Stop: TBitBtn;
     CB_P: TCheckBox;
-    CB_Save: TCheckBox;
     BB_Get_Motor_Info: TBitBtn;
     BB_Test: TBitBtn;
     RG_Method: TRadioGroup;
@@ -102,6 +101,8 @@ type
     Edit_Wait: TEdit;
     CB_L12: TComboBox;
     Label13: TLabel;
+    CB_AutoSh: TCheckBox;
+    Label14: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BB_TestClick(Sender: TObject);
@@ -128,11 +129,12 @@ type
 var
   Form_Scan: TForm_Scan;
   Edit_CV : array[0..47] of TEdit;
+  Label_CT : array[0..47] of TLabel;
 
   SX11, SX12, SX2, EX11, EX12, EX2, dX11, dX12, DX2 : longint;
   TX11,TX12,TX2:longint;
   OX11,OX12,OX2, AX11,AX12,AX2, MaxC,DN : longint;
-  M1, M12,M2 : longint;
+//  M1, M12,M2 : longint;
 
   FS : Textfile;
   Go, PM :boolean;
@@ -144,7 +146,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit_CT48, Unit_PM16C, main;
+uses Unit_CT48, Unit_PM16C, main, Unit_Shutter;
 
 procedure TForm_Scan.FormCreate(Sender: TObject);
 var
@@ -153,13 +155,26 @@ var
 begin
   for li:=0 to 47 do
   begin
+    Label_CT[li] := TLabel.Create(Self);
+    Label_CT[li].Parent := GroupBox3;
+
+    Label_CT[li].Top := 44+(li mod 12)*30;
+    Label_CT[li].Left := 220+(li div 12)*130;
+
+    Label_CT[li].Caption := 'CH'+li.ToString;
+  end;
+  for li:=0 to 47 do
+  begin
     Edit_CV[li] := TEdit.Create(Self);
     Edit_CV[li].Parent := GroupBox3;
-    Edit_CV[li].Width := 65;
-    Edit_CV[li].Height := 21;
-    Edit_CV[li].Top := 38+27*(li mod 8);
-    Edit_CV[li].Left := 220+75*(li div 8);
+    Edit_CV[li].Width := 68;
+    Edit_CV[li].Height := 20;
+    Edit_CV[li].Top := 41+(li mod 12)*30;
+    Edit_CV[li].Left := 260+(li div 12)*130;
+    Edit_CV[li].ReadOnly := true;
+    Edit_CV[li].Alignment := taRightJustify;
   end;
+
 
   Ini := TIniFile.Create( ChangeFileExt( Application.ExeName, '.INI' ) );
   try
@@ -195,9 +210,9 @@ begin
     CB_Map_I0.ItemIndex := Ini.ReadInteger('Scan','Map_I0',0);
     CB_Map_I.ItemIndex := Ini.ReadInteger('Scan','Map_I',1);
 
-    M1 := Ini.ReadInteger('Scan','L1_axis',0);
-    M12 := Ini.ReadInteger('Scan','L12_axis',0);
-    M2 := Ini.ReadInteger('Scan','L2_axis',0);
+    AX11 := Ini.ReadInteger('Scan','L1_axis',0);
+    AX12 := Ini.ReadInteger('Scan','L12_axis',0);
+    AX2 := Ini.ReadInteger('Scan','L2_axis',0);
   finally
     Ini.Free;
   end;
@@ -219,10 +234,9 @@ begin
       CB_L12.Items.Add(Form_PM16C.Motor[li].Axis_Name);
       CB_L2.Items.Add(Form_PM16C.Motor[li].Axis_Name);
     end;
-
-    CB_L1.ItemIndex := M1;
-    CB_L12.ItemIndex := M12;
-    CB_L2.ItemIndex := M2;
+    CB_L1.ItemIndex := AX11;
+    CB_L12.ItemIndex :=AX12;
+    CB_L2.ItemIndex := AX2;
   end;
 end;
 
@@ -274,9 +288,7 @@ begin
  finally
     Ini.Free;
   end;
-
 end;
-
 
 procedure TForm_Scan.BB_TestClick(Sender: TObject);
 var
@@ -341,13 +353,12 @@ begin
       Series8.AddY(lData[7]);
 
     Application.ProcessMessages;
-    SB.SimpleText := k.ToString;
+    SB.Panels[1].Text := k.ToString;
     Inc(k);
   until not(Go);
 
   sl.Free;
 end;
-
 
 procedure TForm_Scan.Init_Cond(Sender: TObject);
 var
@@ -486,7 +497,7 @@ begin
     PreData[li] :=lData[li];
 
   Form_CT48.CntStart;
-  Sleep(StrToInt(Edit_TC.Text));
+  Sleep(StrToInt(Edit_TC.Text){+10});
   Form_CT48.CntStp;
 
   sl:=TStringList.Create;
@@ -647,7 +658,7 @@ end;
 
 procedure TForm_Scan.BB_StartClick(Sender: TObject);
 var
-  li,ODN, ORUN : longint;
+  li,ODN, ORUN, bk_rate, rate, TC : longint;
   TimeStart : Cardinal;
 begin
   if not(Form_CT48.CB_Connect.Checked) then
@@ -655,10 +666,24 @@ begin
     ShowMessage('CT48 is NOT active!');
     Exit;
   end;
-  if (CB_L2.ItemIndex>=0) and (CB_L2.ItemIndex<5) then
-    if MessageDlg('Comfirm Outer loop Axis! Run?',mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrNo then
-      exit;
-  if CB_Save.Checked then
+  if (Form_PM16C.Motor[CB_L2.ItemIndex].Enable = false) and (CB_L2_Enable.Checked) then
+  begin
+    ShowMessage('2nd loop axis in NOT enabled');
+    exit;
+  end;
+  if (Form_PM16C.Motor[CB_L12.ItemIndex].Enable = false) and (CB_L1_Sync.Checked) then
+  begin
+    ShowMessage('1st loop axis in NOT enabled');
+    exit;
+  end;
+  if Form_PM16C.Motor[CB_L1.ItemIndex].Enable = false then
+  begin
+    ShowMessage('1st loop axis in NOT enabled');
+    exit;
+  end;
+
+  Form_CT48.BB_StopClick(Sender);
+  Form_CT48.BB_ClearClick(Sender);
   if SaveDialog1.Execute then
   begin
     Go := true;
@@ -672,7 +697,6 @@ begin
     TimeStart := timeGetTime;
 
     Form_PM16C.Set_Remote;
-
     Form_PM16C.SetCh(0,AX11);
     Form_PM16C.SetCh(1,AX12);
 
@@ -701,7 +725,16 @@ begin
     else
       TX2 := EX2;
 
-    Form_CT48.SetPresetT(StrToInt(Edit_TC.Text));
+    TC :=StrToInt(Edit_TC.Text);
+    Form_CT48.SetPresetT(TC);
+
+    bk_rate := Form_PM16C.GetLSP(AX11);
+    rate :=Round((Abs(dX11)/TC*1000));
+    if RG_Method.ItemIndex =1 then
+    begin
+      Form_PM16C.SetLSP(AX11,rate);
+      Form_PM16C.SelectSP(AX11,2);
+    end;
 
     while ((TX2<=EX2) and (dX2>0)) or ((TX2>=EX2) and (dX2<0)) do
     begin
@@ -710,7 +743,6 @@ begin
         Sleep(StrToInt(Edit_Wait.Text)*1000);
         Form_PM16C.MoveTo(AX2,TX2,true,false);
       end;
-
       for li:=0 to MaxC-1 do
         lData[li] := -1;
 
@@ -743,16 +775,16 @@ begin
             if CB_P.Checked then
               Form_PM16C.Pulse(0);
 
-            Count_V(Sender);
-
             Application.ProcessMessages;
+            Count_V(Sender);
             if not(Go) then
             begin
               CloseFile(FS);
               ShowMessage('Canceled');
               exit;
             end;
-            SB.SimpleText := TX11.ToString+' : '+TX2.ToString;
+            SB.Panels[1].Text := '1st loop: '+TX11.ToString;
+            SB.Panels[2].Text := '2nd loop: '+TX2.ToString;
             TX12 := TX12+dX12;
             TX11 := TX11+dX11;
           end;
@@ -770,7 +802,6 @@ begin
 
           SX11 := SX11+StrToInt(Edit_Shift.Text);
           EX11 := EX11+StrToInt(Edit_Shift.Text);
-
           TX11 := SX11;
           TX12 := SX12;
         end;
@@ -787,36 +818,30 @@ begin
           begin
             Form_PM16C.SetTMGP(AX11,SX11,EX11+dX11,dX11);
             Form_PM16C.SetTMGReady(AX11);
-//            Form_PM16C.MoveTo(AX11,EX11+ORUN,true,true);
             Form_PM16C.MoveTo(AX11,EX11+ORUN,false,false);
-            Sleep(500);
-            repeat
-              SB.SimpleText  := Form_PM16C.GetPos(AX11).ToString;
-              Application.ProcessMessages;
-              Sleep(100);
-            until not(Form_PM16C.isBusy(0));
           end
           else
           begin
             Form_PM16C.SetTMGP(AX11,EX11,SX11-dX11,dX11);
             Form_PM16C.SetTMGReady(AX11);
-//            Form_PM16C.MoveTo(AX11,SX11-ORUN,true,true);
             Form_PM16C.MoveTo(AX11,SX11-ORUN,false,false);
-            Sleep(500);
-            repeat
-              SB.SimpleText := Form_PM16C.GetPos(AX11).ToString;
-              Application.ProcessMessages;
-              Sleep(100);
-            until not(Form_PM16C.isBusy(0));
           end;
+          Sleep(100);
+          repeat
+            SB.Panels[1].Text  := '1st loop: '+Form_PM16C.GetPos(AX11).ToString;
+            Application.ProcessMessages;
+            Sleep(100);
+          until not(Form_PM16C.isBusy(0));
 
           Form_CT48.CntStp;
           Read_Counts(Sender);
 
           Application.ProcessMessages;
-          SB.SimpleText := 'Outer loop: '+TX2.ToString;
+          SB.Panels[2].Text := '2nd loop: '+TX2.ToString;
           if not(Go) then
           begin
+            Form_PM16C.SetLSP(AX11,bk_rate);
+            Form_PM16C.SelectSP(AX11,0);
             CloseFile(FS);
             ShowMessage('Canceled');
             exit;
@@ -830,6 +855,18 @@ begin
 
     CloseFile(FS);
     ShowMessage('Finished: '+(timeGetTime - TimeStart).ToString);
+    SB.Panels[1].Text  := '';
+    SB.Panels[2].Text  := '';
+
+    if RG_Method.ItemIndex =1 then
+    begin
+      Form_PM16C.SetLSP(AX11,bk_rate);
+      Form_PM16C.SelectSP(AX11,0);
+    end;
+
+    if CB_AutoSh.Checked then
+      if Form_Shutter.CB_Connect.Checked then
+        Form_Shutter.BB_CLOSEClick(Sender);
   end;
 end;
 
@@ -856,9 +893,9 @@ begin
   lX := Round(X/lMag);
   lY := Round(Y/lMag);
   if (lX<PWidth) and (lY<PWidth) then
-    SB.SimpleText := '(X,Y) = ('+lX.ToString+', '+lY.ToString+') = '+PData[lY,lX].ToString
+    SB.Panels[0].Text := '(X,Y) = ('+lX.ToString+', '+lY.ToString+') = '+PData[lY,lX].ToString
   else
-    SB.SimpleText := '(X,Y) = ('+lX.ToString+', '+lY.ToString+') = Out od range';
+    SB.Panels[0].Text := '(X,Y) = ('+lX.ToString+', '+lY.ToString+') = Out od range';
 end;
 
 

@@ -143,6 +143,7 @@ begin
     Edit_CTV[li].Top := 21+(li mod 12)*30;
     Edit_CTV[li].Left := 50+(li div 12)*130;
     Edit_CTV[li].ReadOnly := true;
+    Edit_CTV[li].Alignment := taRightJustify;
   end;
   Panel2.Enabled := false;
   GroupBox1.Enabled := false;
@@ -238,7 +239,7 @@ begin
 
   for li:=0 to MaxC-1 do
   begin
-    Edit_CTV[li].Text := lData[li].ToString
+    Edit_CTV[li].Text := lData[li].ToString ;
   end;
 end;
 
