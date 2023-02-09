@@ -42,9 +42,9 @@ object AboutBox: TAboutBox
     object Label1: TLabel
       Left = 82
       Top = 98
-      Width = 91
+      Width = 99
       Height = 16
-      Caption = 'Ver. 2022/9/6'
+      Caption = 'Ver. 2023/2/10'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -54,11 +54,11 @@ object AboutBox: TAboutBox
       IsControl = True
     end
     object Label2: TLabel
-      Left = 80
+      Left = 66
       Top = 51
-      Width = 123
+      Width = 152
       Height = 16
-      Caption = 'for Abs/Phase CT'
+      Caption = 'for SR-based imaging'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
