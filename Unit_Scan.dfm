@@ -2,8 +2,8 @@ object Form_Scan: TForm_Scan
   Left = 0
   Top = 0
   Caption = 'Scanning'
-  ClientHeight = 979
-  ClientWidth = 1355
+  ClientHeight = 812
+  ClientWidth = 1254
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,356 +18,38 @@ object Form_Scan: TForm_Scan
   TextHeight = 14
   object SB: TStatusBar
     Left = 0
-    Top = 960
-    Width = 1355
+    Top = 793
+    Width = 1254
     Height = 19
     Panels = <>
     SimplePanel = True
+    ExplicitTop = 960
+    ExplicitWidth = 1355
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1355
-    Height = 649
+    Width = 1254
+    Height = 449
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
-    object GroupBox1: TGroupBox
-      Left = 487
-      Top = 162
-      Width = 177
-      Height = 321
-      Caption = ' 1st loop '
-      TabOrder = 0
-      object Label1: TLabel
-        Left = 16
-        Top = 19
-        Width = 30
-        Height = 14
-        Caption = 'AXIS'
-      end
-      object Label2: TLabel
-        Left = 16
-        Top = 182
-        Width = 30
-        Height = 14
-        Caption = 'AXIS'
-      end
-      object Label3: TLabel
-        Left = 16
-        Top = 75
-        Width = 40
-        Height = 14
-        Caption = 'START'
-      end
-      object Label4: TLabel
-        Left = 16
-        Top = 103
-        Width = 24
-        Height = 14
-        Caption = 'END'
-      end
-      object Label5: TLabel
-        Left = 16
-        Top = 131
-        Width = 30
-        Height = 14
-        Caption = 'STEP'
-      end
-      object Label6: TLabel
-        Left = 16
-        Top = 238
-        Width = 40
-        Height = 14
-        Caption = 'START'
-      end
-      object Label7: TLabel
-        Left = 16
-        Top = 266
-        Width = 24
-        Height = 14
-        Caption = 'END'
-      end
-      object Label8: TLabel
-        Left = 16
-        Top = 294
-        Width = 30
-        Height = 14
-        Caption = 'STEP'
-      end
-      object Label14: TLabel
-        Left = 16
-        Top = 47
-        Width = 25
-        Height = 14
-        Caption = 'Orig'
-      end
-      object Label15: TLabel
-        Left = 16
-        Top = 210
-        Width = 25
-        Height = 14
-        Caption = 'Orig'
-      end
-      object Edit_L1_ST: TEdit
-        Left = 76
-        Top = 72
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 1
-        Text = '0'
-      end
-      object Edit_L1_End: TEdit
-        Left = 76
-        Top = 100
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 2
-        Text = '10000'
-      end
-      object Edit_L1_d: TEdit
-        Left = 76
-        Top = 128
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 3
-        Text = '200'
-      end
-      object CB_L12: TComboBox
-        Left = 76
-        Top = 179
-        Width = 89
-        Height = 22
-        TabOrder = 4
-      end
-      object CB_L1_Sync: TCheckBox
-        Left = 16
-        Top = 159
-        Width = 97
-        Height = 17
-        Caption = 'Synchro axis'
-        TabOrder = 9
-      end
-      object Edit_L12_ST: TEdit
-        Left = 76
-        Top = 235
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 6
-        Text = '0'
-      end
-      object Edit_L12_End: TEdit
-        Left = 76
-        Top = 263
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 7
-        Text = '1000'
-      end
-      object Edit_L12_d: TEdit
-        Left = 76
-        Top = 291
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 8
-        Text = '0'
-      end
-      object Edit_OX11: TEdit
-        Left = 76
-        Top = 44
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 0
-        Text = '-500'
-      end
-      object Edit_OX12: TEdit
-        Left = 76
-        Top = 207
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 5
-        Text = '-500'
-      end
-    end
-    object GroupBox2: TGroupBox
-      Left = 551
-      Top = 287
-      Width = 177
-      Height = 321
-      Caption = ' 2nd loop '
-      TabOrder = 1
-      object Label9: TLabel
-        Left = 18
-        Top = 47
-        Width = 30
-        Height = 14
-        Caption = 'AXIS'
-      end
-      object Label11: TLabel
-        Left = 18
-        Top = 103
-        Width = 40
-        Height = 14
-        Caption = 'START'
-      end
-      object Label12: TLabel
-        Left = 18
-        Top = 131
-        Width = 24
-        Height = 14
-        Caption = 'END'
-      end
-      object Label13: TLabel
-        Left = 18
-        Top = 159
-        Width = 30
-        Height = 14
-        Caption = 'STEP'
-      end
-      object Label16: TLabel
-        Left = 18
-        Top = 75
-        Width = 25
-        Height = 14
-        Caption = 'Orig'
-      end
-      object Label23: TLabel
-        Left = 18
-        Top = 187
-        Width = 30
-        Height = 14
-        Caption = 'Shift'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clRed
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label29: TLabel
-        Left = 16
-        Top = 215
-        Width = 48
-        Height = 14
-        Caption = 'Wait [s]'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlue
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object CB_L2: TComboBox
-        Left = 78
-        Top = 44
-        Width = 89
-        Height = 22
-        TabOrder = 1
-      end
-      object Edit_L2_ST: TEdit
-        Left = 78
-        Top = 100
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 3
-        Text = '0'
-      end
-      object Edit_L2_End: TEdit
-        Left = 78
-        Top = 128
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 4
-        Text = '1000'
-      end
-      object Edit_L2_d: TEdit
-        Left = 78
-        Top = 156
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 5
-        Text = '150'
-      end
-      object CB_L2_Enable: TCheckBox
-        Left = 16
-        Top = 18
-        Width = 97
-        Height = 17
-        Caption = ' Enable '
-        TabOrder = 0
-      end
-      object Edit_OX2: TEdit
-        Left = 78
-        Top = 72
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 2
-        Text = '-500'
-      end
-      object Edit_Shift: TEdit
-        Left = 78
-        Top = 184
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 6
-        Text = '0'
-      end
-      object GroupBox4: TGroupBox
-        Left = 6
-        Top = 240
-        Width = 165
-        Height = 75
-        Caption = 'Cont scan cnd && status'
-        TabOrder = 8
-        object Label27: TLabel
-          Left = 12
-          Top = 47
-          Width = 54
-          Height = 14
-          Caption = 'Position:'
-        end
-        object Label28: TLabel
-          Left = 80
-          Top = 52
-          Width = 73
-          Height = 14
-          Alignment = taRightJustify
-          AutoSize = False
-        end
-      end
-      object Edit_Wait: TEdit
-        Left = 78
-        Top = 212
-        Width = 89
-        Height = 22
-        Alignment = taRightJustify
-        TabOrder = 7
-        Text = '0'
-      end
-    end
+    ExplicitWidth = 1355
     object GroupBox3: TGroupBox
-      Left = 723
-      Top = 144
-      Width = 682
-      Height = 321
+      Left = 361
+      Top = 0
+      Width = 893
+      Height = 449
+      Align = alClient
       Caption = ' NCT8 '
-      TabOrder = 2
+      TabOrder = 0
+      ExplicitLeft = 407
+      ExplicitTop = -4
+      ExplicitWidth = 954
+      ExplicitHeight = 473
       object Bevel2: TBevel
         Left = 6
-        Top = 223
+        Top = 214
         Width = 186
         Height = 90
       end
@@ -380,55 +62,55 @@ object Form_Scan: TForm_Scan
       end
       object Label18: TLabel
         Left = 11
-        Top = 232
+        Top = 223
         Width = 13
         Height = 14
         Caption = 'Io'
       end
       object Label19: TLabel
         Left = 103
-        Top = 232
+        Top = 223
         Width = 10
         Height = 14
         Caption = 'If'
       end
       object Bevel1: TBevel
         Left = 6
-        Top = 112
+        Top = 100
         Width = 186
         Height = 86
       end
       object Label22: TLabel
         Left = 6
-        Top = 92
+        Top = 80
         Width = 34
         Height = 14
         Caption = 'Chart'
       end
       object Label25: TLabel
         Left = 6
-        Top = 203
+        Top = 194
         Width = 53
         Height = 14
         Caption = 'Mapping'
       end
       object Label20: TLabel
         Left = 14
-        Top = 288
+        Top = 279
         Width = 83
         Height = 14
         Caption = 'Magnification'
       end
       object Label26: TLabel
         Left = 103
-        Top = 260
+        Top = 251
         Width = 10
         Height = 14
         Caption = '~'
       end
       object CB_Redraw: TSpeedButton
         Left = 160
-        Top = 199
+        Top = 190
         Width = 30
         Height = 22
         Flat = True
@@ -450,16 +132,16 @@ object Form_Scan: TForm_Scan
       end
       object Label21: TLabel
         Left = 11
-        Top = 260
+        Top = 251
         Width = 14
         Height = 14
         Caption = 'Lv'
       end
       object RG_CH: TRadioGroup
         Left = 6
-        Top = 41
+        Top = 18
         Width = 186
-        Height = 47
+        Height = 56
         Caption = ' Channel number '
         Columns = 2
         ItemIndex = 0
@@ -470,7 +152,7 @@ object Form_Scan: TForm_Scan
       end
       object CLB: TCheckListBox
         Left = 111
-        Top = 117
+        Top = 105
         Width = 72
         Height = 76
         ItemHeight = 14
@@ -487,7 +169,7 @@ object Form_Scan: TForm_Scan
       end
       object CB_Map_I0: TComboBox
         Left = 32
-        Top = 229
+        Top = 220
         Width = 61
         Height = 22
         ItemIndex = 0
@@ -506,7 +188,7 @@ object Form_Scan: TForm_Scan
       end
       object CB_Map_I: TComboBox
         Left = 122
-        Top = 229
+        Top = 220
         Width = 61
         Height = 22
         TabOrder = 6
@@ -523,7 +205,7 @@ object Form_Scan: TForm_Scan
       end
       object CB_Diff: TCheckBox
         Left = 14
-        Top = 120
+        Top = 108
         Width = 69
         Height = 17
         Caption = 'Diff'
@@ -531,7 +213,7 @@ object Form_Scan: TForm_Scan
       end
       object CB_PM: TCheckBox
         Left = 14
-        Top = 143
+        Top = 131
         Width = 91
         Height = 17
         Caption = 'Convert '#177
@@ -539,7 +221,7 @@ object Form_Scan: TForm_Scan
       end
       object CB_DivI0: TCheckBox
         Left = 14
-        Top = 166
+        Top = 154
         Width = 85
         Height = 17
         Caption = 'Div by CH0'
@@ -547,7 +229,7 @@ object Form_Scan: TForm_Scan
       end
       object Edit_Min: TEdit
         Left = 32
-        Top = 257
+        Top = 248
         Width = 61
         Height = 22
         Alignment = taRightJustify
@@ -556,7 +238,7 @@ object Form_Scan: TForm_Scan
       end
       object Edit_Max: TEdit
         Left = 122
-        Top = 257
+        Top = 248
         Width = 61
         Height = 22
         Alignment = taRightJustify
@@ -565,7 +247,7 @@ object Form_Scan: TForm_Scan
       end
       object CB_Mag: TComboBox
         Left = 122
-        Top = 285
+        Top = 276
         Width = 61
         Height = 22
         ItemIndex = 0
@@ -579,19 +261,24 @@ object Form_Scan: TForm_Scan
       end
     end
     object Panel4: TPanel
-      Left = 24
-      Top = 58
-      Width = 401
-      Height = 485
-      TabOrder = 3
+      Left = 0
+      Top = 0
+      Width = 361
+      Height = 449
+      Align = alLeft
+      BevelOuter = bvNone
+      TabOrder = 1
       object Panel2: TPanel
-        Left = 1
-        Top = 1
-        Width = 399
+        Left = 0
+        Top = 0
+        Width = 361
         Height = 107
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitLeft = 1
+        ExplicitTop = 1
+        ExplicitWidth = 399
         object Label17: TLabel
           Left = 222
           Top = 13
@@ -601,14 +288,14 @@ object Form_Scan: TForm_Scan
         end
         object Label24: TLabel
           Left = 220
-          Top = 60
+          Top = 63
           Width = 53
           Height = 14
           Caption = 'Over run'
         end
         object Label30: TLabel
           Left = 297
-          Top = 36
+          Top = 37
           Width = 42
           Height = 14
           Caption = '[ms/p]'
@@ -745,7 +432,7 @@ object Form_Scan: TForm_Scan
         end
         object Edit_TC: TEdit
           Left = 232
-          Top = 33
+          Top = 34
           Width = 59
           Height = 22
           Alignment = taRightJustify
@@ -762,12 +449,15 @@ object Form_Scan: TForm_Scan
         end
       end
       object GroupBox5: TGroupBox
-        Left = 40
-        Top = 152
+        Left = 0
+        Top = 107
         Width = 361
-        Height = 185
-        Caption = 'GroupBox5'
+        Height = 171
+        Align = alTop
+        Caption = '1st loop'
         TabOrder = 1
+        ExplicitLeft = -1
+        ExplicitWidth = 401
         object Label32: TLabel
           Left = 16
           Top = 27
@@ -803,30 +493,269 @@ object Form_Scan: TForm_Scan
           Height = 14
           Caption = 'STEP'
         end
+        object Label1: TLabel
+          Left = 220
+          Top = 55
+          Width = 25
+          Height = 14
+          Caption = 'Orig'
+        end
+        object Label2: TLabel
+          Left = 220
+          Top = 83
+          Width = 40
+          Height = 14
+          Caption = 'START'
+        end
+        object Label3: TLabel
+          Left = 220
+          Top = 111
+          Width = 24
+          Height = 14
+          Caption = 'END'
+        end
+        object Label4: TLabel
+          Left = 220
+          Top = 139
+          Width = 30
+          Height = 14
+          Caption = 'STEP'
+        end
+        object Label13: TLabel
+          Left = 220
+          Top = 27
+          Width = 30
+          Height = 14
+          Caption = 'AXIS'
+        end
         object CB_L1: TComboBox
-          Left = 84
+          Left = 62
           Top = 24
           Width = 89
           Height = 22
           TabOrder = 0
+        end
+        object Edit_OX11: TEdit
+          Left = 62
+          Top = 52
+          Width = 89
+          Height = 22
+          TabOrder = 1
+          Text = 'Edit_OX11'
+        end
+        object Edit_L1_ST: TEdit
+          Left = 62
+          Top = 80
+          Width = 89
+          Height = 22
+          TabOrder = 2
+          Text = 'Edit_OX11'
+        end
+        object Edit_L1_End: TEdit
+          Left = 62
+          Top = 108
+          Width = 89
+          Height = 22
+          TabOrder = 3
+          Text = 'Edit_OX11'
+        end
+        object Edit_L1_d: TEdit
+          Left = 62
+          Top = 136
+          Width = 89
+          Height = 22
+          TabOrder = 4
+          Text = 'Edit_OX11'
+        end
+        object Edit_OX12: TEdit
+          Left = 266
+          Top = 52
+          Width = 89
+          Height = 22
+          TabOrder = 5
+          Text = 'Edit_OX11'
+        end
+        object Edit_L12_ST: TEdit
+          Left = 266
+          Top = 80
+          Width = 89
+          Height = 22
+          TabOrder = 6
+          Text = 'Edit_OX11'
+        end
+        object Edit_L12_End: TEdit
+          Left = 266
+          Top = 108
+          Width = 89
+          Height = 22
+          TabOrder = 7
+          Text = 'Edit_OX11'
+        end
+        object Edit_L12_d: TEdit
+          Left = 266
+          Top = 136
+          Width = 89
+          Height = 22
+          TabOrder = 8
+          Text = 'Edit_OX11'
+        end
+        object CB_L1_Sync: TCheckBox
+          Left = 160
+          Top = 26
+          Width = 48
+          Height = 17
+          Caption = 'Sync'
+          TabOrder = 9
+        end
+        object CB_L12: TComboBox
+          Left = 266
+          Top = 24
+          Width = 89
+          Height = 22
+          TabOrder = 10
+        end
+      end
+      object GroupBox1: TGroupBox
+        Left = 0
+        Top = 278
+        Width = 361
+        Height = 171
+        Align = alTop
+        Caption = '2nd loop'
+        TabOrder = 2
+        ExplicitTop = 272
+        object Label5: TLabel
+          Left = 16
+          Top = 27
+          Width = 30
+          Height = 14
+          Caption = 'AXIS'
+        end
+        object Label6: TLabel
+          Left = 16
+          Top = 55
+          Width = 25
+          Height = 14
+          Caption = 'Orig'
+        end
+        object Label7: TLabel
+          Left = 16
+          Top = 83
+          Width = 40
+          Height = 14
+          Caption = 'START'
+        end
+        object Label8: TLabel
+          Left = 16
+          Top = 111
+          Width = 24
+          Height = 14
+          Caption = 'END'
+        end
+        object Label9: TLabel
+          Left = 16
+          Top = 139
+          Width = 30
+          Height = 14
+          Caption = 'STEP'
+        end
+        object Label11: TLabel
+          Left = 186
+          Top = 55
+          Width = 72
+          Height = 14
+          Caption = 'Shift [/line]'
+        end
+        object Label12: TLabel
+          Left = 186
+          Top = 83
+          Width = 48
+          Height = 14
+          Caption = 'Wait [s]'
+        end
+        object CB_L2: TComboBox
+          Left = 62
+          Top = 24
+          Width = 89
+          Height = 22
+          TabOrder = 0
+        end
+        object Edit_OX2: TEdit
+          Left = 62
+          Top = 52
+          Width = 89
+          Height = 22
+          TabOrder = 1
+          Text = 'Edit_OX11'
+        end
+        object Edit_L2_ST: TEdit
+          Left = 62
+          Top = 80
+          Width = 89
+          Height = 22
+          TabOrder = 2
+          Text = 'Edit_OX11'
+        end
+        object Edit_L2_End: TEdit
+          Left = 62
+          Top = 108
+          Width = 89
+          Height = 22
+          TabOrder = 3
+          Text = 'Edit_OX11'
+        end
+        object Edit_L2_d: TEdit
+          Left = 62
+          Top = 136
+          Width = 89
+          Height = 22
+          TabOrder = 4
+          Text = 'Edit_OX11'
+        end
+        object Edit_Shift: TEdit
+          Left = 266
+          Top = 52
+          Width = 79
+          Height = 22
+          TabOrder = 6
+          Text = 'Edit_Shift'
+        end
+        object Edit_Wait: TEdit
+          Left = 266
+          Top = 80
+          Width = 79
+          Height = 22
+          TabOrder = 7
+          Text = 'Edit12'
+        end
+        object CB_L2_Enable: TCheckBox
+          Left = 72
+          Top = 0
+          Width = 73
+          Height = 17
+          Caption = 'Enable'
+          TabOrder = 5
         end
       end
     end
   end
   object Panel3: TPanel
     Left = 0
-    Top = 649
-    Width = 1355
-    Height = 311
+    Top = 449
+    Width = 1254
+    Height = 344
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel3'
     TabOrder = 2
+    ExplicitTop = 649
+    ExplicitWidth = 1355
+    ExplicitHeight = 311
     object Chart1: TChart
       Left = 0
       Top = 0
       Width = 644
-      Height = 311
+      Height = 344
       BackWall.Brush.Gradient.Direction = gdBottomTop
       BackWall.Brush.Gradient.EndColor = clWhite
       BackWall.Brush.Gradient.StartColor = 15395562
@@ -882,6 +811,7 @@ object Form_Scan: TForm_Scan
       BevelInner = bvRaised
       BevelOuter = bvLowered
       TabOrder = 0
+      ExplicitHeight = 311
       DefaultCanvas = 'TGDIPlusCanvas'
       ColorPaletteIndex = 13
       object Series1: TLineSeries
@@ -976,10 +906,12 @@ object Form_Scan: TForm_Scan
     object ScrollBox1: TScrollBox
       Left = 644
       Top = 0
-      Width = 711
-      Height = 311
+      Width = 610
+      Height = 344
       Align = alClient
       TabOrder = 1
+      ExplicitWidth = 711
+      ExplicitHeight = 311
       object Image1: TImage
         Left = 0
         Top = 0
@@ -990,7 +922,7 @@ object Form_Scan: TForm_Scan
     end
   end
   object SaveDialog1: TSaveDialog
-    Left = 152
+    Left = 256
     Top = 457
   end
 end

@@ -1,46 +1,10 @@
 [Stats]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-EditorSecs=62319
-DesignerSecs=18138
-InspectorSecs=6030
-CompileSecs=995378
-OtherSecs=2736
-StartTime=2022/12/13 11:20:22
+EditorSecs=202
+DesignerSecs=500
+InspectorSecs=178
+CompileSecs=5949
+OtherSecs=56
+StartTime=2023/02/09 9:36:47
 RealKeys=0
 EffectiveKeys=0
-DebugSecs=285195
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-EditorSecs=55511
-DesignerSecs=15588
-InspectorSecs=5004
-CompileSecs=774224
-OtherSecs=2095
-StartTime=2021/05/01 19:04:22
-RealKeys=0
-EffectiveKeys=0
-DebugSecs=144462
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
-EditorSecs=52226
-DesignerSecs=14635
-InspectorSecs=4884
-CompileSecs=709236
-OtherSecs=1742
-StartTime=2021/05/01 19:04:22
-RealKeys=0
-EffectiveKeys=0
-DebugSecs=142681
->>>>>>> Stashed changes
+DebugSecs=6
