@@ -24,7 +24,6 @@ object Form_ACT: TForm_ACT
     Height = 19
     Panels = <>
     SimplePanel = True
-    ExplicitTop = 610
   end
   object GroupBox4: TGroupBox
     Left = 0
@@ -154,8 +153,6 @@ object Form_ACT: TForm_ACT
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 5
-    ExplicitTop = 600
-    ExplicitHeight = 158
     DefaultCanvas = 'TGDIPlusCanvas'
     ColorPaletteIndex = 13
     object Series1: TLineSeries

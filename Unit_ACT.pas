@@ -278,6 +278,9 @@ end;
 procedure TForm_ACT.SB_ReShowClick(Sender: TObject);
 var
   li:byte;
+
+  pFreeByte: PLargeInteger;
+  useFreeByte, totalByte, freeByte: Int64;
 begin
   if Form_PM16C.CB_Connect.Checked then
   begin
@@ -299,6 +302,7 @@ begin
     CB_axis_ph.ItemIndex := PH_Ch;
     CB_Outer_Axis.ItemIndex := 1;
   end;
+
 end;
 
 procedure TForm_ACT.CB_axis_rotChange(Sender: TObject);
@@ -1212,15 +1216,21 @@ procedure TForm_ACT.BB_CT_STClick(Sender: TObject);
 var
   m:longint;
   TmpFN : string;
+
+  pFreeByte: PLargeInteger;
+  useFreeByte, totalByte, freeByte: Int64;
 begin
   if ((Form_Imager.Zyla_Opened) and (Form_PM16C.CB_Connect.Checked)) or
      ((CB_Ext_imager.Checked) and (Form_PM16C.CB_Connect.Checked))  then
   begin
-//    if CB_Ext_imager.Checked then
-//      RG_Scan.ItemIndex:=0;
-
     if (SaveDialog1.Execute) then
     begin
+
+      GetDiskFreeSpaceEx(PWideChar(Copy(SaveDialog1.FileName,1,3)), useFreeByte, totalByte, @pFreeByte);
+      freeByte := Int64(pFreeByte) div 1024 div 1024 div 1024;
+      if not(MessageDlg('Free Disk Space: '+IntToStr(freeByte)+'[GB]. Continue?',
+      mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes) then exit;
+
       Go := true;
 
       if CB_AutoSh.Checked then
