@@ -498,7 +498,7 @@ object Form_ACT: TForm_ACT
       Text = '0'
     end
     object CB_Moni2: TCheckBox
-      Left = 232
+      Left = 230
       Top = 27
       Width = 81
       Height = 17
@@ -529,7 +529,7 @@ object Form_ACT: TForm_ACT
       Text = '1000'
     end
     object CB_ROT_RESET: TCheckBox
-      Left = 319
+      Left = 310
       Top = 27
       Width = 61
       Height = 17

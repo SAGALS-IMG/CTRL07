@@ -1157,8 +1157,10 @@ begin
     if CB_ROT_RESET.Checked then
     begin
       Sleep(100);
-//      Form_PM16C.MoveTo(CT_R_Ch, 180000,true,true);
-      Form_PM16C.MoveTo(CT_R_Ch, 40000,true,true);
+      if StrToInt(Edit_R_End.Text)>90000 then
+        Form_PM16C.MoveTo(CT_R_Ch, 180000,true,true)
+      else
+        Form_PM16C.MoveTo(CT_R_Ch, 40000,true,true);
       Sleep(100);
       Form_PM16C.SetPreset(CT_R_Ch,0)
     end;
@@ -1225,14 +1227,12 @@ begin
   begin
     if (SaveDialog1.Execute) then
     begin
-
       GetDiskFreeSpaceEx(PWideChar(Copy(SaveDialog1.FileName,1,3)), useFreeByte, totalByte, @pFreeByte);
       freeByte := Int64(pFreeByte) div 1024 div 1024 div 1024;
-      if not(MessageDlg('Free Disk Space: '+IntToStr(freeByte)+'[GB]. Continue?',
+      if not(MessageDlg('Free Disk Space: '+IntToStr(freeByte)+' [GB]. Continue?',
       mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes) then exit;
 
       Go := true;
-
       if CB_AutoSh.Checked then
         if Form_Shutter.CB_Connect.Checked then
           Form_Shutter.BB_OPENClick(Sender);
