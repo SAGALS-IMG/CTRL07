@@ -1026,7 +1026,7 @@ var
   lExpTime, FPS, Total_T, lrate,lrate2 : double;
 begin
   lExpTime := StrToFloat(Edit_EXPT.Text)/1000;
-  Sleep(500);
+  Sleep(100);
 
   Form_Imager.SetExpTime(lExpTime,FPS);
 
@@ -1047,15 +1047,28 @@ begin
   CT_N := (Rot2-Rot1) div dR;
 
   if FPS<>1/lExpTime then
-    if MessageDlg('Frame rate '+FPS.ToString+' [fps] is SLOW! Adjust rot speed?',
-       mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
-      Total_T := CT_N/FPS
-    else
+  begin
+    Form_Imager.BB_AqClick(Sender);
+    Sleep(100);
+    Form_Imager.SetExpTime(lExpTime,FPS);
+    Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
+    lExpTime  := RoundTo(lExpTime,-2);
+
+    if FPS<>1/lExpTime then
     begin
-      Go := false;
-      ShowMessage('CT Canceled!');
-      exit;
+      if MessageDlg('Frame rate '+FPS.ToString+' [fps] is SLOW! Adjust rot speed?',
+         mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+        Total_T := CT_N/FPS
+      else
+      begin
+        Go := false;
+        ShowMessage('CT Canceled!');
+        exit;
+      end
     end
+    else
+      Total_T := CT_N*lExpTime;
+  end
   else
     Total_T := CT_N*lExpTime;
 
@@ -1230,7 +1243,7 @@ begin
       GetDiskFreeSpaceEx(PWideChar(Copy(SaveDialog1.FileName,1,3)), useFreeByte, totalByte, @pFreeByte);
       freeByte := Int64(pFreeByte) div 1024 div 1024 div 1024;
       if not(MessageDlg('Free Disk Space: '+IntToStr(freeByte)+' [GB]. Continue?',
-      mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes) then exit;
+        mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes) then exit;
 
       Go := true;
       if CB_AutoSh.Checked then

@@ -15,21 +15,32 @@ File_12=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL
 File_13=TSourceModule,'c:\program files (x86)\embarcadero\studio\18.0\SOURCE\VCL\Vcl.Forms.pas',0,1,3753,1,3786,0,0,{{1740,4}
 
 [Modules]
-Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
-Module1=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
-Module2=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\CTRL7.dproj
-Module3=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
-Module4=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
-Module5=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
-Module6=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_CT48.pas
-Module7=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas
-Count=8
+Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
+Module1=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
+Module2=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+Module3=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+Module4=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
+Module5=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\CTRL7.dproj
+Module6=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
+Module7=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
+Module8=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
+Module9=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_CT48.pas
+Count=10
 EditWindowCount=1
 
-[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas]
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Ph_PW.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas]
 ModuleType=TSourceModule
 
 [C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas]
 ModuleType=TSourceModule
 
 [C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\CTRL7.dproj]
@@ -47,12 +58,9 @@ ModuleType=TSourceModule
 [C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_CT48.pas]
 ModuleType=TSourceModule
 
-[C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas]
-ModuleType=TSourceModule
-
 [EditWindow0]
-ViewCount=8
-CurrentEditView=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
+ViewCount=10
+CurrentEditView=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
 View0=0
 View1=1
 View2=2
@@ -61,6 +69,8 @@ View4=4
 View5=5
 View6=6
 View7=7
+View8=8
+View9=9
 PercentageSizes=1
 Create=1
 Visible=1
@@ -111,9 +121,9 @@ EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
 [View2]
 CustomEditViewType=TEditView
 Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
-CursorX=37
-CursorY=1160
-TopLine=1109
+CursorX=1
+CursorY=1057
+TopLine=1005
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -121,16 +131,38 @@ EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
 
 [View3]
 CustomEditViewType=TEditView
-Module=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
 CursorX=1
-CursorY=1
-TopLine=1
+CursorY=710
+TopLine=675
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
+
+[View4]
+CustomEditViewType=TEditView
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
+CursorX=1
+CursorY=818
+TopLine=783
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Ph_PW.pas
+
+[View5]
+CustomEditViewType=TEditView
+Module=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+CursorX=31
+CursorY=838
+TopLine=803
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas
 
-[View4]
+[View6]
 CustomEditViewType=TEditView
 Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
 CursorX=8
@@ -141,7 +173,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
 
-[View5]
+[View7]
 CustomEditViewType=TEditView
 Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
 CursorX=42
@@ -152,7 +184,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
 
-[View6]
+[View8]
 CustomEditViewType=TEditView
 Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
 CursorX=3
@@ -163,7 +195,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
 
-[View7]
+[View9]
 CustomEditViewType=TEditView
 Module=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_CT48.pas
 CursorX=46
@@ -175,7 +207,7 @@ Bookmarks=
 EditViewName=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_CT48.pas
 
 [UndockedDesigner]
-Count=9
+Count=10
 Module0=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_CT48.pas
 Left0=378
 Top0=200
@@ -183,62 +215,69 @@ Width0=652
 Height0=872
 Visible0=0
 State0=0
-Module1=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
-Left1=164
-Top1=317
-Width1=516
-Height1=840
+Module1=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Imager.pas
+Left1=559
+Top1=211
+Width1=482
+Height1=713
 Visible1=1
 State1=0
-Module2=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
-Left2=13
-Top2=201
-Width2=411
-Height2=334
+Module2=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ACT.pas
+Left2=164
+Top2=317
+Width2=516
+Height2=840
 Visible2=1
 State2=0
-Module3=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
-Left3=635
-Top3=210
-Width3=1231
-Height3=943
+Module3=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_ABOUT.pas
+Left3=13
+Top3=201
+Width3=411
+Height3=334
 Visible3=0
 State3=0
-Module4=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas
-Left4=0
-Top4=8
-Width4=968
-Height4=811
+Module4=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_Scan.pas
+Left4=635
+Top4=210
+Width4=1231
+Height4=943
 Visible4=0
 State4=0
-Module5=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
-Left5=1425
-Top5=706
-Width5=698
-Height5=695
+Module5=C:\Users\Akio Yoneyama\Documents\GitHub\SAKAS-COM\Unit_PW.pas
+Left5=0
+Top5=8
+Width5=968
+Height5=811
 Visible5=0
 State5=0
-Module6=C:\Users\Yoneyama\OneDrive\ドキュメント\GitHub\CTRL07\Unit_Scan.pas
-Left6=551
-Top6=185
-Width6=1446
-Height6=1110
+Module6=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\Unit_PM16C.pas
+Left6=1425
+Top6=706
+Width6=698
+Height6=695
 Visible6=0
 State6=0
-Module7=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
-Left7=24
-Top7=247
-Width7=488
-Height7=527
+Module7=C:\Users\Yoneyama\OneDrive\ドキュメント\GitHub\CTRL07\Unit_Scan.pas
+Left7=551
+Top7=185
+Width7=1446
+Height7=1110
 Visible7=0
 State7=0
-Module8=C:\Users\Yoneyama\OneDrive\ドキュメント\GitHub\CTRL07\main.pas
-Left8=1290
-Top8=424
-Width8=390
-Height8=519
+Module8=C:\Users\Akio Yoneyama\Documents\GitHub\CTRL07\main.pas
+Left8=24
+Top8=247
+Width8=488
+Height8=527
 Visible8=0
 State8=0
+Module9=C:\Users\Yoneyama\OneDrive\ドキュメント\GitHub\CTRL07\main.pas
+Left9=1290
+Top9=424
+Width9=390
+Height9=519
+Visible9=0
+State9=0
 
 [Watches]
 Count=0
@@ -252,7 +291,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=4546
+Top=4759
 Width=3500
 Height=2603
 MaxLeft=-4
@@ -353,7 +392,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=794
+Top=1007
 Width=1270
 Height=4248
 MaxLeft=-4
@@ -391,7 +430,7 @@ Visible=1
 Docked=0
 State=0
 Left=0
-Top=3929
+Top=4142
 Width=2254
 Height=6560
 MaxLeft=-4
@@ -406,7 +445,7 @@ SplitPos=87
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Caption,
+SelectedItem=Align,
 ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=1,"LiveBinding デザイナ=0",LiveBindings=0,Margins=0,StyleElements=0,GlassFrame=0,Font.Style=0,Touch=0,BevelEdges=0,HorzScrollBar=0,Padding=0
 
 [frmDesignPreview]
@@ -417,12 +456,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=1723
-Height=7830
+Width=2316
+Height=9610
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1723
-ClientHeight=7830
+ClientWidth=2316
+ClientHeight=9610
 TBDockHeight=8007
 LRDockWidth=3348
 Dockable=1
@@ -435,7 +474,7 @@ Visible=0
 Docked=0
 State=0
 Left=27
-Top=1149
+Top=1362
 Width=2871
 Height=9277
 MaxLeft=-4
@@ -454,7 +493,7 @@ Visible=0
 Docked=0
 State=0
 Left=7621
-Top=4319
+Top=4532
 Width=2379
 Height=6106
 MaxLeft=-4
@@ -476,7 +515,7 @@ Visible=0
 Docked=0
 State=0
 Left=2629
-Top=7546
+Top=7759
 Width=4645
 Height=2879
 MaxLeft=-4
@@ -495,7 +534,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=7546
+Top=7759
 Width=3500
 Height=2879
 MaxLeft=-4
@@ -518,7 +557,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=6511
+Top=6723
 Width=3500
 Height=3220
 MaxLeft=-4
@@ -537,7 +576,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=2184
+Top=2397
 Width=3500
 Height=3163
 MaxLeft=-4
@@ -556,7 +595,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=794
+Top=1007
 Width=2973
 Height=2426
 MaxLeft=-4
@@ -641,12 +680,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=1723
-Height=7830
+Width=2316
+Height=9610
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1723
-ClientHeight=7830
+ClientWidth=2316
+ClientHeight=9610
 TBDockHeight=6560
 LRDockWidth=9527
 Dockable=1
@@ -659,7 +698,7 @@ Visible=0
 Docked=0
 State=0
 Left=1938
-Top=6113
+Top=6326
 Width=3809
 Height=4312
 MaxLeft=-4
@@ -678,7 +717,7 @@ Visible=0
 Docked=0
 State=0
 Left=0
-Top=1234
+Top=1447
 Width=2527
 Height=4397
 MaxLeft=-4
@@ -696,8 +735,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-808
-Top=-1408
+Left=-709
+Top=-1211
 Width=4750
 Height=6489
 MaxLeft=-1
@@ -715,8 +754,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-808
-Top=-1408
+Left=-709
+Top=-1211
 Width=4750
 Height=6489
 MaxLeft=-1
@@ -735,7 +774,7 @@ Visible=0
 Docked=0
 State=0
 Left=4809
-Top=7546
+Top=7759
 Width=5191
 Height=2879
 MaxLeft=-4
@@ -781,12 +820,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=1723
-Height=7830
+Width=2316
+Height=9610
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1723
-ClientHeight=7830
+ClientWidth=2316
+ClientHeight=9610
 TBDockHeight=6560
 LRDockWidth=7066
 Dockable=1
@@ -842,11 +881,11 @@ TabDockClients=RefactoringForm,FindReferencsForm,MetricsView,QAView
 DockSiteType=1
 PercentageSizes=1
 Create=1
-Visible=0
+Visible=1
 Docked=0
 State=0
 Left=7656
-Top=426
+Top=638
 Width=2379
 Height=10064
 MaxLeft=-4

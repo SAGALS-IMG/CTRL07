@@ -134,7 +134,7 @@ type
     Go,  Zyla_Opened : boolean;
 
     Hndl, Buf_Size, MotorAXIS:Int64;
-    PW, PH, OW, OH, Stride : Int64 ;
+    PW, PH, OW, OH, Stride, Binning : Int64 ;
 
     AlignedBuffers : array[0..NumberOfBuffers-1] of ^TIData;
 
@@ -660,50 +660,27 @@ end;
 
 procedure TForm_Imager.BB_ROIClick(Sender: TObject);
 var
-  PLeft, PTop, TmpInt, BINDIV : Int64;
+  PLeft, PTop, TmpInt : Int64;
 begin
-  case CB_BIN.ItemIndex of
-    0: BINDIV := 1;
-    1: BINDIV := 2;
-    2: BINDIV := 3;
-    3: BINDIV := 4;
-    4: BINDIV := 8;
-  end;
-
   PW := StrToInt(Edit_ROI_X2.Text)-StrToInt(Edit_ROI_X1.Text)+1;
-  PW := PW div BINDIV;
   AT_SetInt(Hndl, 'AOIWidth', &PW);
-
   if AT_GetInt(Hndl, 'AOIWidth', @TmpInt)=AT_SUCCESS then
-  begin
     PW := TmpInt;
-  end;
 
   if AT_GetInt(Hndl, 'AOIStride', @TmpInt)=AT_SUCCESS then
-  begin
     Stride := TmpInt div 2;
-  end;
 
 
   PH := StrToInt(Edit_ROI_Y2.Text)-StrToInt(Edit_ROI_Y1.Text)+1;
-  PH := PH div BINDIV;
   AT_SetInt(Hndl, 'AOIHeight', &PH);
-
   if AT_GetInt(Hndl, 'AOIHeight', @TmpInt)=AT_SUCCESS then
-  begin
     PH := TmpInt;
-  end;
 
   PLeft := StrToInt(Edit_ROI_X1.Text);
-//  PLeft := PLeft div BINDIV;
   AT_SetInt(Hndl, 'AOILeft', &PLeft);
 
   PTop := StrToInt(Edit_ROI_Y1.Text);
-//  PTop := PTop div BINDIV;
   AT_SetInt(Hndl, 'AOITop', &PTop);
-
-//  AT_GetInt(Hndl, 'AOILeft', @TmpInt);
-//  PW := TmpInt;
 
   Label_PW.Caption := PW.ToString;
   Label_PH.Caption := PH.ToString;
@@ -715,20 +692,26 @@ begin
 
 //  if Form_Main.CB_Log.Checked then
     Form_Main.AddLine('ROI : '+PW.ToString+'x'+PH.ToString,true);
-
 end;
 
 procedure TForm_Imager.BB_Set_FullClick(Sender: TObject);
+var
+  BINDIV : Int64;
 begin
+  case CB_BIN.ItemIndex of
+    0: BINDIV := 1;
+    1: BINDIV := 2;
+    2: BINDIV := 3;
+    3: BINDIV := 4;
+    4: BINDIV := 8;
+  end;
+
   Edit_ROI_X1.Text := '1';
-  Edit_ROI_X2.Text := OW.ToString;
-
+  Edit_ROI_X2.Text := (OW div BINDIV).ToString;
   Edit_ROI_Y1.Text := '1';
-  Edit_ROI_Y2.Text := OH.ToString;
-  BB_ROIClick(Sender);
+  Edit_ROI_Y2.Text := (OH div BINDIV).ToString;
 
-  PW := OW;
-  PH := OH;
+  BB_ROIClick(Sender);
 
   Label_PW.Caption := PW.ToString;
   Label_PH.Caption := PH.ToString;
@@ -768,7 +751,10 @@ begin
 
     AT_GetEnumIndex(Hndl, 'AOIBinning',@TmpInt) ;
     if AT_GetEnumStringByIndex(Hndl, 'AOIBinning',TmpInt,@TmpChr,64)=AT_SUCCESS then
+    begin
       Form_Main.AddLine('Set Binning : '+TmpChr,true);
+      Binning := TmpInt;
+    end;
 
     AT_GetInt(Hndl, 'AOIWidth', @TmpInt);
     PW := TmpInt;
@@ -780,9 +766,18 @@ begin
     Label_PH.Caption := PH.ToString;
     Form_PW.PW := PW;
     Form_PW.PH := PH;
-
     Form_Ph_PW.PW := PW;
     Form_Ph_PW.PH := PH;
+
+    AT_GetInt(Hndl, 'AOILEft', @TmpInt);
+    Edit_ROI_X1.Text := TmpInt.ToString;
+    Edit_ROI_X2.Text := (PW+TmpInt-1).ToString;
+
+    AT_GetInt(Hndl, 'AOITop', @TmpInt);
+    Edit_ROI_Y1.Text := TmpInt.ToString;
+    Edit_ROI_Y2.Text := (PH+TmpInt-1).ToString;
+
+    BB_ROIClick(Sender);
 
     case CB_BIN.ItemIndex of
       0:Form_SAKAS.Edit_BINX.Text:='1';
