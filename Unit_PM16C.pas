@@ -307,8 +307,10 @@ begin
   if not(CB_Connect.Checked) then
   begin
     if IdTCPClient.Connected then
+    begin
+      Save_IniFile(Sender);
       DisConnect;
-    Save_IniFile(Sender);
+    end;
     Panel1.Enabled := false;
   end
   else
@@ -570,6 +572,8 @@ begin
       Motor[i].CCW := Ini.ReadString('Mot_'+i.ToString, 'CCW', 'Down' );
 
       Motor[i].Conv := Ini.ReadFloat('Mot_'+i.ToString, 'Conv', 1000 );
+      if Motor[i].Conv = 0 then
+         Motor[i].Conv := 1000;
       Motor[i].Enable := Ini.ReadBool('Mot_'+i.ToString, 'Enable',false);
     end;
     finally
@@ -582,7 +586,7 @@ begin
   IdTCPClient.Host := IP;
   IdTCPClient.Port := Port;
   try
-    IdTCPClient.Connect;
+    IdTCPClient.Connect
   finally
     begin
       if IdTCPClient.Connected then
