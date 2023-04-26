@@ -1053,6 +1053,7 @@ begin
     Form_Imager.SetExpTime(lExpTime,FPS);
     Edit_EXPT.Text := Format('%5.0f',[lExpTime*1000]);
     lExpTime  := RoundTo(lExpTime,-2);
+    FPS := RoundTo(FPS,-3);
 
     if FPS<>1/lExpTime then
     begin
