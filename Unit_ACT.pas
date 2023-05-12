@@ -1268,6 +1268,39 @@ begin
           if CB_Outer_Type.ItemIndex>0 then
             CT_Cond_CTRL(m,Sender);
 
+          if m=1 then
+          begin
+//            Edit_EXPT.Text := '3000';
+//            Edit_BK_EXPT.Text := '1000';
+//            Edit_FS_dP.Text := '339';
+//            Edit_FS_n.Text := '5';
+            Edit_R_d.Text := '40';
+            Edit_Pro.Text := '1000';
+          end;
+
+
+          if m=2 then
+          begin
+//            Edit_EXPT.Text := '500';
+//            Edit_BK_EXPT.Text := '500';
+//            Edit_R_d.Text := '40';
+//            Edit_FS_dP.Text := '565';
+//            Edit_FS_n.Text := '3';
+//            Edit_Pro.Text := '1000';
+            Edit_R_d.Text := '32';
+            Edit_Pro.Text := '1250';
+          end;
+
+          if m=3 then
+          begin
+//            Edit_EXPT.Text := '500';
+//            Edit_BK_EXPT.Text := '500';
+            Edit_R_d.Text := '40';
+            Edit_FS_dP.Text := '339';
+            Edit_FS_n.Text := '5';
+          end;
+
+
           AStopWatch := TStopwatch.StartNew;
 
           TmpFN := SaveDialog1.FileName+'_'+m.ToString;
